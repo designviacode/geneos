@@ -1,0 +1,75 @@
+body{
+    background-image: linear-gradient(93deg, #262532, #18191f);
+}
+
+.bg-dark {
+    background-image: linear-gradient(93deg, #262532, #18191f);
+    box-shadow: 0 10px 20px 20px rgba(0, 0, 0, 0.14);
+  }
+
+
+.navbar{
+    height:60px;
+    padding:0;
+    }
+
+
+.nav-item{
+      @include nav-typog;
+      @include subtle-right-border-dark;
+  }
+
+a.nav-link{
+    padding: 35px;
+    margin: 0 35px 0 35px;
+}
+     
+.container{
+    div:nth-child(1){
+        width:100%;
+        padding:25px;
+    }
+    ul.nav{
+        @include dark-box;
+
+        .nav-item{
+            border:0;
+            margin:0;
+            padding:0;
+        }
+        a.nav-link{
+            @include subnav-typog;
+
+            padding:0;
+            margin: 0 25px 0 0;
+            
+        }
+    }
+
+    section{
+        margin: 40px 0 0 0;
+
+        h1{
+            @include heading
+        }
+
+
+        .card{
+            @include dark-box;
+            @include default-typog;
+            @include box-shadow;
+
+            &::before{
+                @include add-noise
+            }
+
+            h4{
+                @include card-heading
+            }
+
+        }
+
+    }
+}
+    
+  

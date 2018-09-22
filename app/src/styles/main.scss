@@ -4,6 +4,13 @@
 @import './react-stepzilla';
 @import './grid';
 @import './PurchaseConfirmation';
+@import './vars.scss';
+@import './overrides.scss';
+
+*{
+  font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+}
 
 body {
   color: #020202;
