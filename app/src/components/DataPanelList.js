@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 import GenomeSection from './GenomeSection';
 import ActivitySection from './ActivitySection';
+import HeartRateSection from './HeartRateSection';
 
 export default class DataPanelList extends React.PureComponent {
   static propTypes = {
@@ -47,6 +48,7 @@ export default class DataPanelList extends React.PureComponent {
         </Nav>
         <GenomeSection />
         <ActivitySection />
+        <HeartRateSection />
       </div>
     );
   }
