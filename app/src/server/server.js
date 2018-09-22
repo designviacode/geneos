@@ -1,6 +1,7 @@
 import express from 'express';
 import next from 'next';
 
+import { API_BASE } from '../constants/api';
 import { Router } from './routes';
 import api from './api/index';
 
@@ -22,7 +23,7 @@ app.prepare()
         })
     ));
 
-    server.use('/api', api);
+    server.use(API_BASE, api);
 
     server.get('*', (req, res) => handle(req, res));
     server.listen(port);

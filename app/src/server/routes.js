@@ -3,7 +3,7 @@ import UrlPrettifier from 'next-url-prettifier';
 const routes = [
   {
     page: 'index',
-    prettyUrl: '/home'
+    prettyUrl: '/dashboard'
   },
 ];
 
