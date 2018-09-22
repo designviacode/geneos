@@ -1,18 +1,14 @@
 import React from 'react';
 import { Form, Row, Col, Button, Input, Label } from 'reactstrap';
 import { noop } from 'lodash';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import { getTargetAudience } from '../../actions/research';
+import { iconEdit } from '../../utils/fontawesome';
 
 export default class ProjectDetails extends React.Component {
   static defaultProps = {
     onChange: noop,
     data: {},
-  };
-
-  state = {
-    audience: null,
-    refreshing: false,
   };
 
   isValidated() {
@@ -21,15 +17,6 @@ export default class ProjectDetails extends React.Component {
     return !!data.researchArea;
   }
 
-  handleRefreshClick = () => {
-    this.setState({ refreshing: true });
-    getTargetAudience().then(data => {
-      this.setState({
-        audience: data.data.count,
-        refreshing: false,
-      })
-    });
-  };
 
   handleChange = (e) => {
     const { onChange, data } = this.props;
@@ -45,41 +32,66 @@ export default class ProjectDetails extends React.Component {
     onChange(nextData);
   };
 
-  renderReach() {
-    const { audience } = this.state;
-    if (!audience) {
-      return 'Please refresh';
-    }
+  handleSelectDuration = (duration) => {
+    const { onChange, data } = this.props;
 
-    return `${audience} users`;
-  }
+    const nextData = {
+      ...data,
+      duration,
+    };
+
+    onChange(nextData);
+  };
 
   renderInput(label, name) {
     const { data } = this.props;
 
     return (
-      <Row>
+      <Row className="row-margin">
         <Col xs={3}><Label>{label}</Label></Col>
-        <Col xs={3}>
+        <Col xs={6}>
           <Input name={name} onChange={this.handleChange} value={data[name]} />
         </Col>
       </Row>
     );
   }
 
-  render() {
-    const { refreshing } = this.state;
+  renderDuration(label) {
+    const { data } = this.props;
 
+    const { duration } = data || {};
+
+    const durations = ['1 Month', '3 Months', '1 Year'];
+
+    return (
+      <Row className="row-margin">
+        <Col xs={3}><Label>{label}</Label></Col>
+        <Col xs={6}>
+          {durations.map(label => (
+            <Button
+              key={label}
+              onClick={() => this.handleSelectDuration(label)}
+              color={duration === label ? 'primary' : 'secondary'}
+            >
+              {label}
+            </Button>
+          ))}
+          <Button>
+            <FontAwesomeIcon icon={iconEdit} />
+            Custom
+          </Button>
+        </Col>
+      </Row>
+    );
+  }
+
+  render() {
     return (
       <div>
         <Form>
+          {this.renderInput('Project Name', 'researchName')}
           {this.renderInput('Project Subject', 'researchArea')}
-          <Row>
-            <Col xs={3}>Reach: {this.renderReach()}</Col>
-            <Col xs={3}>
-              <Button onClick={this.handleRefreshClick} disabled={refreshing}>Refresh</Button>
-            </Col>
-          </Row>
+          {this.renderDuration('Project Duration')}
         </Form>
       </div>
     );

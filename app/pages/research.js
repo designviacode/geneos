@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Container } from 'reactstrap';
 import PropTypes from 'prop-types';
 import StepZilla from 'react-stepzilla';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import LayoutMain from '../src/layouts/main';
 import Meta from '../src/components/Meta'
@@ -9,6 +10,7 @@ import { requestData } from '../src/actions/research';
 import ProjectDetails from '../src/components/researchSteps/ProjectDetails';
 import SampleSelection from '../src/components/researchSteps/SampleSelection';
 import Initialize from '../src/components/researchSteps/Initialize';
+import { iconArrowLeft, iconArrowRight } from '../src/utils/fontawesome';
 
 export default class extends Component {
   static propTypes = {
@@ -17,11 +19,7 @@ export default class extends Component {
 
   state = {
     audience: null,
-    form: {
-      duration: '3 Months',
-      payout: 25,
-      researchArea: 'Cancer',
-    },
+    form: {},
     requesting: false,
   };
 
@@ -59,7 +57,7 @@ export default class extends Component {
       <LayoutMain>
         <Meta title="Research" />
 
-        <Container>
+        <Container className="research-page">
           <StepZilla
             steps={steps}
             showSteps
@@ -67,6 +65,8 @@ export default class extends Component {
             stepsNavigation={false}
             prevBtnOnLastStep={false}
             preventEnterSubmission
+            backButtonText="<- BACK"
+            nextButtonText="NEXT ->"
             nextTextOnFinalActionStep="Request data"
             onStepChange={this.handleStepChange}
           />

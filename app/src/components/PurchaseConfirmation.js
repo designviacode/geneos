@@ -46,7 +46,10 @@ export default class PurchaseConfirmation extends React.PureComponent {
 
     return (
       <Modal isOpen={isOpen} toggle={this.handleReject}>
-        <ModalHeader>Data Purchase Request</ModalHeader>
+        <ModalHeader>
+          <h1>INCOMING</h1>
+          <span>ACCESS REQUEST</span>
+        </ModalHeader>
         <ModalBody className="purchase-confirmation">
           <Row className="row-margin">
             <Col><strong>{request.user.name} would like to subscribe to your data.</strong></Col>
