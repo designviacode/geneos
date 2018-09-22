@@ -3,18 +3,38 @@ import uuid from 'uuid';
 
 import { messageClient } from '../sockets';
 import { DATA_REQUEST } from '../../constants/socket-events';
+import { getListings } from './helper';
 
 const router = Router();
 
-router.get('/', (req, res) => {
-  res.json({
-    data: {
-      count: 5,
-    },
-  });
+/*
+ { id: 81,
+    ethnicity: 'European',
+    age: 62,
+    location: 'Kossview',
+    weight: 209,
+    sleep: 7,
+    activity: 7.7,
+    rate: '39.0000 EOS' }
+ */
+
+router.get('/', async (req, res) => {
+  console.log('Get subscriptions');
+  try {
+    const data = await getListings();
+
+    res.json({
+      data,
+    });
+  } catch(err) {
+    res.status(500).json({
+      error: err.message,
+    });
+  }
 });
 
 router.post('/', (req, res) => {
+  console.log('Post subscriptions');
   // TODO: get list of clients
   // TODO: send subscription to nodeos
   // TODO: message client sockets

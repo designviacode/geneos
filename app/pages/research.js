@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Container } from 'reactstrap';
 import PropTypes from 'prop-types';
 import StepZilla from 'react-stepzilla';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import LayoutMain from '../src/layouts/main';
 import Meta from '../src/components/Meta'
@@ -10,7 +9,7 @@ import { requestData } from '../src/actions/research';
 import ProjectDetails from '../src/components/researchSteps/ProjectDetails';
 import SampleSelection from '../src/components/researchSteps/SampleSelection';
 import Initialize from '../src/components/researchSteps/Initialize';
-import { iconArrowLeft, iconArrowRight } from '../src/utils/fontawesome';
+import Finish from '../src/components/researchSteps/Finish';
 
 export default class extends Component {
   static propTypes = {
@@ -33,7 +32,7 @@ export default class extends Component {
   };
 
   handleStepChange = (step) => {
-    if (step === 2) {
+    if (step === 3) {
       this.handleRequestClick();
     }
   };
@@ -51,6 +50,7 @@ export default class extends Component {
       { name: 'Project Details', component: <ProjectDetails data={form} onChange={this.handleChange} /> },
       { name: 'Sample Selection', component: <SampleSelection data={form} onChange={this.handleChange} /> },
       { name: 'Initialize', component: <Initialize data={form} /> },
+      { name: 'Finish', component: <Finish data={form} /> },
     ];
 
     return (
