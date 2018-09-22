@@ -27,3 +27,33 @@ p,
 button {
   margin: 0;
 }
+
+// ==========================================================================
+// Dot
+// ==========================================================================
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.dot-turquoise {
+  background-color: turquoise;
+}
+
+.dot-orange {
+  background-color: orange;
+}
+
+.dot-purple {
+  background-color: purple;
+}
+
+/* ==========================================================================
+   My Data Page
+   ========================================================================== */
+
+.first-activity-stat {
+  border-right: 1px solid #ccc;
+}
