@@ -2,6 +2,8 @@ body{
     background-image: linear-gradient(93deg, #262532, #18191f);
 }
 
+
+
 .bg-dark {
     background-image: linear-gradient(93deg, #262532, #18191f);
     box-shadow: 0 10px 20px 20px rgba(0, 0, 0, 0.14);
@@ -36,10 +38,6 @@ body{
 
 
 .container{
-    div:nth-child(1){
-        width:100%;
-        padding:25px;
-    }
     ul.nav{
         @include dark-box;
         margin-top:60px;
@@ -64,6 +62,7 @@ body{
 
         &::before{
             @include pretty-lines;
+            background: $teal;
         }
 
         h1{
@@ -76,6 +75,10 @@ body{
             @include dark-box;
             @include default-typog;
             @include box-shadow;
+
+            .pie-legend{
+                margin-left:30px;
+            }
 
             &::before{
                 @include add-noise
@@ -91,3 +94,108 @@ body{
 }
     
   
+.my-data-page{
+    h1{
+        color: $teal;
+    }
+}
+
+.my-benefits-page section {
+
+    h1{
+        color: $purple;
+    }
+    .card{
+        @include dark-box;
+        @include default-typog;
+        @include box-shadow;
+    }
+    &::before{
+        @include pretty-lines;
+        background: $purple;
+    }
+
+}
+
+
+.my-insights-page section{
+    h1{
+        color: $pink;
+    }
+
+    .card{
+        @include dark-box;
+        @include default-typog;
+        @include box-shadow;
+    }
+    &::before{
+        @include pretty-lines;
+        background: $pink;
+    }
+}
+
+
+.card-number{
+    @include card-number-heading;
+    position: relative;
+}
+
+.teal-bullet{
+    &::before{
+        content: " ";
+        position:absolute;
+        top:12px;
+        left: -15px;
+        height:8px;
+        width: 8px;
+        background: $teal;
+        border-radius: 100%;
+    }
+}
+
+.purple-bullet{
+    &::before{
+        content: " ";
+        position:absolute;
+        top:12px;
+        left: -15px;
+        height:8px;
+        width: 8px;
+        background: $purple;
+        border-radius: 100%;
+    }
+}
+
+.orange-bullet{
+    &::before{
+        content: " ";
+        position:absolute;
+        top:12px;
+        left: -15px;
+        height:8px;
+        width: 8px;
+        background: $orange;
+        border-radius: 100%;
+    }
+}
+
+.legend-item{
+    margin-bottom:25px;
+    position: relative;
+
+    &::after{
+        content:" ";
+        height:1px;
+        @include muted-white-fill;
+        position:absolute;
+        width:50px;
+        bottom:-10px;
+        left:0;
+    }
+}
+
+.row{
+    margin: 0 0 20px 0;
+}
+
+
