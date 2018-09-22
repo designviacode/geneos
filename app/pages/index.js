@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-import { Container } from 'reactstrap';
+import { Navbar, Container, NavItem, Nav } from 'reactstrap';
 import PropTypes from 'prop-types';
 
 import Meta from '../src/components/Meta'
 import { getMyItems } from '../src/actions/my';
 import ItemGrid from '../src/components/ItemGrid';
+import User from '../src/components/User';
 
 export default class extends Component {
   static propTypes = {
@@ -25,6 +26,13 @@ export default class extends Component {
     return (
       <div>
         <Meta title="My Data" />
+        <Navbar>
+          <Nav className="ml-auto" navbar>
+            <NavItem>
+              <User/>
+            </NavItem>
+          </Nav>
+        </Navbar>
 
         <main>
           <Container>

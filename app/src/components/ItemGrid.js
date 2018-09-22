@@ -40,7 +40,7 @@ export default class ItemGrid extends React.PureComponent {
     return (
       <Row>
         {data.data.map(item => (
-          <Col><Item data={item}/></Col>
+          <Col key={item.id}><Item data={item}/></Col>
         ))}
       </Row>
     )

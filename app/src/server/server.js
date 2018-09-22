@@ -1,9 +1,12 @@
 import express from 'express';
 import next from 'next';
+import http from 'http';
+import SocketIO from 'socket.io';
 
 import { API_BASE } from '../constants/api';
 import { Router } from './routes';
 import api from './api/index';
+import { initSockets } from './sockets';
 
 const port = parseInt(process.env.PORT, 10) || 3000;
 const dev = process.env.NODE_ENV !== 'production';
@@ -12,10 +15,13 @@ const handle = app.getRequestHandler();
 
 app.prepare()
   .then(() => {
-    const server = express();
+    const expressApp = express();
+
+    const server = http.createServer(expressApp);
+    initSockets(server);
 
     Router.forEachPattern((page, pattern, defaultParams) =>
-      server.get(pattern, (req, res) =>
+      expressApp.get(pattern, (req, res) =>
         app.render(req, res, `/${page}`, {
           ...defaultParams,
           ...req.query,
@@ -23,8 +29,8 @@ app.prepare()
         })
     ));
 
-    server.use(API_BASE, api);
+    expressApp.use(API_BASE, api);
 
-    server.get('*', (req, res) => handle(req, res));
+    expressApp.get('*', (req, res) => handle(req, res));
     server.listen(port);
   });
