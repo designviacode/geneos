@@ -26,10 +26,12 @@ export default class extends React.Component {
     return (
       <div>
         <Navbar dark color="dark" expand="sm">
-          <NavbarBrand href="/">reactstrap</NavbarBrand>
+          <Link href="/">
+            <NavbarBrand href="/">Geneos</NavbarBrand>
+          </Link>
           <Nav navbar className="mr-auto">
             <NavItem>
-              <Link prefetch href="/">
+              <Link href="/">
                 <NavLink href="/">My Data</NavLink>
               </Link>
             </NavItem>
@@ -41,6 +43,11 @@ export default class extends React.Component {
             <NavItem>
               <Link href="/my-insights">
                 <NavLink href="/my-insights">My Insights</NavLink>
+              </Link>
+            </NavItem>
+            <NavItem>
+              <Link href="/research">
+                <NavLink href="/research">Research</NavLink>
               </Link>
             </NavItem>
           </Nav>
