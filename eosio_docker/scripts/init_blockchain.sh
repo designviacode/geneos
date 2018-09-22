@@ -72,6 +72,9 @@ echo "=== create user accounts ==="
 # script for create data into blockchain
 create_accounts.sh
 
+echo "=== issue tokens ==="
+issue_tokens.sh
+
 # * Replace the script with different form of data that you would pushed into the blockchain when you start your own project
 
 echo "=== end of setup blockchain accounts and smart contract ==="

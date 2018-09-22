@@ -1,6 +1,16 @@
 #!/usr/bin/env bash
 set -o errexit
 
+if [ $1 = "reset" ]
+then
+  # force remove the previous container if any
+  # create a clean data folder in eosio_docker to preserve block data
+  echo "=== reset data for eosio_docker ==="
+  docker stop eosio_notechain_container || true && docker rm --force eosio_notechain_container || true
+  rm -rf "./eosio_docker/data"
+  mkdir -p "./eosio_docker/data"
+fi
+
 # change to script's directory
 cd "$(dirname "$0")/eosio_docker"
 
