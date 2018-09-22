@@ -3,7 +3,6 @@ import { Container } from "reactstrap";
 import LayoutMain from "../src/layouts/main";
 
 import Meta from "../src/components/Meta";
-import ItemGrid from "../src/components/ItemGrid";
 
 export default class extends Component {
   state = {};
@@ -15,11 +14,7 @@ export default class extends Component {
       <LayoutMain>
         <Meta title="My Account" />
 
-        <main>
-          <Container>
-            <ItemGrid data={data} />
-          </Container>
-        </main>
+        <Container>hello</Container>
       </LayoutMain>
     );
   }
