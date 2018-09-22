@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col } from 'reactstrap';
 
-export default class ProjectDetails extends React.Component {
+export default class Finish extends React.Component {
   render() {
     return (
       <div>

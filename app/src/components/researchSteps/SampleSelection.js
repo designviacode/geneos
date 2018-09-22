@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { getTargetAudience } from '../../actions/research';
 import { iconEdit } from '../../utils/fontawesome';
 
-export default class ProjectDetails extends React.Component {
+export default class SampleSelection extends React.Component {
   state = {
     audience: null,
     refreshing: false,

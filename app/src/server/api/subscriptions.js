@@ -7,15 +7,34 @@ import { getListings } from './helper';
 
 const router = Router();
 
-router.get('/', async (req, res) => {
-  const data = await getListings();
+/*
+ { id: 81,
+    ethnicity: 'European',
+    age: 62,
+    location: 'Kossview',
+    weight: 209,
+    sleep: 7,
+    activity: 7.7,
+    rate: '39.0000 EOS' }
+ */
 
-  res.json({
-    data,
-  });
+router.get('/', async (req, res) => {
+  console.log('Get subscriptions');
+  try {
+    const data = await getListings();
+
+    res.json({
+      data,
+    });
+  } catch(err) {
+    res.status(500).json({
+      error: err.message,
+    });
+  }
 });
 
 router.post('/', (req, res) => {
+  console.log('Post subscriptions');
   // TODO: get list of clients
   // TODO: send subscription to nodeos
   // TODO: message client sockets
