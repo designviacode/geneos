@@ -57,6 +57,7 @@ a.nav-link{
         .card{
             @include dark-box;
             @include default-typog;
+            @include box-shadow;
 
             &::before{
                 @include add-noise
