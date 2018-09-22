@@ -35,6 +35,15 @@ echo "=== setup wallet: eosiomain ==="
 cleos wallet create -n eosiomain --to-console | tail -1 | sed -e 's/^"//' -e 's/"$//' > eosiomain_wallet_password.txt
 cleos wallet import -n eosiomain --private-key 5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
 
+echo "=== setup wallet: eosiotokenwal ==="
+# key for eosio account and export the generated password to a file for unlocking wallet later
+cleos wallet create -n eosiotokenwal --to-console | tail -1 | sed -e 's/^"//' -e 's/"$//' > eosiotoken_wallet_password.txt
+
+cleos wallet import -n eosiotokenwal --private-key 5JWiLSzSrvikubhiSjM3UyJhWqya47v26TUA68fG2KXuJii2ZMx
+
+# create account for eosio.nft with above wallet's public keys
+cleos create account eosio eosio.token EOS4z2zYVHvY11qSaEjjdF19STccZQFATjWmquqKm456ATS4thnEB EOS4z2zYVHvY11qSaEjjdF19STccZQFATjWmquqKm456ATS4thnEB
+
 echo "=== setup wallet: notechainwal ==="
 # key for eosio account and export the generated password to a file for unlocking wallet later
 cleos wallet create -n notechainwal --to-console | tail -1 | sed -e 's/^"//' -e 's/"$//' > notechain_wallet_password.txt
@@ -51,6 +60,8 @@ cleos create account eosio notechainacc EOS6PUh9rs7eddJNzqgqDx1QrspSHLRxLMcRdwHZ
 # * Replace "notechainacc" by your own account name when you start your own project
 
 echo "=== deploy smart contract ==="
+# eosio.token cannot be used with eosiocpp so deploying manually
+cleos set contract eosio.token contracts/eosio.token -p eosio.token@active
 # $1 smart contract name
 # $2 account holder name of the smart contract
 # $3 wallet for unlock the account
