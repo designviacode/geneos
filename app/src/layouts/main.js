@@ -1,5 +1,6 @@
 import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 import React from 'react';
+import Link from 'next/link';
 
 import User from '../components/User';
 import UserStore from '../store/user';
@@ -28,13 +29,19 @@ export default class extends React.Component {
           <NavbarBrand href="/">reactstrap</NavbarBrand>
           <Nav navbar className="mr-auto">
             <NavItem>
-              <NavLink href="/">My Data</NavLink>
+              <Link prefetch href="/">
+                <NavLink href="/">My Data</NavLink>
+              </Link>
             </NavItem>
             <NavItem>
-              <NavLink href="/my-benefits">My Benefits</NavLink>
+              <Link href="/my-benefits">
+                <NavLink href="/my-benefits">My Benefits</NavLink>
+              </Link>
             </NavItem>
             <NavItem>
-              <NavLink href="/my-insights">My Insights</NavLink>
+              <Link href="/my-insights">
+                <NavLink href="/my-insights">My Insights</NavLink>
+              </Link>
             </NavItem>
           </Nav>
           <Nav navbar className="ml-auto">
