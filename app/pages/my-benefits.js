@@ -78,7 +78,7 @@ export default class extends Component {
             <h1>Data Usage</h1>
             <Row>
               <Col lg="4">
-                <img src="/static/data-usage" />
+                <img src="/static/data-usage.svg" />
                 <div>
                   <Dot color="turquoise" />
                   <div>52.4%</div>
