@@ -1,16 +1,5 @@
 import React, { Component } from 'react';
-import {
-  Row,
-  Col,
-  Card,
-  Table,
-  CardHeader,
-  CardBody,
-  Container,
-  Nav,
-  NavItem,
-  NavLink
-} from 'reactstrap';
+import { Card, Table, Container, Nav, NavItem, NavLink } from 'reactstrap';
 import Meta from '../src/components/Meta';
 import LayoutMain from '../src/layouts/main';
 
