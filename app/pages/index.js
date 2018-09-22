@@ -1,14 +1,15 @@
-import React, { Component } from 'react'
-import { Container } from 'reactstrap';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import { Container } from "reactstrap";
+import PropTypes from "prop-types";
+import LayoutMain from "../src/layouts/main";
 
-import Meta from '../src/components/Meta'
-import { getMyItems } from '../src/actions/my';
-import ItemGrid from '../src/components/ItemGrid';
+import Meta from "../src/components/Meta";
+import { getMyItems } from "../src/actions/my";
+import DataPanelList from "../src/components/DataPanelList";
 
 export default class extends Component {
   static propTypes = {
-    data: PropTypes.shape({}),
+    data: PropTypes.shape({})
   };
 
   state = {};
@@ -23,15 +24,13 @@ export default class extends Component {
     const { data } = this.state;
 
     return (
-      <div>
+      <LayoutMain>
         <Meta title="My Data" />
 
-        <main>
-          <Container>
-            <ItemGrid data={data} />
-          </Container>
-        </main>
-      </div>
+        <Container>
+          <DataPanelList data={data} />
+        </Container>
+      </LayoutMain>
     );
   }
 }

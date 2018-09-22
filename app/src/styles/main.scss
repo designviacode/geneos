@@ -1,27 +1,24 @@
-@import '../../node_modules/normalize.css/normalize.css';
-@import '../../node_modules/bootstrap/scss/bootstrap';
+@import "../../node_modules/normalize.css/normalize.css";
+@import "../../node_modules/bootstrap/scss/bootstrap";
 
 body {
   color: #020202;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, p, button {
+h1,
+h2,
+h3,
+p,
+button {
   margin: 0;
 }
 
-main {
-  background-color: #121D27;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
 h1 span {
-  background-color: rgba(0,0,0,.5);
+  background-color: rgba(0, 0, 0, 0.5);
   border: 1px solid rgb(25, 41, 58);
   font-size: 8px;
   border-radius: 3px;
@@ -35,7 +32,7 @@ h2 {
   margin-top: 12px;
 
   a {
-    color: #6554B5;
+    color: #6554b5;
     text-decoration: none;
     font-weight: 700;
   }
