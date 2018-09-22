@@ -10,7 +10,11 @@ body{
 
 .navbar{
     height:60px;
+    width:100%;
     padding:0;
+    position: fixed;
+    z-index: $zindex-fixed;
+    top:0;
     }
 
 
@@ -20,10 +24,17 @@ body{
   }
 
 a.nav-link{
-    padding: 35px;
+    padding: 20px;
     margin: 0 35px 0 35px;
 }
-     
+
+body{
+    &::before{
+        @include add-noise;
+    }
+}
+
+
 .container{
     div:nth-child(1){
         width:100%;
@@ -31,6 +42,7 @@ a.nav-link{
     }
     ul.nav{
         @include dark-box;
+        margin-top:60px;
 
         .nav-item{
             border:0;
@@ -48,9 +60,15 @@ a.nav-link{
 
     section{
         margin: 40px 0 0 0;
+        position: relative;
+
+        &::before{
+            @include pretty-lines;
+        }
 
         h1{
-            @include heading
+            @include heading;
+            margin-bottom:20px;
         }
 
 
