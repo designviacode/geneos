@@ -11,4 +11,5 @@ require('babel-register')({
     ['transform-object-rest-spread', { 'useBuiltIns': true }]
   ]
 });
+require('babel-polyfill');
 require('./server/server');

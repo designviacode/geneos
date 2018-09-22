@@ -7,17 +7,21 @@
   "author": "Albert Chen, Jens Elstner, Jay Bowles, Benjamin Tse",
   "license": "MIT",
   "scripts": {
-    "dev": "node index.js",
+    "dev": "nodemon index.js",
     "build": "next build",
     "start": "env NODE_ENV=production node index.js"
   },
   "dependencies": {
     "@zeit/next-sass": "^0.2.0",
+    "axios": "^0.18.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
     "bootstrap": "^4.1.3",
+    "config": "^2.0.1",
     "cssnano": "^3.10.0",
+    "eosjs": "^16.0.8",
     "express": "^4.16.3",
     "next": "latest",
     "next-url-prettifier": "^1.3.0",
