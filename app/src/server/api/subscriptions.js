@@ -3,14 +3,15 @@ import uuid from 'uuid';
 
 import { messageClient } from '../sockets';
 import { DATA_REQUEST } from '../../constants/socket-events';
+import { getListings } from './helper';
 
 const router = Router();
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
+  const data = await getListings();
+
   res.json({
-    data: {
-      count: 5,
-    },
+    data,
   });
 });
 
