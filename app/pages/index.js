@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
-import { Navbar, Container, NavItem, Nav } from 'reactstrap';
+import { Container } from 'reactstrap';
 import PropTypes from 'prop-types';
 
+import LayoutMain from '../src/layouts/main';
 import Meta from '../src/components/Meta'
 import { getMyItems } from '../src/actions/my';
-import ItemGrid from '../src/components/ItemGrid';
-import User from '../src/components/User';
+import DataPanelList from '../src/components/DataPanelList';
 
 export default class extends Component {
   static propTypes = {
-    data: PropTypes.shape({}),
+    data: PropTypes.shape({})
   };
 
   state = {};
@@ -24,22 +24,13 @@ export default class extends Component {
     const { data } = this.state;
 
     return (
-      <div>
+      <LayoutMain>
         <Meta title="My Data" />
-        <Navbar>
-          <Nav className="ml-auto" navbar>
-            <NavItem>
-              <User/>
-            </NavItem>
-          </Nav>
-        </Navbar>
 
-        <main>
-          <Container>
-            <ItemGrid data={data} />
-          </Container>
-        </main>
-      </div>
+        <Container>
+          <DataPanelList data={data} />
+        </Container>
+      </LayoutMain>
     );
   }
 }
