@@ -1,10 +1,14 @@
 import React, { Component } from 'react'
-import { Button, Col, Container, Row } from 'reactstrap';
+import { Container } from 'reactstrap';
 import PropTypes from 'prop-types';
+import StepZilla from 'react-stepzilla';
 
 import LayoutMain from '../src/layouts/main';
 import Meta from '../src/components/Meta'
-import { getTargetAudience, requestData } from '../src/actions/research';
+import { requestData } from '../src/actions/research';
+import ProjectDetails from '../src/components/researchSteps/ProjectDetails';
+import SampleSelection from '../src/components/researchSteps/SampleSelection';
+import Initialize from '../src/components/researchSteps/Initialize';
 
 export default class extends Component {
   static propTypes = {
@@ -18,18 +22,7 @@ export default class extends Component {
       payout: 25,
       researchArea: 'Cancer',
     },
-    refreshing: false,
     requesting: false,
-  };
-
-  handleRefreshClick = () => {
-    this.setState({ refreshing: true });
-    getTargetAudience().then(data => {
-      this.setState({
-        audience: data.data.count,
-        refreshing: false,
-      })
-    });
   };
 
   handleRequestClick = () => {
@@ -41,34 +34,42 @@ export default class extends Component {
     });
   };
 
-  renderReach() {
-    const { audience } = this.state;
-    if (!audience) {
-      return 'Please refresh';
+  handleStepChange = (step) => {
+    if (step === 2) {
+      this.handleRequestClick();
     }
+  };
 
-    return `${audience} users`;
-  }
+  handleChange = (form) => {
+    this.setState({
+      form,
+    });
+  };
 
   render() {
-    const { refreshing, requesting } = this.state;
+    const { form } = this.state;
+
+    const steps = [
+      { name: 'Project Details', component: <ProjectDetails data={form} onChange={this.handleChange} /> },
+      { name: 'Sample Selection', component: <SampleSelection data={form} onChange={this.handleChange} /> },
+      { name: 'Initialize', component: <Initialize data={form} /> },
+    ];
 
     return (
       <LayoutMain>
         <Meta title="Research" />
 
         <Container>
-          <Row>
-            <Col>Reach: {this.renderReach()}</Col>
-          </Row>
-          <Row>
-            <Col xs={6}>
-              <Button onClick={this.handleRefreshClick} disabled={refreshing}>Refresh</Button>
-            </Col>
-            <Col xs={6}>
-              <Button onClick={this.handleRequestClick} disabled={requesting}>Request data</Button>
-            </Col>
-          </Row>
+          <StepZilla
+            steps={steps}
+            showSteps
+            showNavigation
+            stepsNavigation={false}
+            prevBtnOnLastStep={false}
+            preventEnterSubmission
+            nextTextOnFinalActionStep="Request data"
+            onStepChange={this.handleStepChange}
+          />
         </Container>
       </LayoutMain>
     );

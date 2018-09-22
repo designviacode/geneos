@@ -5540,6 +5540,10 @@ react-popper@^0.10.4:
     popper.js "^1.14.1"
     prop-types "^15.6.1"
 
+react-stepzilla@^4.7.2:
+  version "4.7.2"
+  resolved "https://registry.yarnpkg.com/react-stepzilla/-/react-stepzilla-4.7.2.tgz#8b366bf2a83ec4d2bea158da102bba897c51101a"
+
 react-transition-group@^2.3.1:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-2.4.0.tgz#1d9391fabfd82e016f26fabd1eec329dbd922b5a"

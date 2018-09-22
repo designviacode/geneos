@@ -1,6 +1,7 @@
 @import '../../node_modules/normalize.css/normalize.css';
 
 @import './bootstrap';
+@import './react-stepzilla';
 @import './grid';
 @import './PurchaseConfirmation';
 
@@ -18,25 +19,4 @@ h3,
 p,
 button {
   margin: 0;
-}
-
-h1 span {
-  background-color: rgba(0, 0, 0, 0.5);
-  border: 1px solid rgb(25, 41, 58);
-  font-size: 8px;
-  border-radius: 3px;
-  padding: 4px 6px;
-}
-
-h2 {
-  color: rgb(100, 133, 165);
-  font-weight: 400;
-  font-size: 12px;
-  margin-top: 12px;
-
-  a {
-    color: #6554b5;
-    text-decoration: none;
-    font-weight: 700;
-  }
 }
