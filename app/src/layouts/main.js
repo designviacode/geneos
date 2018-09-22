@@ -1,9 +1,11 @@
 import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 import React from 'react';
 import Link from 'next/link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import User from '../components/User';
 import UserStore from '../store/user';
+import { iconUser, iconBell } from '../utils/fontawesome';
 
 export default class extends React.Component {
   componentDidMount() {
@@ -52,6 +54,42 @@ export default class extends React.Component {
             </NavItem>
           </Nav>
           <Nav navbar className="ml-auto">
+            <NavItem className="nav-item-balance">
+              <div className="d-flex align-items-center">
+                <img
+                  src="/static/eos.svg"
+                  style={{ width: 31, marginRight: 15 }}
+                />
+                <div>
+                  <div
+                    style={{
+                      fontSize: 32,
+                      fontFamily: 'BrandonText',
+                      letterSpacing: 'normal'
+                    }}
+                  >
+                    <span className="text-white">812</span> EOS
+                  </div>
+                  <div style={{ color: '#fff', fontSize: 16 }}>earned</div>
+                </div>
+              </div>
+            </NavItem>
+          </Nav>
+          <Nav navbar className="ml-auto navbar-nav-right">
+            <NavItem>
+              <Link href="/research">
+                <NavLink href="/research" className="nav-link-icon">
+                  <FontAwesomeIcon icon={iconBell} size="2x" />
+                </NavLink>
+              </Link>
+            </NavItem>
+            <NavItem>
+              <Link href="/research">
+                <NavLink href="/research" className="nav-link-icon">
+                  <FontAwesomeIcon icon={iconUser} size="2x" />
+                </NavLink>
+              </Link>
+            </NavItem>
             <NavItem>
               <User />
             </NavItem>
