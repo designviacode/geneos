@@ -1,8 +1,9 @@
 import React from 'react';
-import { Row, Col, Card, CardBody, Nav, NavItem, NavLink } from 'reactstrap';
+import { Nav, NavItem, NavLink } from 'reactstrap';
 import PropTypes from 'prop-types';
 
 import GenomeSection from './GenomeSection';
+import ActivitySection from './ActivitySection';
 
 export default class DataPanelList extends React.PureComponent {
   static propTypes = {
@@ -45,24 +46,7 @@ export default class DataPanelList extends React.PureComponent {
           ))}
         </Nav>
         <GenomeSection />
-        <section>
-          <h1>Activity</h1>
-          <Card>
-            <CardBody>
-              <Row>
-                <Col>
-                  <h4>Steps</h4>
-                </Col>
-                <Col>
-                  <h4>Distance walked</h4>
-                </Col>
-                <Col>
-                  <h4>Exercise time</h4>
-                </Col>
-              </Row>
-            </CardBody>
-          </Card>
-        </section>
+        <ActivitySection />
       </div>
     );
   }
