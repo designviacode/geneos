@@ -12,13 +12,21 @@ export default () => (
           <Col>
             <div style={{ display: 'flex', alignItems: 'center' }}>
               <img src="/static/ethnicity-pie.svg" />
-              <div>
-                <div>52.4%</div>
-                <div>European</div>
-                <div>16.4%</div>
-                <div>East Asian & Native American</div>
-                <div>31.2%</div>
-                <div>Subsaharan African</div>
+              <div className="pie-legend">
+                <div className="legend-item">
+                  <div className="card-number teal-bullet">52.4%</div>
+                  <div>European</div>
+                </div>
+
+                <div className="legend-item">
+                  <div className="card-number purple-bullet">16.4%</div>
+                  <div>East Asian & Native American</div>
+                </div>
+
+                <div className="legend-item">
+                  <div className="card-number orange-bullet">31.2%</div>
+                  <div>Subsaharan African</div>
+                </div>
               </div>
             </div>
           </Col>

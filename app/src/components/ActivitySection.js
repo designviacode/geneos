@@ -10,7 +10,7 @@ export default () => (
     <Card>
       <CardBody>
         <Row>
-          <Col>
+          <Col className="col-lg-4">
             <h4>Steps</h4>
             <img src="/static/steps.svg" />
             <hr />
@@ -27,7 +27,7 @@ export default () => (
               </div>
             </div>
           </Col>
-          <Col>
+          <Col className="col-lg-4">
             <h4>Distance walked</h4>
             <img src="/static/distance-walked.svg" />
             <hr />
@@ -44,7 +44,7 @@ export default () => (
               </div>
             </div>
           </Col>
-          <Col>
+          <Col className="col-lg-4">
             <h4>Exercise time</h4>
             <img src="/static/exercise-time.svg" />
             <hr />

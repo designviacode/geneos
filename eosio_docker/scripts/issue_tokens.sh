@@ -26,8 +26,7 @@ jq -c '.[]' accounts.json | while read i; do
   priv=$(jq -r '.privateKey' <<< "$i")
   metadata=$(jq -r '.metadata|tojson|tojson' <<< "$i")
   uri=$(jq -r '.uri' <<< "$i")
-  
-  if [[ -z "$metadata" ]]
+  if [[ $metadata = '"null"' ]]
   then
     cleos push action eosio.token issue '['"${name}"', "50000.0000 EOS", "memo" ]' -p eosio@active
   else

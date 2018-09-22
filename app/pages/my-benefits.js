@@ -58,7 +58,7 @@ export default class extends Component {
           </Nav>
           <section>
             <a name="#earnings" />
-            <h4>Earnings</h4>
+            <h1>Earnings</h1>
             <Row>
               {data.earnings.map(item => (
                 <Col data-aos="fade-up">
@@ -75,7 +75,7 @@ export default class extends Component {
           <hr />
           <section>
             <a name="#earnings" />
-            <h4>Data Usage</h4>
+            <h1>Data Usage</h1>
             <Row>
               <Col lg="4">
                 <img src="/static/data-usage.svg" />
