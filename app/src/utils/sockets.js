@@ -1,5 +1,7 @@
 import io from 'socket.io-client';
+
 import { DATA_REQUEST, DATA_RESPONSE, LOGIN } from '../constants/socket-events';
+import userStore from '../store/user';
 
 let socket;
 
@@ -32,3 +34,5 @@ export function emitLogin(profile) {
   const sock = getSocket();
   sock.emit(LOGIN, profile);
 }
+
+userStore.on('change', emitLogin);
