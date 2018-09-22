@@ -14,15 +14,11 @@ export default class ProjectDetails extends React.Component {
   isValidated() {
     const { data } = this.props;
 
-    return !!data.researchArea;
+    return data.researchArea && data.researchName && data.duration;
   }
 
-
-  handleChange = (e) => {
+  emitChange(name, value) {
     const { onChange, data } = this.props;
-
-    const name = e.target.name;
-    const value = e.target.value;
 
     const nextData = {
       ...data,
@@ -30,17 +26,13 @@ export default class ProjectDetails extends React.Component {
     };
 
     onChange(nextData);
-  };
+  }
 
-  handleSelectDuration = (duration) => {
-    const { onChange, data } = this.props;
+  handleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
 
-    const nextData = {
-      ...data,
-      duration,
-    };
-
-    onChange(nextData);
+    this.emitChange(name, value);
   };
 
   renderInput(label, name) {
@@ -50,16 +42,16 @@ export default class ProjectDetails extends React.Component {
       <Row className="row-margin">
         <Col xs={3}><Label>{label}</Label></Col>
         <Col xs={6}>
-          <Input name={name} onChange={this.handleChange} value={data[name]} />
+          <Input name={name} onChange={this.handleChange} value={data[name] || ''} />
         </Col>
       </Row>
     );
   }
 
-  renderDuration(label) {
+  renderDuration(label, name) {
     const { data } = this.props;
 
-    const { duration } = data || {};
+    const { [name]: duration } = data || {};
 
     const durations = ['1 Month', '3 Months', '1 Year'];
 
@@ -70,13 +62,14 @@ export default class ProjectDetails extends React.Component {
           {durations.map(label => (
             <Button
               key={label}
-              onClick={() => this.handleSelectDuration(label)}
+              type="button"
+              onClick={() => this.emitChange(name, label)}
               color={duration === label ? 'primary' : 'secondary'}
             >
               {label}
             </Button>
           ))}
-          <Button>
+          <Button type="button">
             <FontAwesomeIcon icon={iconEdit} />
             Custom
           </Button>
@@ -91,7 +84,7 @@ export default class ProjectDetails extends React.Component {
         <Form>
           {this.renderInput('Project Name', 'researchName')}
           {this.renderInput('Project Subject', 'researchArea')}
-          {this.renderDuration('Project Duration')}
+          {this.renderDuration('Project Duration', 'duration')}
         </Form>
       </div>
     );
