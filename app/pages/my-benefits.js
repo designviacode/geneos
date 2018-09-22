@@ -45,7 +45,7 @@ export default class extends Component {
       <LayoutMain>
         <Meta title="My Benefits" />
 
-        <Container>
+        <Container className="my-benefits-page">
           <Nav>
             <NavItem>
               <NavLink href="#earnings">Earnings</NavLink>

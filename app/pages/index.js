@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { Container } from 'reactstrap';
 import PropTypes from 'prop-types';
 
 import LayoutMain from '../src/layouts/main';
-import Meta from '../src/components/Meta'
+import Meta from '../src/components/Meta';
 import { getMyItems } from '../src/actions/my';
 import DataPanelList from '../src/components/DataPanelList';
 
@@ -27,7 +27,7 @@ export default class extends Component {
       <LayoutMain>
         <Meta title="My Data" />
 
-        <Container>
+        <Container className="my-data-page">
           <DataPanelList data={data} />
         </Container>
       </LayoutMain>

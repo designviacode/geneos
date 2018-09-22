@@ -20,7 +20,7 @@ export default class extends Component {
       <LayoutMain>
         <Meta title="My Insights" />
 
-        <Container>
+        <Container className="my-insights-page">
           <Nav>
             <NavItem>
               <NavLink href="#insights">Insights</NavLink>
