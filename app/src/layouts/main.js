@@ -1,4 +1,4 @@
-import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from "reactstrap";
+import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 
 export default ({ children }) => (
   <div>

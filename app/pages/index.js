@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import { Container } from "reactstrap";
-import PropTypes from "prop-types";
-import LayoutMain from "../src/layouts/main";
+import React, { Component } from 'react';
+import { Container } from 'reactstrap';
+import PropTypes from 'prop-types';
+import LayoutMain from '../src/layouts/main';
 
-import Meta from "../src/components/Meta";
-import { getMyItems } from "../src/actions/my";
-import DataPanelList from "../src/components/DataPanelList";
+import Meta from '../src/components/Meta';
+import { getMyItems } from '../src/actions/my';
+import DataPanelList from '../src/components/DataPanelList';
 
 export default class extends Component {
   static propTypes = {

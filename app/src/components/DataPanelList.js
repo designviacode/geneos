@@ -1,6 +1,6 @@
-import React from "react";
-import { Card, CardBody, Nav, NavItem, NavLink } from "reactstrap";
-import PropTypes from "prop-types";
+import React from 'react';
+import { Card, CardBody, Nav, NavItem, NavLink } from 'reactstrap';
+import PropTypes from 'prop-types';
 
 export default class DataPanelList extends React.PureComponent {
   static propTypes = {
