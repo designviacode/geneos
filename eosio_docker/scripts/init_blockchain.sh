@@ -77,7 +77,7 @@ cleos set contract eosio.token contracts/eosio.token -p eosio.token@active
 # $4 password for unlocking the wallet
 deploy_contract.sh data.nft data.nft data.nftwal $(cat data_nft_wal_password.txt)
 deploy_contract.sh marketplace marketplace marketplacewal $(cat marketplace_wallet_password.txt)
-cleos set account permission active '{"threshold": 1,"keys": [{"key": "EOS7eKPuMkR8tPLwqgokK2T7qwPM1RmyigyqqH89LkoyMXspZSr7Y","weight": 1}],"accounts":[{"permission":{"actor":"marketplace","permission":"eosio.code"},"weight":1}]}' owner -p marketplace@owner
+cleos set account permission marketplace active '{"threshold": 1,"keys": [{"key": "EOS7eKPuMkR8tPLwqgokK2T7qwPM1RmyigyqqH89LkoyMXspZSr7Y","weight": 1}],"accounts":[{"permission":{"actor":"marketplace","permission":"eosio.code"},"weight":1}]}' owner -p marketplace@owner
 
 echo "=== create user accounts ==="
 # script for create data into blockchain
