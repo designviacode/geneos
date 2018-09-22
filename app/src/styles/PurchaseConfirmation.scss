@@ -1,0 +1,9 @@
+.purchase-confirmation {
+  &__label {
+    width: 10rem;
+  }
+
+  &__label, &__value {
+    display: inline-block;
+  }
+}

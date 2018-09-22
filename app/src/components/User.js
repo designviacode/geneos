@@ -1,15 +1,18 @@
 import React from 'react';
 
 import '../styles/user.scss';
-import { emitLogin, getCurrentUser, offDataRequest, onDataRequest } from '../utils/sockets';
+import { offDataRequest, onDataRequest } from '../utils/sockets';
 import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap';
 import { getUsers } from '../actions/users';
 import userStore from '../store/user';
+import PurchaseConfirmation from './PurchaseConfirmation';
+import { acceptRequest, rejectRequest } from '../actions/research';
 
 export default class User extends React.Component {
   state = {
     userOpen: false,
     users: [],
+    dataRequests: [],
   };
 
   componentDidMount() {
@@ -26,9 +29,11 @@ export default class User extends React.Component {
     offDataRequest(this.handleDataRequest);
   }
 
-  handleDataRequest() {
-    alert('Would you like to share your data for shitloads of money?');
-  }
+  handleDataRequest = (data) => {
+    this.setState(prevState => ({
+      dataRequests: [...prevState.dataRequests, data],
+    }));
+  };
 
   handleSelectUser(user) {
     userStore.setUser(user);
@@ -39,6 +44,45 @@ export default class User extends React.Component {
       userOpen: !prevState.userOpen
     }));
   };
+
+  removeCurrentRequest = () => {
+    this.setState(prevState => {
+      const dataRequests = prevState.dataRequests.slice(1);
+      return {
+        dataRequests,
+      };
+    });
+  };
+
+  handleRejectRequest = (request) => {
+    rejectRequest(request).then(() => {
+      this.removeCurrentRequest();
+    });
+  };
+
+  handleAcceptRequest = (request) => {
+    acceptRequest(request).then(() => {
+      this.removeCurrentRequest();
+    });
+  };
+
+  renderDataRequests() {
+    const { dataRequests } = this.state;
+    if (!dataRequests.length) {
+      return null;
+    }
+
+    const request = dataRequests[0];
+    return (
+      <PurchaseConfirmation
+        key={request.id}
+        isOpen={true}
+        request={request}
+        onReject={this.handleRejectRequest}
+        onAccept={this.handleAcceptRequest}
+      />
+    )
+  }
 
   render() {
     const { userOpen, users } = this.state;
@@ -57,6 +101,7 @@ export default class User extends React.Component {
             ))}
           </DropdownMenu>
         </Dropdown>
+        {this.renderDataRequests()}
       </div>
     )
   }

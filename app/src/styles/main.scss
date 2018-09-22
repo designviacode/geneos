@@ -1,6 +1,8 @@
 @import '../../node_modules/normalize.css/normalize.css';
-//@import '../../node_modules/bootstrap/scss/bootstrap';
+
 @import './bootstrap';
+@import './grid';
+@import './PurchaseConfirmation';
 
 body {
   color: #020202;

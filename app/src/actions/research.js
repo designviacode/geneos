@@ -18,10 +18,36 @@ export function requestData(formData) {
   if (!user) return Promise.reject('No user is logged in');
 
   const options = {
-    user: user.privateKey,
+    user,
     formData,
   };
 
   return api.post('/subscriptions', options)
+    .then(response => response.data);
+}
+
+export function rejectRequest(request) {
+  const user = UserStore.getUser();
+  if (!user) return Promise.reject('No user is logged in');
+
+  const options = {
+    user,
+    request,
+  };
+
+  return api.post(`/subscriptions/${request.id}/reject`, options)
+    .then(response => response.data);
+}
+
+export function acceptRequest(request) {
+  const user = UserStore.getUser();
+  if (!user) return Promise.reject('No user is logged in');
+
+  const options = {
+    user,
+    request,
+  };
+
+  return api.post(`/subscriptions/${request.id}/accept`, options)
     .then(response => response.data);
 }

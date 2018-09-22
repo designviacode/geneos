@@ -1,7 +1,6 @@
 import express from 'express';
 import next from 'next';
 import http from 'http';
-import SocketIO from 'socket.io';
 
 import { API_BASE } from '../constants/api';
 import { Router } from './routes';
