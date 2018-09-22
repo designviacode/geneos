@@ -13,7 +13,11 @@ export default class extends Component {
 
   state = {
     audience: null,
-    form: {},
+    form: {
+      duration: '3 Months',
+      payout: 25,
+      researchArea: 'Cancer',
+    },
     refreshing: false,
     requesting: false,
   };
