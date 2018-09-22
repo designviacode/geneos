@@ -6,7 +6,7 @@ then
   # force remove the previous container if any
   # create a clean data folder in eosio_docker to preserve block data
   echo "=== reset data for eosio_docker ==="
-  docker stop eosio_notechain_container || true && docker rm --force eosio_notechain_container || true
+  docker stop eosio_geneos_container || true && docker rm --force eosio_geneos_container || true
   rm -rf "./eosio_docker/data"
   mkdir -p "./eosio_docker/data"
 fi
@@ -22,7 +22,7 @@ else
 fi
 
 echo "=== run docker container from the eosio/eos-dev image ==="
-docker run --rm --name eosio_notechain_container -d \
+docker run --rm --name eosio_geneos_container -d \
 -p 8888:8888 -p 9876:9876 \
 --mount type=bind,src="$(pwd)"/contracts,dst=/opt/eosio/bin/contracts \
 --mount type=bind,src="$(pwd)"/scripts,dst=/opt/eosio/bin/scripts \
@@ -31,6 +31,6 @@ docker run --rm --name eosio_notechain_container -d \
 
 if [ "$1" != "--nolog" ]
 then
-    echo "=== follow eosio_notechain_container logs ==="
-    docker logs eosio_notechain_container --follow
+    echo "=== follow eosio_geneos_container logs ==="
+    docker logs eosio_geneos_container --follow
 fi
