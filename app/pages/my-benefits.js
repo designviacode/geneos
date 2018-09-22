@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import { Container } from "reactstrap";
-import LayoutMain from "../src/layouts/main";
+import React, { Component } from 'react';
+import { Container } from 'reactstrap';
+import LayoutMain from '../src/layouts/main';
 
-import Meta from "../src/components/Meta";
+import Meta from '../src/components/Meta';
 
 export default class extends Component {
   state = {};
