@@ -43,7 +43,7 @@ export default class extends Component {
   render() {
     return (
       <LayoutMain>
-        <Meta title="My Account" />
+        <Meta title="My Benefits" />
 
         <Container>
           <Nav>
