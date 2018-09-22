@@ -12,8 +12,10 @@ import {
   NavLink
 } from 'reactstrap';
 import Meta from '../src/components/Meta';
-import LayoutMain from '../src/layouts/main';
 import moment from 'moment';
+
+import LayoutMain from '../src/layouts/main';
+import Dot from '../src/components/Dot';
 
 const data = {
   earnings: [
@@ -59,7 +61,7 @@ export default class extends Component {
             <h4>Earnings</h4>
             <Row>
               {data.earnings.map(item => (
-                <Col>
+                <Col data-aos="fade-up">
                   <Card key={item.id}>
                     <CardBody>
                       <h5>{item.name}</h5>
@@ -75,6 +77,26 @@ export default class extends Component {
             <a name="#earnings" />
             <h4>Data Usage</h4>
             <Row>
+              <Col lg="4">
+                <img src="/static/data-usage" />
+                <div>
+                  <Dot color="turquoise" />
+                  <div>52.4%</div>
+                  <div>Cancer</div>
+                </div>
+                <hr />
+                <div>
+                  <Dot color="purple" />
+                  <div>16.4%</div>
+                  <div>Diabetes</div>
+                </div>
+                <hr />
+                <div>
+                  <Dot color="turquoise" />
+                  <div>31.2%</div>
+                  <div>Arthritis</div>
+                </div>
+              </Col>
               <Col lg="8">
                 <Card>
                   <CardHeader>Data Sold To</CardHeader>
