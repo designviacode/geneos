@@ -1,17 +1,21 @@
-# next-starter 🚀
-> a full boilerplate with `sass (.scss)` built in, for developing projects in [next.js](https://github.com/zeit/next.js)
+EOS Hackathon Frontend
+======================
 
-![next-starter](https://i.imgur.com/BadvANk.png)
+## Setup
 
-## how to
-```bash
-$ git clone git@github.com:YuriBrunetto/next-starter.git
-$ cd next-starter/
-$ yarn
-[...]
-$ yarn run dev
-```
-clone this repository, cd into it and install its dependencies 
+    yarn
 
-## license 
-MIT &copy; [Yuri Brunetto](https://twitter.com/yuribrunetto)
+## Development
+
+    yarn dev
+
+## Production
+
+    yarn build
+    yarn start
+
+## Docker
+
+    docker build --tag eosfe .
+    docker run --name eosfe -p 3000:80 eosfe:latest
+

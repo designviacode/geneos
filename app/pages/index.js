@@ -1,17 +1,22 @@
 import React, { Component } from 'react'
+import { Container, Row, Col } from 'reactstrap';
+
 import Meta from '../components/Meta'
 
 export default class extends Component {
   render() {
     return (
       <div>
-        <Meta />
+        <Meta title="My Data" />
 
         <main>
-          <h1>next-starter <span>v1.0.0</span> 🚀</h1>
-          <h2>made with ❤️ by <a href="https://twitter.com/yuribrunetto" target="_blank">@yuribrunetto</a></h2>
+          <Container>
+            <Row>
+              <Col xs={12}>Hi :)</Col>
+            </Row>
+          </Container>
         </main>
       </div>
-    )
+    );
   }
 }
