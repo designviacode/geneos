@@ -31,12 +31,12 @@ export default class extends React.Component {
               <NavLink href="/">My Data</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/my-account">My Account</NavLink>
+              <NavLink href="/my-benefits">My Benefits</NavLink>
             </NavItem>
           </Nav>
           <Nav navbar className="ml-auto">
             <NavItem>
-              <User/>
+              <User />
             </NavItem>
           </Nav>
         </Navbar>
