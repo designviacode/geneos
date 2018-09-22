@@ -1,83 +1,148 @@
 #include <eosiolib/eosio.hpp>
+#include <eosiolib/asset.hpp>
+#include <eosiolib/transaction.hpp>
+#include <string>
 
-class marketplace : public eosio::contract {
-   public:
-      marketplace( account_name s ):
-         contract( s ),   // initialization of the base class for the contract
-         _listings( s, s ) // initialize the table with code and scope NB! Look up definition of code and scope
-      {
-      }
+namespace eosio {
+   using eosio::asset;
+   using std::string;
 
-      /// @abi action
-      void create( account_name owner, uint32_t phone, const std::string& fullname, const std::string& address ) {
+   typedef uint64_t id_type;
+   typedef string uri_type;
 
-         require_auth( owner );
+   class marketplace : public eosio::contract {
+      public:
+         marketplace( account_name s ) : contract( s ), _listings( s, s ), _offers( s, s ) {}
 
-         // _listings.end() is in a way similar to null and it means that the value isn't found
-         // uniqueness of primary key is enforced at the library level but we can enforce it in the contract with a
-         // better error message
-         eosio_assert( _listings.find( owner ) == _listings.end(), "This record already exists in the marketplace" );
+         /// @abi action
+         void list( account_name lister, id_type tokenid, string metadata) {
 
-         eosio_assert( fullname.size() <= 20, "Full name is too long" );
-         eosio_assert( address.size() <= 50, "Address is too long" );
+            require_auth( lister );
 
-         // we use phone as a secondary key
-         // secondary key is not necessarily unique, we will enforce its uniqueness in this contract
-         auto idx = _listings.get_index<N(byphone)>();
-         eosio_assert( idx.find( phone ) == idx.end(), "Phone number is already taken" );
+            auto tokens = token_index(N(data.nft), N(data.nft));
 
-         _listings.emplace( owner, [&]( auto& rcrd ) {
-            rcrd.owner    = owner;
-            rcrd.phone    = phone;
-            rcrd.fullname = fullname;
-            rcrd.address  = address;
-         });
-      }
+            auto itr = tokens.find(tokenid);
 
-      /// @abi action
-      void remove( account_name owner ) {
+            account_name owner = itr->owner;
 
-         require_auth( owner );
+            eosio_assert(owner == lister, "lister does not own this token");
 
-         auto itr = _listings.find( owner );
-         eosio_assert( itr != _listings.end(), "Record does not exit" );
-         _listings.erase( itr );
-      }
 
-      /// @abi action
-      void update( account_name owner, const std::string& address ) {
+            _listings.emplace( lister, [&]( auto& listing ) {
+               listing.tokenid = tokenid;
+               listing.metadata = metadata;
+            });
+         }
 
-         require_auth( owner );
+         /// @abi action
+         void makeoffer( account_name from, id_type id, asset price ) {
+            require_auth(from);
 
-         auto itr = _listings.find( owner );
-         eosio_assert( itr != _listings.end(), "Record does not exit" );
-         eosio_assert( address.size() <= 50, "Address is too long" );
-         _listings.modify( itr, owner, [&]( auto& rcrd ) {
-            rcrd.address = address;
-         });
-      }
+            eosio_assert(price.is_valid(), "invalid price");
+            eosio_assert(price.amount > 0, "offer price must be positive");
 
-   private:
-      // Setup the struct that represents a row in the table
-      /// @abi table listings
-      struct listing {
-         account_name owner; // primary key
-         uint32_t     phone;
-         std::string  fullname;
-         std::string  address;
-         std::string  metadata;
-         std::string  price;
+            _offers.emplace( from, [&]( auto& offer ) {
+               offer.id = _offers.available_primary_key();
+               offer.reftokenid    = id;
+               offer.from    = from;
+               offer.price = price;
+            });
+         }
 
-         uint64_t primary_key() const { return owner; }
-         uint64_t by_phone() const    { return phone; }
-      };
+         /// @abi action
+         void acceptoffer( account_name seller, id_type offerid ) {
+            require_auth(seller);
+            
+            auto offer = _offers.find( offerid );
 
-      typedef eosio::multi_index< N(listings), listing,
-         eosio::indexed_by<N(byphone), eosio::const_mem_fun<listing, uint64_t, &listing::by_phone> >
-      > listing_table;
+            id_type tokenid = offer->reftokenid;
+            asset price = offer->price;
+            account_name buyer = offer->from;
 
-      // Creating the instance of the `listing_table` type
-      listing_table _listings;
-};
+            action subscribe = action(
+               permission_level{seller,N(active)},
+               N(data.nft),
+               N(subscribe),
+               std::make_tuple(seller, buyer, tokenid, std::string("Subscribing to data"))
+            );
 
-EOSIO_ABI( marketplace, (create)(remove)(update) )
+
+            subscribe.send();
+
+            action payment = action(
+               permission_level{buyer,N(active)},
+               N(eosio.token),
+               N(transfer),
+               std::make_tuple(buyer, seller, price, std::string("sending payment for data subscription"))
+            );
+
+
+            payment.send();
+
+            // delete the offer
+            _offers.erase(offer);
+         }
+
+         void test() {
+
+         }
+
+      private:
+         // Setup the struct that represents a row in the table
+         /// @abi table listings
+         struct listing {
+            id_type      tokenid; // primary key
+            string  metadata;
+            uint64_t primary_key() const { return tokenid; }
+            string by_metadata() const    { return metadata; }
+         };
+
+         typedef eosio::multi_index< N(listings), listing > listing_table;
+
+         // Creating the instance of the `listing_table` type
+         listing_table _listings;
+
+         /// @abi table offers
+         struct offer {
+            id_type       id; // primary key
+            id_type       reftokenid; // links to listing's token id
+            account_name  from;
+            eosio::asset  price;
+            uint64_t primary_key() const { return id; }
+            uint64_t by_reftokenid() const    { return reftokenid; }
+         };
+
+         typedef eosio::multi_index< N(offers), offer,
+            eosio::indexed_by<N(byreftokenid), eosio::const_mem_fun<offer, uint64_t, &offer::by_reftokenid> >
+         > offer_table;
+
+         // Creating the instance of the `offer_table` type
+         offer_table _offers;
+
+         // duplicating nft token
+         struct token {
+            id_type id;          // Unique 64 bit identifier,
+            uri_type uri;        // RFC 3986
+            account_name owner;  // token owner
+            account_name spender;
+            asset value;         // token value (1 SYS)
+            std::string name;	 // token name
+            std::string metadata; // metadata
+            vector<account_name> subscribers;
+
+            id_type primary_key() const { return id; }
+            account_name get_owner() const { return owner; }
+            uint64_t get_symbol() const { return value.symbol.name(); }
+            uint64_t get_name() const { return string_to_name(name.c_str()); }
+         };
+
+         using token_index = eosio::multi_index<N(token), token,
+                           indexed_by< N( byowner ), const_mem_fun< token, account_name, &token::get_owner> >,
+                           indexed_by< N( bysymbol ), const_mem_fun< token, uint64_t, &token::get_symbol> >,
+                           indexed_by< N( byname ), const_mem_fun< token, uint64_t, &token::get_name> > >;
+
+   };
+
+   EOSIO_ABI( marketplace, (list)(makeoffer)(acceptoffer)(test) )
+
+} // namespace eos
