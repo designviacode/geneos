@@ -1,5 +1,6 @@
 body{
     background-image: linear-gradient(93deg, #262532, #18191f);
+    padding-bottom:100px;
 }
 
 
@@ -36,6 +37,39 @@ body{
     }
 }
 
+table tr {
+
+    th{
+    @include card-heading;
+    padding-bottom:35px;
+    position: relative;
+
+        &::after{
+            content: " ";
+            position: absolute;
+            width:100%;
+            height:1px;
+            background: rgba(255,255,255,0.1);
+            @include dim;
+            top:40px;
+            left:0;
+        }
+    }
+    td{
+        @include default-typog;
+        padding-bottom:35px;
+
+        a{
+            @include default-typog;
+
+            &:hover{
+                color:$pink;
+                text-decoration: none;
+            }
+        }
+    }
+
+}
 
 .container{
     ul.nav{
@@ -48,7 +82,6 @@ body{
         }
         a.nav-link{
             @include subnav-typog;
-
             padding:0;
             margin: 0 25px 0 0;
             
@@ -87,7 +120,33 @@ body{
             }
 
             h4{
-                @include card-heading
+                @include card-heading;
+            }
+
+            .card-header{
+                @include card-heading;
+                padding:0;
+                border:0;
+            }
+
+            hr{
+                background:$white;
+                margin: 20px 0 20px 0;
+                @include dim
+                
+            }
+
+            .activity-center{
+                width: 250px;
+                margin: 0 auto;
+            }
+
+            .subtle-text{
+                @include dim
+            }
+
+            hr{
+                background:rgba(255,255,255,0.1);
             }
 
         }
@@ -107,10 +166,16 @@ body{
     h1{
         color: $purple;
     }
+ 
     .card{
         @include dark-box;
         @include default-typog;
         @include box-shadow;
+
+        h4{
+            margin-bottom:10px;
+            color:$purple;
+        }
     }
     &::before{
         @include pretty-lines;
@@ -124,7 +189,6 @@ body{
     h1{
         color: $pink;
     }
-
     .card{
         @include dark-box;
         @include default-typog;
@@ -134,6 +198,12 @@ body{
         @include pretty-lines;
         background: $pink;
     }
+
+    .card{
+        h4{
+            display: inline;
+        }
+    }
 }
 
 
@@ -141,6 +211,51 @@ body{
     @include card-number-heading;
     position: relative;
 }
+
+.card-number-detail{
+    @include default-typog;
+    @include dim;
+}
+
+.teal-plus{
+    &::before{
+        content: "+";
+        position:absolute;
+        top:0;
+        left: -15px;
+        height:8px;
+        width: 8px;
+        color: $teal;
+        border-radius: 100%;
+    }
+}
+
+.purple-plus{
+    &::before{
+        content: "+";
+        position:absolute;
+        top:0;
+        left: -15px;
+        height:8px;
+        width: 8px;
+        color: $purple;
+        border-radius: 100%;
+    }
+}
+
+.orange-plus{
+    &::before{
+        content: "+";
+        position:absolute;
+        top:0;
+        left: -15px;
+        height:8px;
+        width: 8px;
+        color: $orange;
+        border-radius: 100%;
+    }
+}
+
 
 .teal-bullet{
     &::before{
@@ -180,7 +295,11 @@ body{
         border-radius: 100%;
     }
 }
-
+.legend-table{
+    margin-top:20px;
+    width:200px;
+    margin:35px auto 0 auto;
+}
 .legend-item{
     margin-bottom:25px;
     position: relative;
@@ -200,4 +319,31 @@ body{
     margin: 0 0 20px 0;
 }
 
+.color-emphasis{
+    color:$pink;
+}
+.emphasis{
+    border:1px solid rgba(255,255,255,0.1);
+    padding:15px;
+    @include card-number;
+    margin: 0 0 0 10px;
+    color:$pink;
+}
 
+ul.recommend{
+    margin-top:30px;
+    margin-bottom: 30px;
+}
+.report-icon{
+    position: relative;
+
+    &::before{
+        content: "\25AE";  /* this is your text. You can also use UTF-8 character codes as I do here */
+        font-family: FontAwesome;
+        left:-15px;
+        position:absolute;
+        top:0;
+        color:$white;
+        font-size:$normal-text;
+        }
+    }

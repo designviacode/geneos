@@ -23,81 +23,129 @@ export default class extends Component {
           </Nav>
           <a name="#insights" />
           <section>
-            <h3>Insights</h3>
-            <Table>
-              <thead>
-                <tr>
-                  <th>Your metrics</th>
-                  <th>Personalized benchmarks</th>
-                  <th>Goal</th>
-                  <th />
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>798 steps per day</td>
-                  <td>824 steps per day</td>
-                  <td>+42 steps per day</td>
-                  <td>
-                    <a href="#">View reports</a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>3.2km distance walked per day</td>
-                  <td>4.1km distance walked per day</td>
-                  <td>+0.9km distance walked per day</td>
-                  <td>
-                    <a href="#">View reports</a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>7.2 hours per night</td>
-                  <td>8 hours per night</td>
-                  <td>0.8 hours per night</td>
-                  <td>
-                    <a href="#">View reports</a>
-                  </td>
-                </tr>
-              </tbody>
-            </Table>
+            <h1>Insights</h1>
+            <Card>
+              <Table>
+                <thead>
+                  <tr>
+                    <th>Your metrics</th>
+                    <th>Personalized benchmarks</th>
+                    <th>Goal</th>
+                    <th />
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div className="card-number">798</div>
+                      <span className="card-number-detail">Steps per day</span>
+                    </td>
+                    <td>
+                      <div className="card-number">798</div>
+                      <span className="card-number-detail">Steps per day</span>
+                    </td>
+                    <td>
+                      <div className="card-number">+42</div>
+                      <span className="card-number-detail">Steps per day</span>
+                    </td>
+                    <td>
+                      <a href="#"><i className="far fa-file"></i>View reports</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                    <div className="card-number">3.2km</div>
+                    <span className="card-number-detail">Distance walked per day</span>
+                     </td>
+                    <td>
+                    <div className="card-number">4.1km</div>
+                    <span className="card-number-detail">Distance walked per day</span>
+                    </td>
+                    <td>
+                    <div className="card-number">+0.9km</div>
+                    <span className="card-number-detail">Distance walked per day</span>
+                    </td>
+                    <td>
+                      <a href="#">View reports</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                    <div className="card-number">7.2hrs</div>
+                       sleep per night
+                    </td>
+                    <td><div className="card-number">8.0hrs</div>
+                      <span className="card-number-detail">sleep per night</span>
+                     </td>
+                    <td><div className="card-number">+0.8hrs</div>
+                     per night
+                     </td>
+                    <td>
+                      <a href="#">View reports</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </Table>
+              </Card>
           </section>
           <a name="#recommendations" />
           <section>
-            <h3>Recommendations</h3>
+            <h1>Recommendations</h1>
+            <Card>
             <ul>
               <li>
-                Based on your age—
-                <ul>
+                <h4>Based on your 
+                  <span class="color-emphasis"> age</span>
+                </h4>
+                <span className="emphasis">28</span>
+                
+                <ul className="recommend">
                   <li>You should exercise at least 31 minutes per day</li>
                   <li>You should sleep at least 8 hours per night</li>
                 </ul>
               </li>
               <li>
-                Based on your genetics—
-                <ul>
+                <h4>Based on your 
+                  <span class="color-emphasis"> genetics</span>
+                </h4>
+                <span className="emphasis">European, East Asian, Subsaharan African</span>
+
+                <ul className="recommend">
                   <li>You should exercise at least 31 minutes per day</li>
                   <li>You should sleep at least 8 hours per night</li>
                 </ul>
               </li>
               <li>
-                Based on your location—
-                <ul>
+              <h4>Based on your 
+                  <span class="color-emphasis"> location</span>
+                </h4>
+                <span className="emphasis">London, UK</span>
+
+
+                <ul className="recommend">
                   <li>You should exercise at least 31 minutes per day</li>
                   <li>You should sleep at least 8 hours per night</li>
                 </ul>
               </li>
               <li>
-                Based on your lifestyle—
-                <ul>
+
+                <h4>Based on your 
+                  <span class="color-emphasis"> gender</span>
+                </h4>
+                <span className="emphasis">Male</span>
+
+
+                <ul className="recommend">
                   <li>You should exercise at least 31 minutes per day</li>
                   <li>You should sleep at least 8 hours per night</li>
                 </ul>
               </li>
             </ul>
+            </Card>
           </section>
           <a name="#reports" />
           <section>
-            <h3>Reports</h3>
+            <h1>Reports</h1>
             <Card>
               <Table>
                 <thead>

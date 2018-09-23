@@ -61,18 +61,11 @@ export default class extends Component {
             <h1>Earnings</h1>
             <Row>
               {data.earnings.map(item => (
-                <Col data-aos="fade-up">
+                <Col data-aos="fade-up" data-aos-delay={item.delay}>
                   <Card key={item.id}>
                     <CardBody>
-                      <h5>{item.name}</h5>
-                      <h1>
-                        {item.amount} ~{' '}
-                        <img
-                          src="/static/eos-grey.svg"
-                          style={{ height: 25 }}
-                        />{' '}
-                        {item.eosAmount} EOS
-                      </h1>
+                      <h4>{item.name}</h4>
+                      <span class="card-number">{item.amount}</span>
                     </CardBody>
                   </Card>
                 </Col>
@@ -83,57 +76,58 @@ export default class extends Component {
           <section>
             <a name="#earnings" />
             <h1>Data Usage</h1>
-            <Row>
-              <Col lg="4">
-                <img src="/static/data-usage.svg" />
-                <div>
-                  <Dot color="turquoise" />
-                  <div>52.4%</div>
-                  <div>Cancer</div>
-                </div>
-                <hr />
-                <div>
-                  <Dot color="purple" />
-                  <div>16.4%</div>
-                  <div>Diabetes</div>
-                </div>
-                <hr />
-                <div>
-                  <Dot color="turquoise" />
-                  <div>31.2%</div>
-                  <div>Arthritis</div>
-                </div>
-              </Col>
-              <Col lg="8">
-                <Card>
-                  <CardHeader>Data Sold To</CardHeader>
-                  <Table>
-                    <thead>
-                      <tr>
-                        <th>Subscriber</th>
-                        <th>Purpose</th>
-                        <th>Rating</th>
-                        <th>Earned</th>
-                        <th>Start date</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {data.subscribers.map(subscriber => (
+            <div className="card">
+              <Row className="justify-content-between">
+                <Col lg="4">
+                  <img src="/static/data-usage.svg" />
+                  <div className="legend-table">
+                    <div>
+                      <div className="card-number teal-bullet">52.4%</div>
+                      <div>Cancer</div>
+                    </div>
+                    <hr />
+                    <div>
+                      <div className="card-number purple-bullet">16.4%</div>
+                      <div>Diabetes</div>
+                    </div>
+                    <hr />
+                    <div>
+                      <div className="card-number orange-bullet">31.2%</div>
+                      <div>Arthritis</div>
+                    </div>
+                  </div>
+                </Col>
+                <Col lg="7">
+                  <Card>
+                    <CardHeader>Data Sold To</CardHeader>
+                    <Table>
+                      <thead>
                         <tr>
-                          <td>{subscriber.name}</td>
-                          <td>{subscriber.purpose}</td>
-                          <td>{subscriber.rating}</td>
-                          <td>{subscriber.earned}</td>
-                          <td>
-                            {moment(subscriber.startDate).format('DD MMM ‘YY')}
-                          </td>
+                          <th>Subscriber</th>
+                          <th>Purpose</th>
+                          <th>Rating</th>
+                          <th>Earned</th>
+                          <th>Start date</th>
                         </tr>
-                      ))}
-                    </tbody>
-                  </Table>
-                </Card>
-              </Col>
-            </Row>
+                      </thead>
+                      <tbody>
+                        {data.subscribers.map(subscriber => (
+                          <tr>
+                            <td>{subscriber.name}</td>
+                            <td>{subscriber.purpose}</td>
+                            <td>{subscriber.rating}</td>
+                            <td>{subscriber.earned}</td>
+                            <td>
+                              {moment(subscriber.startDate).format('DD MMM ‘YY')}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </Table>
+                  </Card>
+                </Col>
+              </Row>
+            </div>
           </section>
         </Container>
       </LayoutMain>

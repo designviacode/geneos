@@ -20,19 +20,25 @@ $light-gradient: linear-gradient(126deg, $white, $gray);
 
 
 //sizes
-$small-text: 0.6em;
-$normal-text: 0.75em;
-$large-text: 1em;
-$xlarge-text: 2em;
+$small-text: 10px;
+$normal-text: 12px;
+$large-text: 14px;
+$xlarge-text: 18px;
+$xxlarge-text: 28px;
 
 
 // borders
 
 
 // mixins
+@mixin dim{
+    opacity:0.5;
+}
+
 @mixin subtle-right-border-dark{
     border-right:1px solid rgba(255,255,255,0.05);
 }
+
 
 @mixin animated{
     transition:0.2s all ease-in-out;
@@ -93,14 +99,14 @@ $xlarge-text: 2em;
 
 @mixin card-number-heading{
     font-family: Gotham;
-    font-size: $xlarge-text;
+    font-size: $xxlarge-text;
     color: $white;
 }
 
 
 @mixin card-heading{
     font-family: Gotham;
-    font-size: $large-text;
+    font-size: $normal-text;
     font-weight: 100;
     letter-spacing: $h-spacing;
     color: $white;
@@ -109,7 +115,7 @@ $xlarge-text: 2em;
 
 @mixin card-number{
     font-family: Gotham;
-    font-size: $large-text;
+    font-size: $xlarge-text;
     color: $white;
 }
 

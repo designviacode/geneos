@@ -24,16 +24,14 @@ export default () => (
               }}
             />
             <hr />
-            <div className="d-flex align-items-center">
+            <div className="d-flex activity-center">
               <div className="first-activity-stat">
-                <Dot color="turquoise" />
-                <div>6.43%</div>
-                Increase in steps
+                <div className="card-number teal-plus">6.43%</div>
+                <span className="subtle-text">Increase in steps</span>
               </div>
               <div>
-                <Dot color="turquoise" />
-                <div>483</div>
-                Weekly avg
+                <div className="card-number">483</div>
+                <span className="subtle-text">Weekly avg</span>
               </div>
             </div>
           </Col>
@@ -50,16 +48,14 @@ export default () => (
               }}
             />
             <hr />
-            <div className="d-flex align-items-center">
+            <div className="d-flex activity-center">
               <div className="first-activity-stat">
-                <Dot color="orange" />
-                <div>6.43%</div>
-                Increase in steps
+                <div className="card-number orange-plus">6.43%</div>
+                <span className="subtle-text">Increase in steps</span>
               </div>
               <div>
-                <Dot color="orange" />
-                <div>483</div>
-                Weekly avg
+                <div className="card-number">483</div>
+                <span className="subtle-text">Weekly avg</span>
               </div>
             </div>
           </Col>
@@ -76,16 +72,14 @@ export default () => (
               }}
             />
             <hr />
-            <div className="d-flex align-items-center">
+            <div className="d-flex activity-center">
               <div className="first-activity-stat">
-                <Dot color="purple" />
-                <div>6.43%</div>
-                Increase in steps
+                <div className="card-number purple-plus">6.43%</div>
+                <span className="subtle-text">Increase in steps</span>
               </div>
               <div>
-                <Dot color="purple" />
-                <div>483</div>
-                Weekly avg
+              <div className="card-number">483</div>
+              <span className="subtle-text">Weekly avg</span>
               </div>
             </div>
           </Col>

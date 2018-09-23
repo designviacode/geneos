@@ -34,7 +34,9 @@ My Data Page
 ========================================================================== */
 
 .first-activity-stat {
-  border-right: 1px solid #ccc;
+@include subtle-right-border-dark;
+  margin-right:20px;
+  padding-right:20px;
 }
 
 .dot {
