@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { getListings, requestData } from '../../actions/research';
 import { iconCheckCircle } from '../../utils/fontawesome';
+import ResearchConfirmation from '../ResearchConfirmation';
 
 const AUDIENCE_COUNT_DEFAULT = 120;
 
@@ -17,7 +18,8 @@ export default class Initialize extends React.Component {
   state = {
     listings: null,
     loading: false,
-    requesting: false
+    requesting: false,
+    done: false,
   };
 
   componentDidMount() {
@@ -32,6 +34,7 @@ export default class Initialize extends React.Component {
           listings: data.data,
           loading: false
         });
+
       })
       .catch(err => {
         this.setState({
@@ -42,40 +45,81 @@ export default class Initialize extends React.Component {
       });
   }
 
-  handleRequestClick = () => {
-    const { data } = this.props;
-
-    this.setState({ requesting: true });
-    requestData(data).then(() => {
-      this.setState({ requesting: false });
-      this.props.jumpToStep(3);
-    });
-  };
-
-  renderListing(listing) {
-    return (
-      <tr key={listing.id}>
-        <td />
-        <td>{listing.genetics}</td>
-        <td>{listing.age}</td>
-        <td>{listing.location}</td>
-        <td>{listing.weight}</td>
-        <td>{listing.sleep}</td>
-        <td>{listing.activity}</td>
-        <td>{listing.rate}</td>
-      </tr>
-    );
-  }
-
-  render() {
-    const { listings, loading, error } = this.state;
-
-    let totalCost = null;
+  calculateTotalcost(listings) {
+    let totalCost = 0;
     if (listings) {
       totalCost = listings.reduce((cost, user) => {
         const rate = parseFloat(user.rate);
         return cost + (isNaN(rate) ? 0 : rate);
       }, 0);
+    }
+    return totalCost;
+  }
+
+  handleRequestClick = () => {
+    const { data } = this.props;
+
+    this.setState({ requesting: true });
+    requestData(data).then(() => {
+      this.setState({
+        requesting: false,
+        done: true,
+      });
+      this.props.jumpToStep(3);
+    });
+  };
+
+  formatDecimal(num, decimals = 1) {
+    return typeof num === 'number' ? num.toFixed(decimals) : '';
+  }
+
+  renderListing = (listing) => {
+    return (
+      <tr key={listing.id}>
+        <td />
+        <td>{listing.genetics}</td>
+        <td>{this.formatDecimal(listing.age, 0)}</td>
+        <td>{listing.location}</td>
+        <td>{this.formatDecimal(listing.weight, 0)}</td>
+        <td>{this.formatDecimal(listing.sleep)}</td>
+        <td>{this.formatDecimal(listing.activity)}</td>
+        <td>{listing.rate}</td>
+      </tr>
+    );
+  };
+
+  renderConfirmation() {
+    const { listings } = this.state;
+    const { data } = this.props;
+
+    const totalCount = listings.length;
+    const totalCost = this.calculateTotalcost(listings);
+
+    const finalData = {
+      ...data,
+      totalCount,
+      totalCost,
+    };
+
+    return (
+      <div className="research-step-initialize">
+        <Row>
+          <Col>
+            <h4>You're all set.</h4>
+          </Col>
+        </Row>
+        <ResearchConfirmation request={finalData} />
+      </div>
+    );
+  }
+
+  render() {
+    const { listings, done, error } = this.state;
+
+    const totalCost = this.calculateTotalcost(listings);
+
+    if (done) {
+      return this.renderConfirmation();
     }
 
     return (
@@ -85,25 +129,27 @@ export default class Initialize extends React.Component {
             <h4>Select your dataset</h4>
           </Col>
         </Row>
-        <table>
-          <thead>
-            <tr>
-              <th>Select</th>
-              <th>Genetics</th>
-              <th>Age</th>
-              <th>Location</th>
-              <th>Weight</th>
-              <th>Sleep Range</th>
-              <th>Activity Level</th>
-              <th>Rate</th>
-            </tr>
-          </thead>
-          {error ? (
-            <tbody><tr><td>Error loading listings!</td></tr></tbody>
-          ) : (
-            <tbody>{listings && listings.map(this.renderListing)}</tbody>
-          )}
-        </table>
+        <div className="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Select</th>
+                <th>Genetics</th>
+                <th>Age</th>
+                <th>Location</th>
+                <th>Weight</th>
+                <th>Sleep Range</th>
+                <th>Activity Level</th>
+                <th>Rate</th>
+              </tr>
+            </thead>
+            {error ? (
+              <tbody><tr><td>Error loading listings!</td></tr></tbody>
+            ) : (
+              <tbody>{listings && listings.map(this.renderListing)}</tbody>
+            )}
+          </table>
+        </div>
         <FormGroup>
           <div className="summary-label">Select</div>
           <div className="summary-input">

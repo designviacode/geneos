@@ -26,6 +26,11 @@
       color: #262532;
       font-size: 2.625rem;
     }
+
+    .table-wrapper {
+      max-height: 300px;
+      overflow: auto;
+    }
   }
 }
 

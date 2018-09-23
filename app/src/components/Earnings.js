@@ -5,6 +5,7 @@ import TransactionsStore from '../store/transactions';
 
 export default class Earnings extends React.Component {
   state = {
+    lastEarnings: 0,
     earnings: 0,
   };
 
@@ -23,12 +24,13 @@ export default class Earnings extends React.Component {
     if (!this.mounted) return;
 
     this.setState({
+      lastEarnings: this.state.earnings || 0,
       earnings: TransactionsStore.earnings,
     });
   };
 
   render() {
-    const { earnings } = this.state;
+    const { lastEarnings, earnings } = this.state;
 
     return (
       <div className="d-flex align-items-center">
@@ -40,7 +42,7 @@ export default class Earnings extends React.Component {
           <div>
             <CountUp
               component="span"
-              initialValue={0}
+              start={lastEarnings}
               end={earnings}
               className="text-white"
               duration={2}

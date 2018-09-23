@@ -19,9 +19,11 @@ export default class User extends React.Component {
   };
 
   componentDidMount() {
+    this.mounted = true;
     onDataRequest(this.handleDataRequest);
 
     getUsers().then(response => {
+      if (!this.mounted) return;
       this.setState({
         users: response.data || [],
       })
@@ -29,10 +31,12 @@ export default class User extends React.Component {
   }
 
   componentWillUnmount() {
+    this.mounted = false;
     offDataRequest(this.handleDataRequest);
   }
 
   handleDataRequest = (data) => {
+    if (!this.mounted) return;
     this.setState(prevState => ({
       dataRequests: [...prevState.dataRequests, data],
     }));
@@ -42,6 +46,7 @@ export default class User extends React.Component {
     userStore.setUser(user);
 
     getOffers(user).then(response => {
+      if (!this.mounted) return;
       this.setState({ dataRequests: response.data });
     })
   }

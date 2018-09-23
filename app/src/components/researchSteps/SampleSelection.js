@@ -91,16 +91,6 @@ export default class SampleSelection extends React.Component {
           <Label>{label}</Label>
         </Col>
         <Col xs={6}>
-          {durations.map(label => (
-            <Button
-              key={label}
-              type="button"
-              onClick={() => this.emitChange(name, label)}
-              color={duration === label ? 'primary' : 'secondary'}
-            >
-              {label}
-            </Button>
-          ))}
           <Input
             name={name}
             type="select"
