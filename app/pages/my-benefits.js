@@ -19,12 +19,55 @@ import Dot from '../src/components/Dot';
 
 const data = {
   earnings: [
-    { id: 1, name: 'Today', amount: '$12.81', eosAmount: '2.17' },
-    { id: 2, name: 'This Month', amount: '$81.11', eosAmount: '4.17' },
-    { id: 3, name: 'This Year', amount: '$482.81', eosAmount: '6.17' }
+    { id: 1, name: 'Today', amount: '$12.81', eosAmount: '2.17', delay: 0},
+    { id: 2, name: 'This Month', amount: '$81.11', eosAmount: '4.17', delay: 100 },
+    { id: 3, name: 'This Year', amount: '$482.81', eosAmount: '6.17', delay: 200 }
   ],
   subscribers: [
     {
+      name: 'NYU',
+      purpose: 'Lung cancer research',
+      rating: '3 Months',
+      earned: '25 EOS',
+      startDate: 'Sat Sep 22 2018 18:11:42 GMT+0100 (British Summer Time)',
+      delay: 300 
+    },{
+      name: 'NYU',
+      purpose: 'Lung cancer research',
+      rating: 71,
+      earned: 3.4,
+      startDate: 'Sat Sep 22 2018 18:11:42 GMT+0100 (British Summer Time)'
+    },{
+      name: 'NYU',
+      purpose: 'Lung cancer research',
+      rating: 71,
+      earned: 3.4,
+      startDate: 'Sat Sep 22 2018 18:11:42 GMT+0100 (British Summer Time)'
+    },{
+      name: 'NYU',
+      purpose: 'Lung cancer research',
+      rating: 71,
+      earned: 3.4,
+      startDate: 'Sat Sep 22 2018 18:11:42 GMT+0100 (British Summer Time)'
+    },{
+      name: 'NYU',
+      purpose: 'Lung cancer research',
+      rating: 71,
+      earned: 3.4,
+      startDate: 'Sat Sep 22 2018 18:11:42 GMT+0100 (British Summer Time)'
+    },{
+      name: 'NYU',
+      purpose: 'Lung cancer research',
+      rating: 71,
+      earned: 3.4,
+      startDate: 'Sat Sep 22 2018 18:11:42 GMT+0100 (British Summer Time)'
+    },{
+      name: 'NYU',
+      purpose: 'Lung cancer research',
+      rating: 71,
+      earned: 3.4,
+      startDate: 'Sat Sep 22 2018 18:11:42 GMT+0100 (British Summer Time)'
+    },{
       name: 'NYU',
       purpose: 'Lung cancer research',
       rating: 71,
@@ -99,7 +142,7 @@ export default class extends Component {
                 </Col>
                 <Col lg="8">
                   <Card>
-                    <CardHeader>Data Sold To</CardHeader>
+                    <CardHeader>Data Made Available To</CardHeader>
 
                     <table>
                       <thead>

@@ -73,8 +73,8 @@ export default class ProjectDetails extends React.Component {
               {label}
             </Button>
           ))}
+         
           <Button type="button">
-            <FontAwesomeIcon icon={iconEdit} />
             Custom
           </Button>
         </div>

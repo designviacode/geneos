@@ -77,24 +77,72 @@
 .progtrckr{
   width:630px;
   margin: 0 auto 30px auto;
+  position: relative;
+  left:35px;
+  
+  &::after{
+    content:' ';
+    height:1px;
+    width:430px;
+    background:$pink;
+    position:absolute;
+    bottom:23px;
+    left:65px;
+  }
+}
+.step-head{
+  margin-bottom:35px;
+  display:block;
 }
 
 .step-sub{
   @include subheading-typog;
   @include subnav-typog;
   color:$pink;
+  display:block;
+  margin-top:20px;
 }
 ol.progtrckr li{
   line-height:0;
   text-align:left;
+  &:span{
+    padding:0;
+  }
 }
-ol.progtrckr li.progtrckr-doing,
-ol.progtrckr li.progtrckr-todo{
-  border-bottom:1px solid $pink;
+ol.progtrckr li.progtrckr-doing{
+  border-bottom:0;
   @include heading;
   color:$pink;
   position: relative;
+  width:33.33%;
 }
+
+ol.progtrckr li.progtrckr-todo,
+ol.progtrckr li.progtrckr-done{
+  border-bottom:0;
+  @include heading;
+  color:$gray;
+  position: relative;
+  width:33.33%;
+  .step-sub{
+    color:$gray;
+  }
+}
+
+ol.progtrckr li.progtrckr-done:before{
+  color:$pink;
+  background:$white;
+  border:1px solid $pink;
+  border-radius:100%;
+  width:8px;
+  height:8px;
+  content: " ";
+  position:absolute;
+  bottom:0px;
+  left:65px;
+  z-index: 999;
+}
+
 ol.progtrckr li.progtrckr-doing:before{
   color:$pink;
   background:$pink;
@@ -103,7 +151,7 @@ ol.progtrckr li.progtrckr-doing:before{
   content: " ";
   position:absolute;
   bottom:0;
-  left:0;
+  left:65px;
 }
 
 
@@ -116,6 +164,9 @@ ol.progtrckr li.progtrckr-todo:before{
   height:8px;
   content: " ";
   position:absolute;
+  bottom:0px;
+  left:65px;
+  z-index: 999;
 }
 
 ol.progtrckr li.progtrckr-todo:after,
@@ -127,8 +178,8 @@ ol.progtrckr li.progtrckr-doing:after{
 
 
 
-
-.btn-secondary{
+.btn-secondary,
+.btn-primary{
   @include research-button;
 
     &::not(:disabled):not(.disabled).active:focus, .btn-secondary:not(:disabled):not(.disabled):active:focus, .show>.btn-secondary.dropdown-toggle:focus {
@@ -149,7 +200,7 @@ ol.progtrckr li.progtrckr-doing:after{
   &:focus{
     color: $black;
     background-color: #fff;
-    border:1px solid $gray;
+    border:1px solid $lightgray;
     outline: 0;
     box-shadow: 0 0 0 1px rgba(0,0,0,.1);
   }
@@ -175,4 +226,36 @@ ol.progtrckr li.progtrckr-doing:after{
 .overflow-buttons{
   width:440px;
   
+}
+
+
+.btn-secondary{
+  background:$white;
+  color:$black;
+}
+.next-button{
+  position: absolute;
+  bottom:-55px;
+  left:calc(50% - 160px);
+
+  button{
+  width:200px;
+  padding:20px;
+  background:$pink;
+  color:$white;
+  }
+}
+
+
+.back-button{
+  position: absolute;
+  bottom:0px;
+  left:calc(50% - 260px);
+
+  button{
+  width:200px;
+  padding:20px;
+  background:$white;
+  border:2px solid $pink;
+  }
 }
