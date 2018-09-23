@@ -19,9 +19,9 @@ import Dot from '../src/components/Dot';
 
 const data = {
   earnings: [
-    { id: 1, name: 'Today', amount: '$12.81' },
-    { id: 2, name: 'This Month', amount: '$81.11' },
-    { id: 3, name: 'This Year', amount: '$482.81' }
+    { id: 1, name: 'Today', amount: '$12.81', eosAmount: '2.17' },
+    { id: 2, name: 'This Month', amount: '$81.11', eosAmount: '4.17' },
+    { id: 3, name: 'This Year', amount: '$482.81', eosAmount: '6.17' }
   ],
   subscribers: [
     {
@@ -65,7 +65,14 @@ export default class extends Component {
                   <Card key={item.id}>
                     <CardBody>
                       <h5>{item.name}</h5>
-                      <h1>{item.amount}</h1>
+                      <h1>
+                        {item.amount} ~{' '}
+                        <img
+                          src="/static/eos-grey.svg"
+                          style={{ height: 25 }}
+                        />{' '}
+                        {item.eosAmount} EOS
+                      </h1>
                     </CardBody>
                   </Card>
                 </Col>
