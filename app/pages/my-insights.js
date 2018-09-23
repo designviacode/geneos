@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Card, Table, Container, Nav, NavItem, NavLink } from 'reactstrap';
+
 import Meta from '../src/components/Meta';
 import LayoutMain from '../src/layouts/main';
 
@@ -113,7 +114,7 @@ export default class extends Component {
             <ul>
               <li>
                 <h4>Based on your 
-                  <span class="color-emphasis"> age</span>
+                  <span className="color-emphasis"> age</span>
                 </h4>
                 <span className="emphasis">28</span>
                 
@@ -124,7 +125,7 @@ export default class extends Component {
               </li>
               <li>
                 <h4>Based on your 
-                  <span class="color-emphasis"> genetics</span>
+                  <span className="color-emphasis"> genetics</span>
                 </h4>
                 <span className="emphasis">European, East Asian, Subsaharan African</span>
 
@@ -135,7 +136,7 @@ export default class extends Component {
               </li>
               <li>
               <h4>Based on your 
-                  <span class="color-emphasis"> location</span>
+                  <span className="color-emphasis"> location</span>
                 </h4>
                 <span className="emphasis">London, UK</span>
 
@@ -148,7 +149,7 @@ export default class extends Component {
               <li>
 
                 <h4>Based on your 
-                  <span class="color-emphasis"> gender</span>
+                  <span className="color-emphasis"> gender</span>
                 </h4>
                 <span className="emphasis">Male</span>
 
@@ -159,48 +160,6 @@ export default class extends Component {
                 </ul>
               </li>
             </ul>
-            </Card>
-          </section>
-          <a name="#reports" />
-          <section>
-            <h1>Reports</h1>
-            <Card>
-              <table>
-                <thead>
-                  <tr>
-                    <th>Researcher</th>
-                    <th>Subject</th>
-                    <th>Release date</th>
-                    <th>Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>NYU</td>
-                    <td>Diabetes Prevention</td>
-                    <td>Sept 24, 2018</td>
-                    <td>
-                      <a href="#">View</a> | <a href="#">Share</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>NYU</td>
-                    <td>Cancer Research Report</td>
-                    <td>Sept 24, 2018</td>
-                    <td>
-                      <a href="#">View</a> | <a href="#">Share</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>NYU</td>
-                    <td>Heart Disease Report</td>
-                    <td>Sept 24, 2018</td>
-                    <td>
-                      <a href="#">View</a> | <a href="#">Share</a>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
             </Card>
           </section>
         </Container>

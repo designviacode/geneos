@@ -10,6 +10,11 @@
       "publicKey": "EOS6hCFe4Dx8vJWeEDVmkGXQtHZ5YVuLNgjDfruW6W92PcNy5LQRA",
       "privateKey": "5J6dE91wEfjZGXXZcm39VaUbZ7AJmTJiV52ekQGsQJGkrLFiSmZ",
       "name": "albert"
+    },
+    {
+      "publicKey": "EOS79eXQ1ZWekEWccU8iiWxiySvas1vrEJq86rC1bfokfKiRgNuXb",
+      "privateKey": "5JsUMx2ScuEpPoPveMsbv9tpYcG3aDNe4rSuQSgq76BfYcWF3nK",
+      "name": "curtis"
     }
   ]
 }

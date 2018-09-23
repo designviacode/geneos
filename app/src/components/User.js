@@ -35,6 +35,11 @@ export default class User extends React.Component {
   }
 
   handleDataRequest = () => {
+    window.setTimeout(this.loadOffers, 5000);
+  };
+
+  loadOffers = () => {
+    if (!this.mounted) return;
     const user = userStore.getUser();
     if (user) {
       getOffers(user).then(response => {

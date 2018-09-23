@@ -11,9 +11,9 @@ import {
   NavItem,
   NavLink
 } from 'reactstrap';
-import Meta from '../src/components/Meta';
 import moment from 'moment';
 
+import Meta from '../src/components/Meta';
 import LayoutMain from '../src/layouts/main';
 
 const data = {
@@ -40,57 +40,57 @@ const data = {
       purpose: 'Lung cancer research',
       rating: '3 Months',
       earned: '25 EOS',
-      startDate: 'Sat Sep 22 2018 18:11:42 GMT+0100 (British Summer Time)',
+      startDate: '2018-09-22T18:11:42Z',
       delay: 300 
     },{
       name: 'NYU',
       purpose: 'Lung cancer research',
       rating: 71,
       earned: 3.4,
-      startDate: 'Sat Sep 22 2018 18:11:42 GMT+0100 (British Summer Time)'
+      startDate: '2018-09-22T18:11:42Z',
     },{
       name: 'NYU',
       purpose: 'Lung cancer research',
       rating: 71,
       earned: 3.4,
-      startDate: 'Sat Sep 22 2018 18:11:42 GMT+0100 (British Summer Time)'
+      startDate: '2018-09-22T18:11:42Z',
     },{
       name: 'NYU',
       purpose: 'Lung cancer research',
       rating: 71,
       earned: 3.4,
-      startDate: 'Sat Sep 22 2018 18:11:42 GMT+0100 (British Summer Time)'
+      startDate: '2018-09-22T18:11:42Z',
     },{
       name: 'NYU',
       purpose: 'Lung cancer research',
       rating: 71,
       earned: 3.4,
-      startDate: 'Sat Sep 22 2018 18:11:42 GMT+0100 (British Summer Time)'
+      startDate: '2018-09-22T18:11:42Z',
     },{
       name: 'NYU',
       purpose: 'Lung cancer research',
       rating: 71,
       earned: 3.4,
-      startDate: 'Sat Sep 22 2018 18:11:42 GMT+0100 (British Summer Time)'
+      startDate: '2018-09-22T18:11:42Z',
     },{
       name: 'NYU',
       purpose: 'Lung cancer research',
       rating: 71,
       earned: 3.4,
-      startDate: 'Sat Sep 22 2018 18:11:42 GMT+0100 (British Summer Time)'
+      startDate: '2018-09-22T18:11:42Z',
     },{
       name: 'NYU',
       purpose: 'Lung cancer research',
       rating: 71,
       earned: 3.4,
-      startDate: 'Sat Sep 22 2018 18:11:42 GMT+0100 (British Summer Time)'
+      startDate: '2018-09-22T18:11:42Z',
     },
     {
       name: 'Johns Hopkins',
       purpose: 'Atrial fibrillation research',
       rating: 43,
       earned: 4.1,
-      startDate: 'Sat Sep 10 2018 18:11:42 GMT+0100 (British Summer Time)'
+      startDate: '2018-09-22T18:11:42Z',
     }
   ]
 };
@@ -111,30 +111,50 @@ export default class extends Component {
             </NavItem>
           </Nav>
           <section>
-            <a name="#earnings" />
-            <h1>Earnings</h1>
-            <Row>
-              {data.earnings.map(item => (
-                <Col data-aos="fade-up" data-aos-delay={item.delay}>
-                  <Card key={item.id}>
-                    <CardBody>
-                      <div className="fiat-amt">
-                        <h4>{item.name}</h4>
-                        <span class="card-number">{item.amount}</span>
-                      </div>
-                      <div className="crypto-amt">
-                        <span class="card-number">{item.eosAmount}</span>
-                      </div>
-
-                    </CardBody>
-                  </Card>
-                </Col>
-              ))}
-            </Row>
+            <a name="#reports" />
+            <h1>Reports</h1>
+            <Card>
+              <table>
+                <thead>
+                <tr>
+                  <th>Researcher</th>
+                  <th>Subject</th>
+                  <th>Release date</th>
+                  <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>NYU</td>
+                  <td>Diabetes Prevention</td>
+                  <td>Sept 24, 2018</td>
+                  <td>
+                    <a href="#">View</a> | <a href="#">Share</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>NYU</td>
+                  <td>Cancer Research Report</td>
+                  <td>Sept 24, 2018</td>
+                  <td>
+                    <a href="#">View</a> | <a href="#">Share</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>NYU</td>
+                  <td>Heart Disease Report</td>
+                  <td>Sept 24, 2018</td>
+                  <td>
+                    <a href="#">View</a> | <a href="#">Share</a>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </Card>
           </section>
           <hr />
           <section>
-            <a name="#earnings" />
+            <a name="#usage" />
             <h1>Data Usage</h1>
             <div className="card" data-aos="fade-up" data-aos-delay="600">
               <Row className="justify-content-between">
@@ -171,8 +191,8 @@ export default class extends Component {
                         </tr>
                       </thead>
                       <tbody>
-                        {data.subscribers.map(subscriber => (
-                          <tr>
+                        {data.subscribers.map((subscriber, index) => (
+                          <tr key={index}>
                             <td>{subscriber.name}</td>
                             <td>{subscriber.purpose}</td>
                             <td>{subscriber.rating}</td>
