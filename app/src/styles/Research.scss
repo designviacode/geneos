@@ -28,3 +28,151 @@
     }
   }
 }
+
+
+.page-research,
+.page-sample-selection,
+.page-initialize{
+
+  background: #fff !important;
+
+
+  .bg-dark {
+    background: #fff !important;
+    box-shadow: 0 10px 20px 20px rgba(0, 0, 0, 0.14);
+  }
+
+ 
+  .nav-link{
+    color:$black !important;
+  }
+
+  .progtrckr-doing {
+    @include subtle-right-border-dark;
+    margin-bottom:20px;
+    color:$pink;
+  }
+}
+
+.page-research{
+  padding-top:100px;
+
+  form{
+    width:600px;
+  }
+  
+  .card{
+      @include light-box-shadow;
+      @include light-box;
+      padding:35px;
+
+      label{
+        @include card-heading;
+        color:$black;
+      }
+  }
+
+}
+
+.progtrckr{
+  width:630px;
+  margin: 0 auto 30px auto;
+}
+
+.step-sub{
+  @include subheading-typog;
+  @include subnav-typog;
+  color:$pink;
+}
+ol.progtrckr li{
+  line-height:0;
+  text-align:left;
+}
+ol.progtrckr li.progtrckr-doing,
+ol.progtrckr li.progtrckr-todo{
+  border-bottom:1px solid $pink;
+  @include heading;
+  color:$pink;
+  position: relative;
+}
+ol.progtrckr li.progtrckr-doing:before{
+  color:$pink;
+  background:$pink;
+  width:8px;
+  height:8px;
+  content: " ";
+  position:absolute;
+  bottom:0;
+  left:0;
+}
+
+
+ol.progtrckr li.progtrckr-todo:before{
+  color:$pink;
+  background:$white;
+  border:1px solid $pink;
+  border-radius:100%;
+  width:8px;
+  height:8px;
+  content: " ";
+  position:absolute;
+}
+
+ol.progtrckr li.progtrckr-todo:after,
+ol.progtrckr li.progtrckr-doing:after{
+  display:none;
+}
+
+
+
+
+
+
+.btn-secondary{
+  @include research-button;
+
+    &::not(:disabled):not(.disabled).active:focus, .btn-secondary:not(:disabled):not(.disabled):active:focus, .show>.btn-secondary.dropdown-toggle:focus {
+      box-shadow: 0 0 0 3px rgba(0,0,0,0.1);
+    }
+  
+}
+
+.form-control{
+  border:0;
+  @include light-box-shadow;
+  padding:20px;
+  @include default-typog;
+  width:350px;
+  border-radius:0;
+  color: $black;
+
+  &:focus{
+    color: $black;
+    background-color: #fff;
+    border:1px solid $gray;
+    outline: 0;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.1);
+  }
+}
+
+.btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .show>.btn-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0 rgba(0,0,0,0) !important;
+  border-radius:0;
+  @include subheading-typog;
+  color: $black;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+  color: $black;
+  background-color: $yellow;
+  border:0;
+  border-radius:0;
+  @include subheading-typog;
+}
+
+
+
+.overflow-buttons{
+  width:440px;
+  
+}

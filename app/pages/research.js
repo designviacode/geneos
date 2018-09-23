@@ -29,9 +29,9 @@ export default class extends Component {
     const { form } = this.state;
 
     const steps = [
-      { name: 'Project Details', component: <ProjectDetails data={form} onChange={this.handleChange} /> },
-      { name: 'Sample Selection', component: <SampleSelection data={form} onChange={this.handleChange} /> },
-      { name: 'Initialize', component: <Initialize data={form} /> },
+      { name: <span>Step 1<div className="step-sub">test</div></span>, component: <ProjectDetails data={form} onChange={this.handleChange} /> },
+      { name:  <span>Step 2</span>, component: <SampleSelection data={form} onChange={this.handleChange} /> },
+      { name:  <span>Step 3</span>, component: <Initialize data={form} /> },
     ];
 
     return (

@@ -45,45 +45,63 @@ export default class extends Component {
                       <span className="card-number-detail">Steps per day</span>
                     </td>
                     <td>
-                      <div className="card-number">+42</div>
-                      <span className="card-number-detail">Steps per day</span>
+                      <div className="card-number pink-text">+42</div>
+                      <span className="card-number-detail">Recommended Steps per day</span>
                     </td>
                     <td>
-                      <a href="#"><i className="far fa-file"></i>View reports</a>
+                    <i className="far fa-file"></i><a href="#" className="standard-link">View reports</a>
                     </td>
                   </tr>
                   <tr>
                     <td>
                     <div className="card-number">3.2km</div>
-                    <span className="card-number-detail">Distance walked per day</span>
+                    <span className="card-number-detail">Recommended Distance walked per day</span>
                      </td>
                     <td>
                     <div className="card-number">4.1km</div>
                     <span className="card-number-detail">Distance walked per day</span>
                     </td>
                     <td>
-                    <div className="card-number">+0.9km</div>
+                    <div className="card-number pink-text">+0.9km</div>
                     <span className="card-number-detail">Distance walked per day</span>
                     </td>
                     <td>
-                      <a href="#">View reports</a>
+                      <a href="#" className="standard-link">View reports</a>
                     </td>
                   </tr>
                   <tr>
                     <td>
                     <div className="card-number">7.2hrs</div>
-                       sleep per night
+                       Avg Sleep per Night
                     </td>
                     <td><div className="card-number">8.0hrs</div>
-                      <span className="card-number-detail">sleep per night</span>
+                      <span className="card-number-detail">Avg Sleep per Night</span>
                      </td>
-                    <td><div className="card-number">+0.8hrs</div>
-                     per night
+                    <td><div className="card-number pink-text">+0.8hrs</div>
+                    <span className="card-number-detail">Recommended Sleep per Night</span>
                      </td>
                     <td>
-                      <a href="#">View reports</a>
+                      <a href="#" className="standard-link">View reports</a>
                     </td>
                   </tr>
+
+                  <tr>
+                    <td>
+                    <div className="card-number">7.2hrs</div>
+                       Avg Sleep per Night
+                    </td>
+                    <td><div className="card-number">8.0hrs</div>
+                      <span className="card-number-detail">Avg Sleep per Night</span>
+                     </td>
+                    <td><div className="card-number pink-text">+0.8hrs</div>
+                    <span className="card-number-detail">Recommended Sleep per Night</span>
+                     </td>
+                    <td>
+                      <a href="#" className="standard-link">View reports</a>
+                    </td>
+                  </tr>
+
+
                 </tbody>
               </table>
               </Card>

@@ -1,20 +1,30 @@
 // vars
 // colors
-$white: #eee;
+$white: #fff;
 $gray: #d1d1d1;
 $pink: #ff007e;
 $teal: #2ffcce;
 $yellow: #F8E71C;
 $darkgray: #2d2d2d;
-$black: #1a1a1a;
+$black: #262532;
 $purple: #b55bff;
 
 $p-spacing: 1px;
 $h-spacing: 3px;
 
 .white-text{
-    color:$white;
+    color:$white !important;
 }
+.pink-text{
+    color:$pink !important;
+}
+.teal-text{
+    color:$teal !important;
+}
+.yellow-text{
+    color:$yellow !important;
+}
+
 
 
 // //gradients
@@ -54,8 +64,31 @@ $xxlarge-text: 28px;
     padding:50px;
 }
 
+@mixin research-button{
+    padding:10px 10px 8px 10px;
+    background: $pink;
+    @include light-box-shadow;
+    border:0;
+    border-radius:0;
+    margin: 0 5px 0 5px;
+    @include subheading-typog;
+    color:$black;
+    letter-spacing:$p-spacing;
+    font-weight:300;
+
+}
+@mixin light-box{
+    background:$white;
+    color:$black;
+    border:0;
+    padding:50px;
+}
+
 @mixin box-shadow{
-    box-shadow: 0 10px 20px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 20px 5px rgba(0, 0, 0, 0.1);
+}
+@mixin light-box-shadow{
+    box-shadow: 10px 10px 30px 10px rgba(0, 0, 0, 0.05);
 }
 
 @mixin muted-white{
@@ -164,9 +197,9 @@ $xxlarge-text: 28px;
 
 @mixin subheading-typog{
     text-transform: uppercase;
-    font-family: 'Avenir', Arial, Helvetica, sans-serif;
-    font-size:0.5em;
-    letter-spacing: $p-spacing;
+    font-family: 'Gotham';
+    font-size:$small-text;
+    letter-spacing: $h-spacing;
 }
 
 @mixin heading-typog{
@@ -178,3 +211,4 @@ $xxlarge-text: 28px;
 
 // fonts
 // https://transfonter.org/
+

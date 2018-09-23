@@ -19,15 +19,9 @@ import Dot from '../src/components/Dot';
 
 const data = {
   earnings: [
-<<<<<<< Updated upstream
     { id: 1, name: 'Today', amount: '$12.81', eosAmount: '2.17' },
     { id: 2, name: 'This Month', amount: '$81.11', eosAmount: '4.17' },
     { id: 3, name: 'This Year', amount: '$482.81', eosAmount: '6.17' }
-=======
-    { id: 1, name: 'Today', amount: '$12.81' , delay: 0},
-    { id: 2, name: 'This Month', amount: '$81.11', delay: 100 },
-    { id: 3, name: 'This Year', amount: '$482.81' , delay: 200 }
->>>>>>> Stashed changes
   ],
   subscribers: [
     {
@@ -84,8 +78,8 @@ export default class extends Component {
             <h1>Data Usage</h1>
             <div className="card">
               <Row className="justify-content-between">
-                <Col lg="4">
-                  <img src="/static/data-usage.svg" />
+                <Col lg="3">
+                  <img src="/static/data-usage.svg" width="300" />
                   <div className="legend-table">
                     <div>
                       <div className="card-number teal-bullet">52.4%</div>
@@ -103,24 +97,17 @@ export default class extends Component {
                     </div>
                   </div>
                 </Col>
-                <Col lg="7">
+                <Col lg="8">
                   <Card>
                     <CardHeader>Data Sold To</CardHeader>
-<<<<<<< Updated upstream
+
                     <table>
                       <thead>
                         <tr>
                           <th>Subscriber</th>
-                          <th>Contract Name</th>
+                          <th>Project</th>
                           <th>Duration</th>
-=======
-                    <Table>
-                      <thead>
-                        <tr>
-                          <th>Subscriber</th>
-                          <th>Purpose</th>
-                          <th>Rating</th>
->>>>>>> Stashed changes
+
                           <th>Earned</th>
                           <th>Start date</th>
                         </tr>
@@ -138,11 +125,8 @@ export default class extends Component {
                           </tr>
                         ))}
                       </tbody>
-<<<<<<< Updated upstream
+
                     </table>
-=======
-                    </Table>
->>>>>>> Stashed changes
                   </Card>
                 </Col>
               </Row>

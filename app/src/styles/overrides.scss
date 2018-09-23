@@ -137,7 +137,7 @@ table tr {
             }
 
             .activity-center{
-                width: 250px;
+                width: 210px;
                 margin: 0 auto;
             }
 
@@ -222,7 +222,7 @@ table tr {
         content: "+";
         position:absolute;
         top:0;
-        left: -15px;
+        left: -20px;
         height:8px;
         width: 8px;
         color: $teal;
@@ -235,7 +235,7 @@ table tr {
         content: "+";
         position:absolute;
         top:0;
-        left: -15px;
+        left: -20px;
         height:8px;
         width: 8px;
         color: $purple;
@@ -248,7 +248,7 @@ table tr {
         content: "+";
         position:absolute;
         top:0;
-        left: -15px;
+        left: -20px;
         height:8px;
         width: 8px;
         color: $orange;
@@ -352,14 +352,6 @@ ul.recommend{
     @include card-number
 }
 
-
-    &::before{
-        content: "\25AE";  /* this is your text. You can also use UTF-8 character codes as I do here */
-        font-family: FontAwesome;
-        left:-15px;
-        position:absolute;
-        top:0;
-        color:$white;
-        font-size:$normal-text;
-        }
-    }
+.standard-link{
+    @include subheading-typog;
+}
