@@ -34,6 +34,9 @@
 .page-sample-selection,
 .page-initialize{
 
+
+
+  
   background: #fff !important;
 
 
@@ -52,6 +55,8 @@
     margin-bottom:20px;
     color:$pink;
   }
+
+
 }
 
 .page-research{
@@ -71,6 +76,16 @@
         color:$black;
       }
   }
+
+
+.nav-item-balance{
+  background:#fff !important;
+  
+  .white-text,
+  .text-white{
+    color:$black !important;
+  }
+}
 
 }
 
@@ -183,7 +198,7 @@ ol.progtrckr li.progtrckr-doing:after{
   @include research-button;
 
     &::not(:disabled):not(.disabled).active:focus, .btn-secondary:not(:disabled):not(.disabled):active:focus, .show>.btn-secondary.dropdown-toggle:focus {
-      box-shadow: 0 0 0 3px rgba(0,0,0,0.1);
+      box-shadow: 0 0 0 3px rgba(0,0,0,0.1) !important;
     }
   
 }
@@ -202,7 +217,7 @@ ol.progtrckr li.progtrckr-doing:after{
     background-color: #fff;
     border:1px solid $lightgray;
     outline: 0;
-    box-shadow: 0 0 0 1px rgba(0,0,0,.1);
+    box-shadow: 0 0 0 1px rgba(0,0,0,.1) !important;
   }
 }
 
@@ -236,13 +251,16 @@ ol.progtrckr li.progtrckr-doing:after{
 .next-button{
   position: absolute;
   bottom:-55px;
-  left:calc(50% - 160px);
+  left:calc(50% - 80px);
 
   button{
   width:200px;
+  height:50px;
   padding:20px;
   background:$pink;
   color:$white;
+  position: relative;
+  left:50px;
   }
 }
 
@@ -251,11 +269,12 @@ ol.progtrckr li.progtrckr-doing:after{
   position: absolute;
   bottom:0px;
   left:calc(50% - 260px);
-
-  button{
+  color:$pink !important;
   width:200px;
   padding:20px;
-  background:$white;
+  background:$white !important;
   border:2px solid $pink;
-  }
+  height:50px;
+  
 }
+

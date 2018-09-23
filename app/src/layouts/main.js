@@ -42,7 +42,9 @@ export default class extends React.Component {
       <div>
         <Navbar dark color="dark" expand="sm">
           <Link href="/">
-            <NavbarBrand href="/">Geneos</NavbarBrand>
+            <NavbarBrand href="/">
+            <img src="/static/geneos-logo.svg" width="50" className="nav-logo" /> GENEOS
+            </NavbarBrand>
           </Link>
           {user && user.isResearcher && (
             <Nav navbar className="mr-auto">

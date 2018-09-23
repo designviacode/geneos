@@ -86,7 +86,7 @@ export default class ProjectDetails extends React.Component {
     return (
       <Container>
         <Row className="justify-content-center">
-          <Col lg="6">
+          <Col lg="8">
             <Card>
               <Form>
                 {this.renderInput('Project Name', 'researchName')}

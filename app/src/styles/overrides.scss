@@ -1,6 +1,10 @@
 body{
     background-image: linear-gradient(93deg, #262532, #18191f);
     padding-bottom:100px;
+  }
+
+*{
+  outline:none;
 }
 
 .bg-dark {
@@ -481,3 +485,10 @@ $aos-distance: 10px !default;
     background:$pink;
   }
 
+.nav-logo{
+  margin: 15px 10px 20px 20px;
+}
+
+.navbar-brand{
+  @include subheading-typog;
+}
