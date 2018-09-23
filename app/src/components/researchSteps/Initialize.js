@@ -137,8 +137,6 @@ export default class Initialize extends React.Component {
         <table>
           <thead>
             <tr>
-              <th>Select</th>
-              <th>Genetics</th>
               <th>Age</th>
               <th>Location</th>
               <th>Weight</th>

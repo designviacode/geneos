@@ -49,7 +49,7 @@ export default class Earnings extends React.Component {
             />
             <span className="card-heading">EOS</span>
           </div>
-          <div className="card-heading white-text">earned</div>
+          <div className="card-heading white-text">available</div>
         </div>
       </div>
     );

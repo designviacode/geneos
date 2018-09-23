@@ -118,8 +118,14 @@ export default class extends Component {
                 <Col data-aos="fade-up" data-aos-delay={item.delay}>
                   <Card key={item.id}>
                     <CardBody>
-                      <h4>{item.name}</h4>
-                      <span class="card-number">{item.amount}</span>
+                      <div className="fiat-amt">
+                        <h4>{item.name}</h4>
+                        <span class="card-number">{item.amount}</span>
+                      </div>
+                      <div className="crypto-amt">
+                        <span class="card-number">{item.eosAmount}</span>
+                      </div>
+
                     </CardBody>
                   </Card>
                 </Col>
@@ -130,7 +136,7 @@ export default class extends Component {
           <section>
             <a name="#earnings" />
             <h1>Data Usage</h1>
-            <div className="card">
+            <div className="card" data-aos="fade-up" data-aos-delay="600">
               <Row className="justify-content-between">
                 <Col lg="3">
                   <img src="/static/data-usage.svg" width="300" />
@@ -152,7 +158,7 @@ export default class extends Component {
                   </div>
                 </Col>
                 <Col lg="8">
-                  <Card>
+                  <Card data-aos="fade-up" data-aos-delay="700">
                     <CardHeader>Data Sold To</CardHeader>
                     <table>
                       <thead>

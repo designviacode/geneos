@@ -92,7 +92,7 @@ export default class SampleSelection extends React.Component {
         <Col xs={3}>
           <Label>{label}</Label>
         </Col>
-        <Col xs={6}>
+        <Col lg={8}>
           <Input
             name={name}
             type="select"

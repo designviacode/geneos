@@ -60,7 +60,7 @@ export default class PurchaseConfirmation extends React.PureComponent {
       <Modal isOpen={isOpen} toggle={this.handleReject}>
         <ModalHeader>
           <h1>INCOMING</h1>
-          <span>ACCESS REQUEST</span>
+          <span className="die">ACCESS REQUEST</span>
         </ModalHeader>
         <ModalBody className="purchase-confirmation">
           <Row className="row-margin">
@@ -73,8 +73,9 @@ export default class PurchaseConfirmation extends React.PureComponent {
           {this.renderDetailRow('You will earn', request.price)}
           {this.renderDetailRow('Research Area', request.researchArea)}
           <ModalFooter>
-            <Button onClick={this.handleAccept} color="primary" disabled={isProcessing}>Accept</Button>
-            <Button onClick={this.handleReject} color="secondary" disabled={isProcessing}>Reject</Button>
+             <Button onClick={this.handleReject} color="secondary" disabled={isProcessing}>Reject</Button>
+             <Button onClick={this.handleAccept} color="primary" disabled={isProcessing}>Accept</Button>
+           
           </ModalFooter>
         </ModalBody>
       </Modal>

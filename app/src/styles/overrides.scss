@@ -51,6 +51,16 @@ body{
 a.nav-link {
   padding: 20px;
   margin: 0 35px 0 35px;
+
+  &:nth-child(1):hover{
+    color:$teal;
+  }
+  &:nth-child(2):hover{
+    color:$purple;
+  }
+  &:nth-child(3):hover{
+    color:$pink;
+  }
 }
 
 body {
@@ -515,3 +525,85 @@ $aos-distance: 10px !default;
     }
   }
   
+
+  .modal-dialog{
+
+    .btn-primary{
+      background:$yellow;
+      color:$black;
+      width:200px;
+      height:60px;
+      font-weight:bold;
+      transition:0.2s all ease;
+        &:hover{
+          background:$white;
+          transform: translate(-3px, -3px);
+        }
+    }
+    .btn-secondary{
+      background:transparent;
+      border:2px solid $yellow;
+      color:$yellow;
+      width:200px;
+      height:60px;
+      font-weight:bold;
+      transition:0.2s all ease;
+        &:hover{
+          color:$white;
+          border:2px solid $white;
+          transform: translate(-3px, -3px);
+        }
+    }
+
+    .modal-footer{
+      border-top:0;
+    }
+    .modal-header{
+      border-bottom: 1px solid $yellow;
+    }
+    .purchase-confirmation{
+      @include default-typog;
+      color:$white;
+      
+      strong{
+        @include subheading-typog;
+      }
+    }
+ 
+  h5{
+    h1{
+      color:$yellow;
+      @include heading-typog;
+      font-weight:300;
+      font-family: 'Gotham';
+      text-transform: uppercase;
+      font-size:$normal-text;
+
+      
+    }
+  }
+  }
+
+
+  .modal-backdrop.show{
+    opacity:0.9;
+    background:$dark-gradient; 
+  }
+  
+  .modal-content {
+    position: relative;
+    width: 100%;
+    pointer-events: auto;
+    border:0;;
+    border-radius: 0;
+    outline: 0;
+    @include dark-box;
+}
+
+span.die{
+  @include heading;
+  color:$yellow !important;
+  font-weight:300px;
+font-size:$xxlarge-text;
+}
+

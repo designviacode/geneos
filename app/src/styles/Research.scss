@@ -35,10 +35,7 @@
 .page-initialize{
 
 .modal-backdrop.show{
-  opacity:0.9
-}
-.modal-backdrop{
-  background-color:#fff;
+  opacity:0.95;
 }
 
   .modal-dialog{
@@ -52,12 +49,12 @@
 
   .purchase-confirmation__label{
     @include subheading-typog;
-    color:$black;
+    color:$white;
     @include dim;
   }
 
   .purchase-confirmation__value{
-    color:$black !important;
+    color:$white !important;
     @include default-typog;
   }
   .modal-content{
@@ -67,17 +64,17 @@
 
     .btn-primary{
       padding:25px;
-      color:$white;
+      color:$black;
     }
     .modal-header{
       h5{
         h1{
         @include heading;
-        color:$pink
+        color:$yellow
         }
         span{
           @include subheading-typog;
-          color:$pink;
+          color:$yellow;
         }
       }
     }

@@ -23,29 +23,29 @@ export default () => (
               />
               <div className="pie-legend">
                 <div className="legend-item">
-                  <div className="card-number teal-bullet">52.4%</div>
+                  <div className="card-number teal-bullet" data-aos="fade-up" data-aos-delay="100">52.4%</div>
                   <div>European</div>
                 </div>
 
                 <div className="legend-item">
-                  <div className="card-number purple-bullet">16.4%</div>
+                  <div className="card-number purple-bullet" data-aos="fade-up" data-aos-delay="200">16.4%</div>
                   <div>East Asian & Native American</div>
                 </div>
 
                 <div className="legend-item">
-                  <div className="card-number orange-bullet">31.2%</div>
+                  <div className="card-number orange-bullet" data-aos="fade-up" data-aos-delay="300">31.2%</div>
                   <div>Subsaharan African</div>
                 </div>
               </div>
             </div>
           </Col>
           <Col>
-            <img src="/static/ethnicity-map.svg" />
+            <img src="/static/ethnicity-map.svg" data-aos="fade-up" data-aos-delay="400" />
           </Col>
         </Row>
         <h4>Ancestry composition</h4>
         <Row>
-          <Col>
+          <Col data-aos="fade-up" data-aos-delay="400">
             <h4 className="text-muted">European</h4>
             <div>
               <div>
@@ -90,7 +90,7 @@ export default () => (
               </div>
             </div>
           </Col>
-          <Col>
+          <Col data-aos="fade-up" data-aos-delay="500">
             <h4 className="text-muted">East Asian & American</h4>
             <div>
               <div>
@@ -135,7 +135,7 @@ export default () => (
               </div>
             </div>
           </Col>
-          <Col>
+          <Col data-aos="fade-up" data-aos-delay="600">
             <h4 className="text-muted">Subsaharan African</h4>
             <div>
               <div>
