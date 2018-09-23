@@ -2,7 +2,7 @@ import { Router } from 'express';
 
 // import { messageClient } from '../sockets';
 // import { DATA_REQUEST } from '../../constants/socket-events';
-import { acceptOffer, getListings, makeOffer } from './helper';
+import { acceptOffer, getListings, makeBatchOffers, makeOffer } from './helper';
 
 const router = Router();
 
@@ -14,26 +14,40 @@ router.post('/', async (req, res) => {
   // get listings
   const listings = await getListings();
 
-  const result = await listings.reduce((next, listing) => {
-    return next
-      .then(res => {
-        return makeOffer(user.privateKey, user.name, listing.id, listing.rate, JSON.stringify(formData))
-          .then(() => res)
-          .catch(error => {
-            console.error('Error sending offer to listing', listing.id, error);
-            res.errors.push(error);
-          });
-      });
-
-  }, Promise.resolve({
-    errors: []
+  const txs = listings.map(listing => ({
+    id: listing.id,
+    price: listing.rate,
   }));
+
+  try {
+    await makeBatchOffers(user.privateKey, user.name, txs, JSON.stringify(formData));
+  } catch (error) {
+    console.error('Error sending offers:', error);
+    return res.status(500).json({
+      error,
+    });
+  }
+
+  // const result = await listings.reduce((next, listing) => {
+  //   return next
+  //     .then(res => {
+  //       return makeOffer(user.privateKey, user.name, listing.id, listing.rate, JSON.stringify(formData))
+  //         .then(() => res)
+  //         .catch(error => {
+  //           console.error('Error sending offer to listing', listing.id, error);
+  //           res.errors.push(error);
+  //         });
+  //     });
+  //
+  // }, Promise.resolve({
+  //   errors: []
+  // }));
 
   return res.json({
     data: {
       user,
       formData,
-      ...result,
+      offers: txs,
     },
   });
 });

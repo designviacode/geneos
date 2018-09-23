@@ -64,7 +64,7 @@ export default class PurchaseConfirmation extends React.PureComponent {
         </ModalHeader>
         <ModalBody className="purchase-confirmation">
           <Row className="row-margin">
-            <Col><strong>{request.from} would like to subscribe to your data.</strong></Col>
+            <Col><strong>{request.researchName} would like to subscribe to your data.</strong></Col>
           </Row>
           <Row className="row-margin">
             <Col>The data you share is anonymous and secure. You can revoke access any time.</Col>

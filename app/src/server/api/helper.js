@@ -239,7 +239,7 @@ export const makeBatchOffers = async (privateKey, from, txs = [], metadata) => {
     await givePermission(from, privateKey); // give permissions to marketplace contract
     const eos = Eos({ keyProvider: privateKey });
 
-    asyncForEach(txs, tx => {
+    asyncForEach(txs, async tx => {
       await eos.transaction({
         actions: [
           {
