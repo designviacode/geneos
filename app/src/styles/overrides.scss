@@ -611,3 +611,7 @@ span.die{
 font-size:$xxlarge-text;
 }
 
+.crypto-amt{
+  @include dim;
+}
+
