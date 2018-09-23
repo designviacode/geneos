@@ -13,7 +13,16 @@ const ETHNICITIES = [
   'Native American'
 ];
 
-const LOCATIONS = [''];
+const LOCATIONS = [
+  '',
+  'Blandaberg',
+  'East Ashtonborough',
+  'Kossview',
+  'Los Angeles',
+  'New Collin',
+  'New York',
+  'South Lamontmouth',
+];
 
 export default class SampleSelection extends React.Component {
   emitChange(name, value) {

@@ -12,6 +12,9 @@ import Earnings from '../components/Earnings';
 export default class extends React.Component {
   componentDidMount() {
     UserStore.on('change', this.handleUserChanged);
+
+    const routeName = document.location.pathname.replace(/\//g, '');
+    document.getElementsByTagName('body')[0].className = `page-${routeName}`;
   }
 
   componentWillUnmount() {

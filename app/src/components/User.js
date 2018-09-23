@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap';
+import { UncontrolledDropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import '../styles/user.scss';
@@ -13,7 +13,6 @@ import { iconUser } from '../utils/fontawesome';
 
 export default class User extends React.Component {
   state = {
-    userOpen: false,
     users: [],
     dataRequests: [],
   };
@@ -35,11 +34,14 @@ export default class User extends React.Component {
     offDataRequest(this.handleDataRequest);
   }
 
-  handleDataRequest = (data) => {
-    if (!this.mounted) return;
-    this.setState(prevState => ({
-      dataRequests: [...prevState.dataRequests, data],
-    }));
+  handleDataRequest = () => {
+    const user = userStore.getUser();
+    if (user) {
+      getOffers(user).then(response => {
+        if (!this.mounted) return;
+        this.setState({ dataRequests: response.data });
+      })
+    }
   };
 
   handleSelectUser(user) {
@@ -48,14 +50,8 @@ export default class User extends React.Component {
     getOffers(user).then(response => {
       if (!this.mounted) return;
       this.setState({ dataRequests: response.data });
-    })
+    });
   }
-
-  handleToggleUser = () => {
-    this.setState(prevState => ({
-      userOpen: !prevState.userOpen
-    }));
-  };
 
   removeCurrentRequest = () => {
     this.setState(prevState => {
@@ -97,13 +93,13 @@ export default class User extends React.Component {
   }
 
   render() {
-    const { userOpen, users } = this.state;
+    const { users } = this.state;
 
     const user = userStore.getUser();
 
     return (
       <div className="user">
-        <Dropdown isOpen={userOpen} toggle={this.handleToggleUser}>
+        <UncontrolledDropdown>
           <DropdownToggle tag="a" className="nav-link nav-link-icon">
             <div className="user-name">{user && user.name}</div> <FontAwesomeIcon icon={iconUser} size="2x" />
           </DropdownToggle>
@@ -112,7 +108,7 @@ export default class User extends React.Component {
               <DropdownItem key={user.name} onClick={() => this.handleSelectUser(user)}>{user.name}</DropdownItem>
             ))}
           </DropdownMenu>
-        </Dropdown>
+        </UncontrolledDropdown>
         {this.renderDataRequests()}
       </div>
     )

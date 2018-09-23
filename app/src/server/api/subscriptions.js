@@ -1,7 +1,7 @@
 import { Router } from 'express';
 
-// import { messageClient } from '../sockets';
-// import { DATA_REQUEST } from '../../constants/socket-events';
+import { DATA_REQUEST } from '../../constants/socket-events';
+import { messageClients } from '../sockets';
 import { acceptOffer, makeBatchOffers } from './helper';
 import { getFilteredListings } from './filter';
 
@@ -29,20 +29,7 @@ router.post('/', async (req, res) => {
     });
   }
 
-  // const result = await listings.reduce((next, listing) => {
-  //   return next
-  //     .then(res => {
-  //       return makeOffer(user.privateKey, user.name, listing.id, listing.rate, JSON.stringify(formData))
-  //         .then(() => res)
-  //         .catch(error => {
-  //           console.error('Error sending offer to listing', listing.id, error);
-  //           res.errors.push(error);
-  //         });
-  //     });
-  //
-  // }, Promise.resolve({
-  //   errors: []
-  // }));
+  messageClients(DATA_REQUEST, {});
 
   return res.json({
     data: {

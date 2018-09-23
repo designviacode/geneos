@@ -1,5 +1,5 @@
 import SocketIO from 'socket.io';
-import { find } from 'lodash';
+import { each } from 'lodash';
 
 import { LOGIN } from '../constants/socket-events';
 
@@ -43,20 +43,10 @@ function clientDisconnected() {
   delete clients[this.id];
 }
 
-export function messageClient(name, message, data) {
-  console.log('Messaging client');
+export function messageClients(message, data) {
+  console.log('Messaging clients');
 
-  // find the client by name
-  const client = find(clients, client => {
-    const profile = client.profile;
-    if (!profile) return false;
-    return profile.name === name;
+  each(clients, client => {
+    client.client.emit(message, data);
   });
-
-  if (!client) {
-    console.log('Client not connected');
-    return;
-  }
-
-  client.client.emit(message, data);
 }
