@@ -38,6 +38,49 @@ const data = {
     {
       name: 'NYU',
       purpose: 'Lung cancer research',
+      rating: '3 Months',
+      earned: '25 EOS',
+      startDate: 'Sat Sep 22 2018 18:11:42 GMT+0100 (British Summer Time)',
+      delay: 300 
+    },{
+      name: 'NYU',
+      purpose: 'Lung cancer research',
+      rating: 71,
+      earned: 3.4,
+      startDate: 'Sat Sep 22 2018 18:11:42 GMT+0100 (British Summer Time)'
+    },{
+      name: 'NYU',
+      purpose: 'Lung cancer research',
+      rating: 71,
+      earned: 3.4,
+      startDate: 'Sat Sep 22 2018 18:11:42 GMT+0100 (British Summer Time)'
+    },{
+      name: 'NYU',
+      purpose: 'Lung cancer research',
+      rating: 71,
+      earned: 3.4,
+      startDate: 'Sat Sep 22 2018 18:11:42 GMT+0100 (British Summer Time)'
+    },{
+      name: 'NYU',
+      purpose: 'Lung cancer research',
+      rating: 71,
+      earned: 3.4,
+      startDate: 'Sat Sep 22 2018 18:11:42 GMT+0100 (British Summer Time)'
+    },{
+      name: 'NYU',
+      purpose: 'Lung cancer research',
+      rating: 71,
+      earned: 3.4,
+      startDate: 'Sat Sep 22 2018 18:11:42 GMT+0100 (British Summer Time)'
+    },{
+      name: 'NYU',
+      purpose: 'Lung cancer research',
+      rating: 71,
+      earned: 3.4,
+      startDate: 'Sat Sep 22 2018 18:11:42 GMT+0100 (British Summer Time)'
+    },{
+      name: 'NYU',
+      purpose: 'Lung cancer research',
       rating: 71,
       earned: 3.4,
       startDate: 'Sat Sep 22 2018 18:11:42 GMT+0100 (British Summer Time)'
@@ -89,8 +132,8 @@ export default class extends Component {
             <h1>Data Usage</h1>
             <div className="card">
               <Row className="justify-content-between">
-                <Col lg="4">
-                  <img src="/static/data-usage.svg" />
+                <Col lg="3">
+                  <img src="/static/data-usage.svg" width="300" />
                   <div className="legend-table">
                     <div>
                       <div className="card-number teal-bullet">52.4%</div>
@@ -108,14 +151,14 @@ export default class extends Component {
                     </div>
                   </div>
                 </Col>
-                <Col lg="7">
+                <Col lg="8">
                   <Card>
                     <CardHeader>Data Sold To</CardHeader>
                     <table>
                       <thead>
                         <tr>
                           <th>Subscriber</th>
-                          <th>Contract Name</th>
+                          <th>Project</th>
                           <th>Duration</th>
                           <th>Earned</th>
                           <th>Start date</th>

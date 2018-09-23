@@ -34,36 +34,39 @@ body {
 }
 
 table tr {
-  th {
+
+    th{
     @include card-heading;
-    padding-bottom: 35px;
+    padding-bottom:35px;
     position: relative;
 
-    &::after {
-      content: ' ';
-      position: absolute;
-      width: 100%;
-      height: 1px;
-      background: rgba(255, 255, 255, 0.1);
-      @include dim;
-      top: 40px;
-      left: 0;
+        &::after{
+            content: " ";
+            position: absolute;
+            width:100%;
+            height:1px;
+            background: rgba(255,255,255,0.1);
+            @include dim;
+            top:40px;
+            left:0;
+        }
     }
-  }
-  td {
-    @include default-typog;
-    padding-bottom: 35px;
+    td{
+        @include default-typog;
+        padding-bottom:35px;
 
-    a {
-      @include default-typog;
+        a{
+            @include default-typog;
 
-      &:hover {
-        color: $pink;
-        text-decoration: none;
-      }
+            &:hover{
+                color:$pink;
+                text-decoration: none;
+            }
+        }
     }
-  }
+
 }
+
 
 .container {
   ul.nav {
@@ -99,10 +102,35 @@ table tr {
       margin-bottom: 25px;
     }
 
-    .card {
-      @include dark-box;
-      @include default-typog;
-      @include box-shadow;
+            h4{
+                @include card-heading;
+            }
+
+            .card-header{
+                @include card-heading;
+                padding:0;
+                border:0;
+            }
+
+            hr{
+                background:$white;
+                margin: 20px 0 20px 0;
+                @include dim
+                
+            }
+
+            .activity-center{
+                width: 250px;
+                margin: 0 auto;
+            }
+
+            .subtle-text{
+                @include dim
+            }
+
+            hr{
+                background:rgba(255,255,255,0.1);
+            }
 
       .pie-legend {
         margin-left: 30px;
@@ -142,7 +170,7 @@ table tr {
       }
     }
   }
-}
+
 
 .my-data-page {
   h1 {
@@ -155,21 +183,32 @@ table tr {
     color: $purple;
   }
 
-  .card {
-    @include dark-box;
-    @include default-typog;
-    @include box-shadow;
+    h1{
+        color: $purple;
+    }
+ 
+    .card{
+        @include dark-box;
+        @include default-typog;
+        @include box-shadow;
+
+        h4{
+            margin-bottom:10px;
+            color:$purple;
+        }
+    }
+    &::before{
+        @include pretty-lines;
+        background: $purple;
+    }
 
     h4 {
       margin-bottom: 10px;
       color: $purple;
     }
   }
-  &::before {
-    @include pretty-lines;
-    background: $purple;
-  }
-}
+  
+
 
 .my-insights-page section {
   h1 {
@@ -189,12 +228,17 @@ table tr {
     h4 {
       display: inline;
     }
-  }
-}
+    
+        @include dark-box;
+        @include default-typog;
+        @include box-shadow;
+    
+    &::before{
+        @include pretty-lines;
+        background: $pink;
+    }
 
-.card-number {
-  @include card-number-heading;
-  position: relative;
+   
 }
 
 .card-number-detail {
@@ -215,17 +259,62 @@ table tr {
   }
 }
 
-.purple-plus {
-  &::before {
-    content: '+';
-    position: absolute;
-    top: 0;
-    left: -15px;
-    height: 8px;
-    width: 8px;
-    color: $purple;
-    border-radius: 100%;
-  }
+.card-number-detail{
+    @include default-typog;
+    @include dim;
+}
+
+.teal-plus{
+    &::before{
+        content: "+";
+        position:absolute;
+        top:0;
+        left: -15px;
+        height:8px;
+        width: 8px;
+        color: $teal;
+        border-radius: 100%;
+    }
+}
+
+.purple-plus{
+    &::before{
+        content: "+";
+        position:absolute;
+        top:0;
+        left: -15px;
+        height:8px;
+        width: 8px;
+        color: $purple;
+        border-radius: 100%;
+    }
+}
+
+.orange-plus{
+    &::before{
+        content: "+";
+        position:absolute;
+        top:0;
+        left: -15px;
+        height:8px;
+        width: 8px;
+        color: $orange;
+        border-radius: 100%;
+    }
+}
+
+
+.teal-bullet{
+    &::before{
+        content: " ";
+        position:absolute;
+        top:12px;
+        left: -15px;
+        height:8px;
+        width: 8px;
+        background: $teal;
+        border-radius: 100%;
+    }
 }
 
 .orange-plus {
@@ -265,6 +354,15 @@ table tr {
     background: $purple;
     border-radius: 100%;
   }
+}
+.legend-table{
+    margin-top:20px;
+    width:200px;
+    margin:35px auto 0 auto;
+}
+.legend-item{
+    margin-bottom:25px;
+    position: relative;
 }
 
 .orange-bullet {
@@ -314,24 +412,32 @@ table tr {
   color: $pink;
 }
 
-ul.recommend {
-  margin-top: 30px;
-  margin-bottom: 30px;
+.color-emphasis{
+    color:$pink;
 }
-.report-icon {
-  position: relative;
+.emphasis{
+    border:1px solid rgba(255,255,255,0.1);
+    padding:15px;
+    @include card-number;
+    margin: 0 0 0 10px;
+    color:$pink;
+}
 
-  &::before {
-    content: '\25AE'; /* this is your text. You can also use UTF-8 character codes as I do here */
-    font-family: FontAwesome;
-    left: -15px;
-    position: absolute;
-    top: 0;
-    color: $white;
-    font-size: $normal-text;
+ul.recommend{
+    margin-top:30px;
+    margin-bottom: 30px;
+}
+.report-icon{
+    position: relative;
+
+    &::before{
+        content: "\25AE";  /* this is your text. You can also use UTF-8 character codes as I do here */
+        font-family: FontAwesome;
+        left:-15px;
+        position:absolute;
+        top:0;
+        color:$white;
+        font-size:$normal-text;
+        }
+    }
   }
-}
-
-.text-white {
-  @include card-number;
-}
