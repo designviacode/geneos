@@ -40,7 +40,7 @@ export default () => (
           <Col className="col-lg-4">
             <h4>Distance walked</h4>
             <ReactVivus
-              id="steps"
+              id="distance-walked"
               option={{
                 file: '/static/distance-walked.svg',
                 animTimingFunction: 'EASE_OUT',
@@ -66,7 +66,7 @@ export default () => (
           <Col className="col-lg-4">
             <h4>Exercise time</h4>
             <ReactVivus
-              id="steps"
+              id="exercise-time"
               option={{
                 file: '/static/exercise-time.svg',
                 animTimingFunction: 'EASE_OUT',
