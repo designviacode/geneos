@@ -6,7 +6,7 @@ export default () => (
   <section>
     <a name="genome" />
     <h1>Genome</h1>
-    <Card>
+    <Card data-aos="fade-up" data-aos-delay="300">
       <CardBody>
         <h4>Ethnicity</h4>
         <Row>
@@ -68,116 +68,61 @@ export default () => (
                 <span className="float-right">33%</span>
                 <div className="clearfix" />
               </div>
-              <div>
-                <span className="">Sardinian</span>
-                <span className="float-right">34%</span>
-                <div className="clearfix" />
-              </div>
-              <div>
-                <span className="">Broadly Southern European</span>
-                <span className="float-right">35%</span>
-                <div className="clearfix" />
-              </div>
-              <div>
-                <span className="">Broadly Northwestern European</span>
-                <span className="float-right">36%</span>
-                <div className="clearfix" />
-              </div>
-              <div>
-                <span className="">Broadly European</span>
-                <span className="float-right">37%</span>
-                <div className="clearfix" />
-              </div>
+             
+              
             </div>
           </Col>
           <Col data-aos="fade-up" data-aos-delay="500">
-            <h4 className="text-muted">East Asian & American</h4>
+            <h4 className="text-muted">East Asian / American</h4>
             <div>
               <div>
-                <span className="">Iberian</span>
-                <span className="float-right">30%</span>
-                <div className="clearfix" />
-              </div>
-              <div>
-                <span className="">Spain</span>
-                <span className="float-right">31%</span>
-                <div className="clearfix" />
-              </div>
-              <div>
-                <span className="">Ashkenazi</span>
+                <span className="">Native American</span>
                 <span className="float-right">32%</span>
                 <div className="clearfix" />
               </div>
               <div>
-                <span className="">Jewish</span>
-                <span className="float-right">33%</span>
+                <span className="">Manchurian / Mongolian</span>
+                <span className="float-right">0.1%</span>
                 <div className="clearfix" />
               </div>
               <div>
-                <span className="">Sardinian</span>
-                <span className="float-right">34%</span>
+                <span className="">Southeast Asian</span>
+                <span className="float-right">0.1%</span>
                 <div className="clearfix" />
               </div>
               <div>
-                <span className="">Broadly Southern European</span>
-                <span className="float-right">35%</span>
+                <span className="">Broadly East Asian</span>
+                <span className="float-right">0.5%</span>
                 <div className="clearfix" />
               </div>
-              <div>
-                <span className="">Broadly Northwestern European</span>
-                <span className="float-right">36%</span>
-                <div className="clearfix" />
-              </div>
-              <div>
-                <span className="">Broadly European</span>
-                <span className="float-right">37%</span>
-                <div className="clearfix" />
-              </div>
+             
+              
             </div>
           </Col>
           <Col data-aos="fade-up" data-aos-delay="600">
             <h4 className="text-muted">Subsaharan African</h4>
             <div>
               <div>
-                <span className="">Iberian</span>
-                <span className="float-right">30%</span>
+                <span className="">West African</span>
+                <span className="float-right">4.5%</span>
                 <div className="clearfix" />
               </div>
               <div>
-                <span className="">Spain</span>
-                <span className="float-right">31%</span>
+                <span className="">East African</span>
+                <span className="float-right">0.1%</span>
                 <div className="clearfix" />
               </div>
               <div>
-                <span className="">Ashkenazi</span>
-                <span className="float-right">32%</span>
+                <span className="">African Hunter-Gatherer</span>
+                <span className="float-right">0.1%</span>
                 <div className="clearfix" />
               </div>
               <div>
-                <span className="">Jewish</span>
-                <span className="float-right">33%</span>
+                <span className="">Broadly Sub-Saharan African</span>
+                <span className="float-right">0.6%</span>
                 <div className="clearfix" />
               </div>
-              <div>
-                <span className="">Sardinian</span>
-                <span className="float-right">34%</span>
-                <div className="clearfix" />
-              </div>
-              <div>
-                <span className="">Broadly Southern European</span>
-                <span className="float-right">35%</span>
-                <div className="clearfix" />
-              </div>
-              <div>
-                <span className="">Broadly Northwestern European</span>
-                <span className="float-right">36%</span>
-                <div className="clearfix" />
-              </div>
-              <div>
-                <span className="">Broadly European</span>
-                <span className="float-right">37%</span>
-                <div className="clearfix" />
-              </div>
+              
             </div>
           </Col>
         </Row>

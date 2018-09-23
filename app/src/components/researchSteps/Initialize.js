@@ -166,6 +166,8 @@ export default class Initialize extends React.Component {
         <FormGroup>
           <div className="summary-label">Total</div>
           <div className="summary-value">
+          <img className="eos-summary-logo" src="/static/eos-pink.svg" height="40" />
+                
             {totalCost === null ? 'calculating...' : totalCost.toFixed(2)}
           </div>
           <div className="summary-currency">EOS</div>
