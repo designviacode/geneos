@@ -347,3 +347,9 @@ ul.recommend{
         font-size:$normal-text;
         }
     }
+
+.text-white{
+    @include card-number
+}
+
+

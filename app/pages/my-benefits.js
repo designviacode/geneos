@@ -100,12 +100,12 @@ export default class extends Component {
                 <Col lg="7">
                   <Card>
                     <CardHeader>Data Sold To</CardHeader>
-                    <Table>
+                    <table>
                       <thead>
                         <tr>
                           <th>Subscriber</th>
-                          <th>Purpose</th>
-                          <th>Rating</th>
+                          <th>Contract Name</th>
+                          <th>Duration</th>
                           <th>Earned</th>
                           <th>Start date</th>
                         </tr>
@@ -123,7 +123,7 @@ export default class extends Component {
                           </tr>
                         ))}
                       </tbody>
-                    </Table>
+                    </table>
                   </Card>
                 </Col>
               </Row>

@@ -58,19 +58,13 @@ export default class extends React.Component {
               <div className="d-flex align-items-center">
                 <img
                   src="/static/eos.svg"
-                  style={{ width: 31, marginRight: 15 }}
+                  style={{ width: 25, marginRight: 15 }}
                 />
                 <div>
-                  <div
-                    style={{
-                      fontSize: 32,
-                      fontFamily: 'BrandonText',
-                      letterSpacing: 'normal'
-                    }}
-                  >
-                    <span className="text-white">812</span> EOS
+                  <div>
+                    <span className="text-white">812</span><span className="card-heading">EOS</span>
                   </div>
-                  <div style={{ color: '#fff', fontSize: 16 }}>earned</div>
+                  <div className="card-heading white-text">earned</div>
                 </div>
               </div>
             </NavItem>

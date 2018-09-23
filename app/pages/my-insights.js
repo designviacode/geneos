@@ -25,7 +25,7 @@ export default class extends Component {
           <section>
             <h1>Insights</h1>
             <Card>
-              <Table>
+              <table>
                 <thead>
                   <tr>
                     <th>Your metrics</th>
@@ -85,7 +85,7 @@ export default class extends Component {
                     </td>
                   </tr>
                 </tbody>
-              </Table>
+              </table>
               </Card>
           </section>
           <a name="#recommendations" />
@@ -147,7 +147,7 @@ export default class extends Component {
           <section>
             <h1>Reports</h1>
             <Card>
-              <Table>
+              <table>
                 <thead>
                   <tr>
                     <th>Researcher</th>
@@ -182,7 +182,7 @@ export default class extends Component {
                     </td>
                   </tr>
                 </tbody>
-              </Table>
+              </table>
             </Card>
           </section>
         </Container>

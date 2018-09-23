@@ -5,6 +5,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { iconArrowLeft, iconArrowRight, iconEdit } from '../../utils/fontawesome';
 import NavRow from './NavRow';
+import { Card, Container } from 'reactstrap';
+import LayoutMain from '../../layouts/main';
+
 
 export default class ProjectDetails extends React.Component {
   static defaultProps = {
@@ -81,14 +84,19 @@ export default class ProjectDetails extends React.Component {
 
   render() {
     return (
-      <div>
+      <Container className="my-insights-page">
+      <Card>
         <Form>
           {this.renderInput('Project Name', 'researchName')}
           {this.renderInput('Project Subject', 'researchArea')}
           {this.renderDuration('Project Duration', 'duration')}
         </Form>
         <NavRow step={0} jumpToStep={step => this.isValidated() && this.props.jumpToStep(step)} />
-      </div>
+      
+
+      </Card>
+      </Container>
+
     );
   }
 }
