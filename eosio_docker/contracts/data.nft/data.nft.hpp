@@ -74,6 +74,7 @@ namespace eosio {
                account_name get_issuer() const { return issuer; }
          };
 
+
          // @abi table token i64
          struct token {
                id_type id;          // Unique 64 bit identifier,
@@ -83,7 +84,7 @@ namespace eosio {
                asset value;         // token value (1 SYS)
                string name;	 // token name
                string metadata; // metadata
-               vector<account_name> subscribers;
+               vector<string> subscribers;
 
                id_type primary_key() const { return id; }
                account_name get_owner() const { return owner; }

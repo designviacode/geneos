@@ -12,7 +12,7 @@ namespace eosio {
 
    class marketplace : public eosio::contract {
       public:
-         marketplace( account_name s ) : contract( s ), _listings( s, s ), _offers( s, s ) {}
+         marketplace( account_name s ) : contract( s ), _listings( s, s ), _offers( s, s ), _txs( s, s ) {}
 
          /// @abi action
          void list( account_name lister, id_type tokenid, string metadata) {
@@ -35,7 +35,7 @@ namespace eosio {
          }
 
          /// @abi action
-         void makeoffer( account_name from, id_type id, asset price ) {
+         void makeoffer( account_name from, id_type id, asset price, string metadata ) {
             require_auth(from);
 
             eosio_assert(price.is_valid(), "invalid price");
@@ -46,6 +46,7 @@ namespace eosio {
                offer.reftokenid    = id;
                offer.from    = from;
                offer.price = price;
+               offer.metadata = metadata;
             });
          }
 
@@ -58,12 +59,13 @@ namespace eosio {
             id_type tokenid = offer->reftokenid;
             asset price = offer->price;
             account_name buyer = offer->from;
+            string metadata = offer->metadata;
 
             action subscribe = action(
-               permission_level{seller,N(active)},
+               permission_level{get_self(),N(active)},
                N(data.nft),
                N(subscribe),
-               std::make_tuple(seller, buyer, tokenid, std::string("Subscribing to data"))
+               std::make_tuple(get_self(), buyer, tokenid, metadata)
             );
 
 
@@ -79,12 +81,17 @@ namespace eosio {
 
             payment.send();
 
+            // add to transaction records
+            _txs.emplace( _self, [&]( auto& tx ) {
+               tx.id = _txs.available_primary_key();
+               tx.reftokenid = tokenid;
+               tx.subscriber = buyer;
+               tx.seller = seller;
+               tx.price = price;
+            });
+
             // delete the offer
             _offers.erase(offer);
-         }
-
-         void test() {
-
          }
 
       private:
@@ -107,7 +114,8 @@ namespace eosio {
             id_type       id; // primary key
             id_type       reftokenid; // links to listing's token id
             account_name  from;
-            eosio::asset  price;
+            asset  price;
+            string  metadata;
             uint64_t primary_key() const { return id; }
             uint64_t by_reftokenid() const    { return reftokenid; }
          };
@@ -118,6 +126,21 @@ namespace eosio {
 
          // Creating the instance of the `offer_table` type
          offer_table _offers;
+
+         // @abi table txs
+         struct tx {
+            id_type id;
+            id_type reftokenid;
+            account_name subscriber;
+            account_name seller;
+            asset price;
+            uint64_t primary_key() const { return id; }
+         };
+
+         typedef eosio::multi_index< N(txs), tx > tx_table;
+
+         // Creating the instance of the `tx_table` type
+         tx_table _txs;
 
          // duplicating nft token
          struct token {
@@ -143,6 +166,6 @@ namespace eosio {
 
    };
 
-   EOSIO_ABI( marketplace, (list)(makeoffer)(acceptoffer)(test) )
+   EOSIO_ABI( marketplace, (list)(makeoffer)(acceptoffer) )
 
 } // namespace eos
