@@ -48,6 +48,58 @@ const givePermission = async (name, privateKey) => {
   }
 };
 
+/**
+ * @async @function
+ * @param {String} name (optional) - name of the user who you want to query, if blank then returns all offers
+ * 
+ * @returns {Promise} resolves to:
+ * @example [ { offerId: 0,
+ *            tokenId: 0,
+ *            from: 'jens',
+ *            price: '40.0000 EOS',
+ *            subscriber: 'Cancer study',
+ *            projectName: 'cancer',
+ *            duration: 3 } ]
+ */
+export const getOffers = async (name = `all`) => {
+  const eos = Eos();
+  try {
+    const tokens = (await eos.getTableRows({
+      json: true,
+      code: "data.nft", // contract who owns the table
+      scope: "data.nft", // scope of the table
+      table: "token",
+      limit: 1000
+    })).rows.filter(({ owner }) => owner === name);
+    const { rows } = await eos.getTableRows({
+      json: true,
+      code: "marketplace", // contract who owns the table
+      scope: "marketplace", // scope of the table
+      table: "offers",
+      limit: 1000
+    });
+
+    const result = rows
+      .map(row => {
+        const metadata = JSON.parse(row.metadata) || ``;
+        return {
+          offerId: row.id,
+          tokenId: row.reftokenid,
+          from: row.from,
+          price: row.price,
+          ...metadata
+        };
+      });
+
+    if (name === `all`) return result;
+    
+    return result.filter(offer => tokens.find(token => token.id === offer.tokenId));
+
+  } catch (e) {
+    return Promise.reject(e);
+  }
+};
+
 export const getListings = async () => {
 
   const eos = Eos();
@@ -160,33 +212,4 @@ export const acceptOffer = async (privateKey, accepter, offerId) => {
     } catch (e) {
       return Promise.reject(e);
     }
-}
-
-
-// todo
-export const getOffers = async (name) => {
-  const eos = Eos();
-  try {
-    const { rows } = await eos.getTableRows({
-      "json": true,
-      "code": "marketplace",   // contract who owns the table
-      "scope": "marketplace",  // scope of the table
-      "table": "offers",
-      "limit": 1000
-    });
-
-    const result = rows.map(row => {
-      const metadata = JSON.parse(row.metadata) || ``;
-      return {
-        id: row.tokenid,
-        ...metadata
-      };
-
-    });
-
-    return result;
-
-  } catch (e) {
-    return Promise.reject(e);
-  }
 }
