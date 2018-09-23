@@ -1,0 +1,30 @@
+.research-wizard {
+  .research-step-initialize {
+    .summary-label, .summary-input, .summary-value, .summary-currency {
+      display: inline-block;
+      vertical-align: middle;
+      width: auto;
+      margin-right: 1rem;
+    }
+
+    .summary-label {
+      color: #000;
+      font-size: 1rem;
+      width: 5.5rem;
+    }
+
+    .summary-input {
+      width: 100px;
+    }
+
+    .summary-value {
+      color: #ff007e;
+      font-size: 2.625rem;
+    }
+
+    .summary-currency {
+      color: #262532;
+      font-size: 2.625rem;
+    }
+  }
+}

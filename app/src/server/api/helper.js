@@ -78,6 +78,21 @@ export const getListings = async () => {
 
 }
 
+
+/**
+ * @async @function
+ * 
+ * @param {String} privateKey 
+ * @param {String} from - account_name of offerer
+ * @param {Number} id - id of the listing
+ * @param {String} price - EOS offer price in string form with 4 decimals and unit, like "4.0000 EOS"
+ * @param {String} metadata - Offer metadata in stringified JSON
+ *
+ * @example makeOffer(`5KNm1BgaopP9n5NqJDo9rbr49zJFWJTMJheLoLM5b7gjdhqAwCx`,`jens`, 0, "40.0000 EOS", "{\"subscriber\":\"Cancer study\",\"projectName\":\"cancer\",\"duration\":3}")
+ * 
+ * @returns {Promise} resolves to EOS transaction Object
+ * 
+ */
 export const makeOffer = async (privateKey, from, id, price, metadata) => {
   try {
 
@@ -112,6 +127,12 @@ export const makeOffer = async (privateKey, from, id, price, metadata) => {
     }
 }
 
+/**
+ * 
+ * @param {String} privateKey - the private key of the user accepting the offer
+ * @param {String} accepter - the account_name of the user accepting the offer
+ * @param {Number} offerId - the offer id (not the token id)
+ */
 export const acceptOffer = async (privateKey, accepter, offerId) => {
   try {
 

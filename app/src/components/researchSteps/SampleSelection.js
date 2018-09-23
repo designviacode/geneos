@@ -2,25 +2,10 @@ import React from 'react';
 import { Row, Col, Button, Form, Label, Input } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { getTargetAudience } from '../../actions/research';
 import { iconEdit } from '../../utils/fontawesome';
+import NavRow from './NavRow';
 
 export default class SampleSelection extends React.Component {
-  state = {
-    audience: null,
-    refreshing: false,
-  };
-
-  handleRefreshClick = () => {
-    this.setState({ refreshing: true });
-    getTargetAudience().then(data => {
-      this.setState({
-        audience: data.data.count,
-        refreshing: false,
-      })
-    });
-  };
-
   emitChange(name, value) {
     const { onChange, data } = this.props;
 
@@ -82,18 +67,7 @@ export default class SampleSelection extends React.Component {
     );
   }
 
-  renderReach() {
-    const { audience } = this.state;
-    if (!audience) {
-      return 'Please refresh';
-    }
-
-    return `${audience} users`;
-  }
-
   render() {
-    const { refreshing } = this.state;
-
     return (
       <div>
         <Form>
@@ -103,13 +77,8 @@ export default class SampleSelection extends React.Component {
           {this.renderInput('Weight Range', 'weightRange')}
           {this.renderInput('Sleep Range', 'sleepRange')}
           {this.renderInput('Activity Level', 'activityLevel')}
-          <Row>
-            <Col xs={3}>Reach: {this.renderReach()}</Col>
-            <Col xs={3}>
-              <Button onClick={this.handleRefreshClick} disabled={refreshing}>Refresh</Button>
-            </Col>
-          </Row>
         </Form>
+        <NavRow step={1} jumpToStep={this.props.jumpToStep} />
       </div>
     );
   }

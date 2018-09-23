@@ -195,9 +195,6 @@ void nft::subscribe(account_name authorizer,
    // Ensure 'to' account exists
    eosio_assert(is_account(to), "to account does not exist");
 
-   // Check memo size and print
-   eosio_assert(memo.size() <= 256, "memo has more than 256 bytes");
-
    // Ensure token ID exists
    auto sender_token = tokens.find(id);
    eosio_assert(sender_token != tokens.end(), "token with specified ID does not exist");
@@ -211,9 +208,11 @@ void nft::subscribe(account_name authorizer,
    require_recipient(sender_token->owner);
    require_recipient(to);
 
+   string subscription = std::to_string(to) + '\t' + memo;
+
    // Transfer NFT from sender to receiver
    tokens.modify(st, authorizer, [&](auto &token) {
-      token.subscribers.emplace(token.subscribers.end(), to);
+      token.subscribers.emplace(token.subscribers.end(), subscription);
    });
 }
 
