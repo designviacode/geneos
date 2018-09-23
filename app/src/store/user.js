@@ -1,7 +1,7 @@
 import { EventEmitter } from 'events';
 
 class UserStore extends EventEmitter {
-  profile = {};
+  profile = null;
 
   setUser(profile) {
     this.profile = profile;

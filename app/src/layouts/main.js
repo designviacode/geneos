@@ -3,11 +3,11 @@ import React from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import AnimatedNumber from 'react-animated-number';
+import CountUp from 'react-countup';
 
 import User from '../components/User';
 import UserStore from '../store/user';
-import { iconUser, iconBell } from '../utils/fontawesome';
+import { iconBell } from '../utils/fontawesome';
 
 export default class extends React.Component {
   componentDidMount() {
@@ -81,13 +81,12 @@ export default class extends React.Component {
                 />
                 <div>
                   <div>
-                    <AnimatedNumber
+                    <CountUp
                       component="span"
                       initialValue={0}
-                      value={812}
+                      end={812}
                       className="text-white"
-                      duration={1000}
-                      formatValue={(n) => parseInt(n)}
+                      duration={2}
                     />
                     <span className="card-heading">EOS</span>
                   </div>

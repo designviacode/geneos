@@ -2,7 +2,8 @@ import { Router } from 'express';
 
 // import { messageClient } from '../sockets';
 // import { DATA_REQUEST } from '../../constants/socket-events';
-import { acceptOffer, getListings, makeBatchOffers, makeOffer } from './helper';
+import { acceptOffer, makeBatchOffers } from './helper';
+import { getFilteredListings } from './filter';
 
 const router = Router();
 
@@ -12,7 +13,7 @@ router.post('/', async (req, res) => {
   const { user, formData } = req.body;
 
   // get listings
-  const listings = await getListings();
+  const listings = await getFilteredListings(formData);
 
   const txs = listings.map(listing => ({
     id: listing.id,

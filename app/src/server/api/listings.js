@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-import { getListings } from './helper';
+import { getFilteredListings } from './filter';
 
 const router = Router();
 
@@ -15,10 +15,14 @@ const router = Router();
     rate: '39.0000 EOS' }
  */
 
-router.get('/', async (req, res) => {
-  console.log('Get listings');
+router.post('/', async (req, res) => {
+  console.log('Get filtered listings');
+  const {
+    formData
+  } = req.body;
+
   try {
-    const data = await getListings();
+    const data = await getFilteredListings(formData);
 
     res.json({
       data,
