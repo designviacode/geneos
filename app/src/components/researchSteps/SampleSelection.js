@@ -14,7 +14,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { iconEdit } from '../../utils/fontawesome';
 import NavRow from './NavRow';
-import { Card, Container } from 'reactstrap';
 import LayoutMain from '../../layouts/main';
 
 export default class SampleSelection extends React.Component {

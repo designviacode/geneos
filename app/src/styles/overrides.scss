@@ -134,6 +134,7 @@ table tr {
         h1{
             @include heading;
             margin-bottom:20px;
+            color:$teal;
         }
 
         h4{
@@ -157,6 +158,7 @@ table tr {
 
             h4{
                 @include card-heading;
+                display:inline-block;
             }
 
             .card-header{
@@ -248,11 +250,8 @@ table tr {
   }
   
 
-
 .my-insights-page section {
-  h1 {
-    color: $pink;
-  }
+  
   
 
   .card {
@@ -277,10 +276,6 @@ table tr {
   @include dim;
 }
 
-
-.card-number-detail{
-    @include default-typog;
-    @include dim;
 
 .teal-plus{
     &::before{
@@ -470,4 +465,19 @@ ul.recommend{
 
 
 $aos-distance: 10px !default;
+
+.text-white{
+  @include card-number-heading;
 }
+
+.page-my-insights .container section h1{
+    @include heading;
+    margin-bottom:20px;
+    color:$pink;
+
+  }
+
+  .page-my-insights .container section:before{
+    background:$pink;
+  }
+
