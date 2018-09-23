@@ -51,7 +51,7 @@ export default class ResearchConfirmation extends React.PureComponent {
           {this.renderDetailRow('Cost', (
             <span>
               <img
-                src="/static/eos.svg"
+                src="/static/eos-yellow.svg"
                 style={{ width: 25, marginRight: 15 }}
               />
               <span>{request.totalCost.toFixed(2)} EOS</span>

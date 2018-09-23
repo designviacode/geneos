@@ -78,8 +78,8 @@ export default class Initialize extends React.Component {
   renderListing = (listing) => {
     return (
       <tr key={listing.id}>
-        <td />
-        <td>{listing.genetics}</td>
+       
+       
         <td>{this.formatDecimal(listing.age, 0)}</td>
         <td>{listing.location}</td>
         <td>{this.formatDecimal(listing.weight, 0)}</td>
