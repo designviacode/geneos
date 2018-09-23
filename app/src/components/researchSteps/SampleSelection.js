@@ -14,6 +14,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { iconEdit } from '../../utils/fontawesome';
 import NavRow from './NavRow';
+import { Card, Container } from 'reactstrap';
+import LayoutMain from '../../layouts/main';
 
 export default class SampleSelection extends React.Component {
   emitChange(name, value) {
@@ -58,7 +60,7 @@ export default class SampleSelection extends React.Component {
 
     const { [name]: duration } = data || {};
 
-    const durations = ['1 Month', '3 Months', '1 Year'];
+    const durations = ['3 Months', '6 Months', 'Custom'];
 
     return (
       <Row className="row-margin">
@@ -76,10 +78,7 @@ export default class SampleSelection extends React.Component {
               {label}
             </Button>
           ))}
-          <Button type="button">
-            <FontAwesomeIcon icon={iconEdit} />
-            Custom
-          </Button>
+          
         </Col>
       </Row>
     );
@@ -89,17 +88,18 @@ export default class SampleSelection extends React.Component {
     return (
       <Container>
         <Card>
-          <CardBody>
-            <Form>
-              {this.renderInput('Genetics', 'genetics')}
-              {this.renderDuration('Age', 'age')}
-              {this.renderInput('Location', 'location')}
-              {this.renderInput('Weight Range', 'weightRange')}
-              {this.renderInput('Sleep Range', 'sleepRange')}
-              {this.renderInput('Activity Level', 'activityLevel')}
-            </Form>
-            <NavRow step={1} jumpToStep={this.props.jumpToStep} />
-          </CardBody>
+      <Row className="justify-content-center">
+        <Form>
+          {this.renderInput('Genetics', 'genetics')}
+          {this.renderDuration('Age', 'age')}
+          {this.renderInput('Location', 'location')}
+          {this.renderInput('Weight Range', 'weightRange')}
+          {this.renderInput('Sleep Range', 'sleepRange')}
+          {this.renderInput('Activity Level', 'activityLevel')}
+        </Form>
+        <NavRow step={1} jumpToStep={this.props.jumpToStep} />
+      
+        </Row>
         </Card>
       </Container>
     );

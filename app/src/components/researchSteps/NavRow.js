@@ -15,14 +15,16 @@ export default class NavRow extends React.Component {
     const { jumpToStep, step } = this.props;
 
     return (
+      <div className="next-button">
       <Row>
         <Col xs={12}>
           {step > 0 ? (
-            <Button onClick={() => jumpToStep(step - 1)}><FontAwesomeIcon icon={iconArrowLeft}/> BACK</Button>
+            <Button className="back-button" onClick={() => jumpToStep(step - 1)}><FontAwesomeIcon icon={iconArrowLeft}/> BACK</Button>
           ) : null}
           <Button onClick={() => jumpToStep(step + 1)}>NEXT <FontAwesomeIcon icon={iconArrowRight}/></Button>
         </Col>
       </Row>
+      </div>
     );
   }
 }

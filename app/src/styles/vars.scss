@@ -13,20 +13,7 @@ $purple: #b55bff;
 $p-spacing: 1px;
 $h-spacing: 3px;
 
-.white-text{
-    color:$white !important;
-}
-.pink-text{
-    color:$pink !important;
-}
-.teal-text{
-    color:$teal !important;
-}
-.yellow-text{
-    color:$yellow !important;
-}
-
-
+$aos-distance: 50px !default;
 
 // //gradients
 // http://hex2rgba.devoth.com/
@@ -213,3 +200,16 @@ $xxlarge-text: 28px;
 // fonts
 // https://transfonter.org/
 
+
+.white-text{
+    color:$white !important;
+}
+.pink-text{
+    color:$pink !important;
+}
+.teal-text{
+    color:$teal !important;
+}
+.yellow-text{
+    color:$yellow !important;
+}

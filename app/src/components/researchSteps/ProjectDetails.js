@@ -57,12 +57,12 @@ export default class ProjectDetails extends React.Component {
 
     const { [name]: duration } = data || {};
 
-    const durations = ['1 Month', '3 Months', '1 Year'];
+    const durations = ['3 Months', '6 Months'];
 
     return (
       <Row className="row-margin">
         <Col xs={3}><Label>{label}</Label></Col>
-        <Col xs={6}>
+        <div className="overflow-buttons">
           {durations.map(label => (
             <Button
               key={label}
@@ -73,28 +73,30 @@ export default class ProjectDetails extends React.Component {
               {label}
             </Button>
           ))}
+         
           <Button type="button">
-            <FontAwesomeIcon icon={iconEdit} />
             Custom
           </Button>
-        </Col>
+        </div>
       </Row>
     );
   }
 
   render() {
     return (
-      <Container className="my-insights-page">
-      <Card>
-        <Form>
-          {this.renderInput('Project Name', 'researchName')}
-          {this.renderInput('Project Subject', 'researchArea')}
-          {this.renderDuration('Project Duration', 'duration')}
-        </Form>
-        <NavRow step={0} jumpToStep={step => this.isValidated() && this.props.jumpToStep(step)} />
-      
-
-      </Card>
+      <Container>
+        <Row className="justify-content-center">
+          <Col lg="6">
+            <Card>
+              <Form>
+                {this.renderInput('Project Name', 'researchName')}
+                {this.renderInput('Project Subject', 'researchArea')}
+                {this.renderDuration('Project Duration', 'duration')}
+              </Form>
+              <NavRow step={0} jumpToStep={step => this.isValidated() && this.props.jumpToStep(step)} />
+            </Card>
+          </Col>
+        </Row>
       </Container>
 
     );
