@@ -2,7 +2,6 @@ import React from 'react';
 import {
   Container,
   Card,
-  CardBody,
   Row,
   Col,
   Button,
@@ -10,12 +9,8 @@ import {
   Label,
   Input
 } from 'reactstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { iconEdit } from '../../utils/fontawesome';
 import NavRow from './NavRow';
-import { Card, Container } from 'reactstrap';
-import LayoutMain from '../../layouts/main';
 
 export default class SampleSelection extends React.Component {
   emitChange(name, value) {
@@ -78,7 +73,6 @@ export default class SampleSelection extends React.Component {
               {label}
             </Button>
           ))}
-          
         </Col>
       </Row>
     );
@@ -88,18 +82,17 @@ export default class SampleSelection extends React.Component {
     return (
       <Container>
         <Card>
-      <Row className="justify-content-center">
-        <Form>
-          {this.renderInput('Genetics', 'genetics')}
-          {this.renderDuration('Age', 'age')}
-          {this.renderInput('Location', 'location')}
-          {this.renderInput('Weight Range', 'weightRange')}
-          {this.renderInput('Sleep Range', 'sleepRange')}
-          {this.renderInput('Activity Level', 'activityLevel')}
-        </Form>
-        <NavRow step={1} jumpToStep={this.props.jumpToStep} />
-      
-        </Row>
+          <Row className="justify-content-center">
+            <Form>
+              {this.renderInput('Genetics', 'genetics')}
+              {this.renderDuration('Age', 'age')}
+              {this.renderInput('Location', 'location')}
+              {this.renderInput('Weight Range', 'weightRange')}
+              {this.renderInput('Sleep Range', 'sleepRange')}
+              {this.renderInput('Activity Level', 'activityLevel')}
+            </Form>
+            <NavRow step={1} jumpToStep={this.props.jumpToStep} />
+          </Row>
         </Card>
       </Container>
     );
