@@ -5,11 +5,11 @@ import UserStore from '../store/user';
 
 const api = axios.create({
   baseURL: API_BASE,
-  timeout: 1000
+  timeout: 300000
 });
 
-export function getTargetAudience(options) {
-  return api.get('/subscriptions', options)
+export function getListings(options) {
+  return api.get('/listings', options)
     .then(response => response.data);
 }
 
@@ -35,7 +35,7 @@ export function rejectRequest(request) {
     request,
   };
 
-  return api.post(`/subscriptions/${request.id}/reject`, options)
+  return api.post(`/subscriptions/${user.name}/reject`, options)
     .then(response => response.data);
 }
 
@@ -48,6 +48,6 @@ export function acceptRequest(request) {
     request,
   };
 
-  return api.post(`/subscriptions/${request.id}/accept`, options)
+  return api.post(`/subscriptions/${user.name}/accept`, options)
     .then(response => response.data);
 }

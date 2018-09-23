@@ -39,6 +39,18 @@ export default class PurchaseConfirmation extends React.PureComponent {
     );
   }
 
+  /*
+  {
+    "offerId": 84,
+    "tokenId": 0,
+    "from": "jens",
+    "price": "35.0000 EOS",
+    "researchName": "1",
+    "researchArea": "2",
+    "duration": "1 Month"
+    },
+ */
+
   render() {
     const { request, isOpen } = this.props;
 
@@ -52,14 +64,14 @@ export default class PurchaseConfirmation extends React.PureComponent {
         </ModalHeader>
         <ModalBody className="purchase-confirmation">
           <Row className="row-margin">
-            <Col><strong>{request.user.name} would like to subscribe to your data.</strong></Col>
+            <Col><strong>{request.researchName} would like to subscribe to your data.</strong></Col>
           </Row>
           <Row className="row-margin">
             <Col>The data you share is anonymous and secure. You can revoke access any time.</Col>
           </Row>
-          {this.renderDetailRow('Subscription Period', request.formData.duration)}
-          {this.renderDetailRow('You will earn', request.formData.payout)}
-          {this.renderDetailRow('Research Area', request.formData.researchArea)}
+          {this.renderDetailRow('Subscription Period', request.duration)}
+          {this.renderDetailRow('You will earn', request.price)}
+          {this.renderDetailRow('Research Area', request.researchArea)}
           <ModalFooter>
             <Button onClick={this.handleAccept} color="primary" disabled={isProcessing}>Accept</Button>
             <Button onClick={this.handleReject} color="secondary" disabled={isProcessing}>Reject</Button>
