@@ -1,5 +1,6 @@
 import React from 'react';
 import { Row, Col, Card, CardBody } from 'reactstrap';
+import ReactVivus from 'react-vivus';
 
 export default () => (
   <section>
@@ -11,7 +12,15 @@ export default () => (
         <Row>
           <Col>
             <div style={{ display: 'flex', alignItems: 'center' }}>
-              <img src="/static/ethnicity-pie.svg" />
+              <ReactVivus
+                id="ethnicity-pie"
+                option={{
+                  file: '/static/ethnicity-pie.svg',
+                  animTimingFunction: 'EASEINOUT',
+                  type: 'sync',
+                  duration: 75
+                }}
+              />
               <div className="pie-legend">
                 <div className="legend-item">
                   <div className="card-number teal-bullet">52.4%</div>

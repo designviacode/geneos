@@ -1,5 +1,6 @@
 import React from 'react';
 import { Row, Col, Card, CardBody } from 'reactstrap';
+import ReactVivus from 'react-vivus';
 
 import Dot from './Dot';
 
@@ -12,7 +13,16 @@ export default () => (
         <Row>
           <Col className="col-lg-4">
             <h4>Steps</h4>
-            <img src="/static/steps.svg" />
+            <ReactVivus
+              id="steps"
+              option={{
+                file: '/static/steps.svg',
+                animTimingFunction: 'EASE_OUT',
+                reverseStack: true,
+                type: 'sync',
+                duration: 75
+              }}
+            />
             <hr />
             <div className="d-flex align-items-center">
               <div className="first-activity-stat">
@@ -29,7 +39,16 @@ export default () => (
           </Col>
           <Col className="col-lg-4">
             <h4>Distance walked</h4>
-            <img src="/static/distance-walked.svg" />
+            <ReactVivus
+              id="steps"
+              option={{
+                file: '/static/distance-walked.svg',
+                animTimingFunction: 'EASE_OUT',
+                reverseStack: true,
+                type: 'sync',
+                duration: 75
+              }}
+            />
             <hr />
             <div className="d-flex align-items-center">
               <div className="first-activity-stat">
@@ -46,7 +65,16 @@ export default () => (
           </Col>
           <Col className="col-lg-4">
             <h4>Exercise time</h4>
-            <img src="/static/exercise-time.svg" />
+            <ReactVivus
+              id="steps"
+              option={{
+                file: '/static/exercise-time.svg',
+                animTimingFunction: 'EASE_OUT',
+                reverseStack: true,
+                type: 'sync',
+                duration: 75
+              }}
+            />
             <hr />
             <div className="d-flex align-items-center">
               <div className="first-activity-stat">
