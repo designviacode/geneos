@@ -353,3 +353,13 @@ ul.recommend{
 }
 
 
+    &::before{
+        content: "\25AE";  /* this is your text. You can also use UTF-8 character codes as I do here */
+        font-family: FontAwesome;
+        left:-15px;
+        position:absolute;
+        top:0;
+        color:$white;
+        font-size:$normal-text;
+        }
+    }

@@ -19,9 +19,15 @@ import Dot from '../src/components/Dot';
 
 const data = {
   earnings: [
+<<<<<<< Updated upstream
     { id: 1, name: 'Today', amount: '$12.81', eosAmount: '2.17' },
     { id: 2, name: 'This Month', amount: '$81.11', eosAmount: '4.17' },
     { id: 3, name: 'This Year', amount: '$482.81', eosAmount: '6.17' }
+=======
+    { id: 1, name: 'Today', amount: '$12.81' , delay: 0},
+    { id: 2, name: 'This Month', amount: '$81.11', delay: 100 },
+    { id: 3, name: 'This Year', amount: '$482.81' , delay: 200 }
+>>>>>>> Stashed changes
   ],
   subscribers: [
     {
@@ -100,12 +106,21 @@ export default class extends Component {
                 <Col lg="7">
                   <Card>
                     <CardHeader>Data Sold To</CardHeader>
+<<<<<<< Updated upstream
                     <table>
                       <thead>
                         <tr>
                           <th>Subscriber</th>
                           <th>Contract Name</th>
                           <th>Duration</th>
+=======
+                    <Table>
+                      <thead>
+                        <tr>
+                          <th>Subscriber</th>
+                          <th>Purpose</th>
+                          <th>Rating</th>
+>>>>>>> Stashed changes
                           <th>Earned</th>
                           <th>Start date</th>
                         </tr>
@@ -123,7 +138,11 @@ export default class extends Component {
                           </tr>
                         ))}
                       </tbody>
+<<<<<<< Updated upstream
                     </table>
+=======
+                    </Table>
+>>>>>>> Stashed changes
                   </Card>
                 </Col>
               </Row>
