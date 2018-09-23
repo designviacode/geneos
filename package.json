@@ -1,8 +1,0 @@
-{
-  "dependencies": {
-    "react": "^16.5.2",
-    "react-hot-loader": "^4.3.11",
-    "react-vivus": "^0.0.2",
-    "vivus": "^0.4.4"
-  }
-}
