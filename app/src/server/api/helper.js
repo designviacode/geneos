@@ -1,5 +1,13 @@
 import Eos from 'eosjs';
 
+const asyncForEach = async (array, fn) => {
+  if (!Array.isArray(array)) return null;
+
+  for (let index = 0; index < array.length; index++) {
+    await fn(array[ index ], index, array);
+  }
+};
+
 const givePermission = async (name, privateKey) => {
   try {
     const eos = Eos({
@@ -216,6 +224,48 @@ export const makeOffer = async (privateKey, from, id, price, metadata) => {
 
     } catch (e) {
       return Promise.reject(  e);
+    }
+}
+
+/**
+ * 
+ * @param {*} privateKey 
+ * @param {*} from 
+ * @param {Array of Objects} txs = [{id, price}]
+ * @param {*} metadata 
+ */
+export const makeBatchOffers = async (privateKey, from, txs = [], metadata) => {
+  try {
+    await givePermission(from, privateKey); // give permissions to marketplace contract
+    const eos = Eos({ keyProvider: privateKey });
+
+    asyncForEach(txs, tx => {
+      await eos.transaction({
+        actions: [
+          {
+            account: 'marketplace',
+            name: 'makeoffer',
+            authorization: [
+              {
+                actor: from,
+                permission: 'active'
+              }
+            ],
+            data: {
+              from,
+              id: tx.id,
+              price: tx.price,
+              metadata
+            }
+          }
+        ]
+      });
+    });
+
+    
+
+    } catch (e) {
+      return Promise.reject(e);
     }
 }
 
