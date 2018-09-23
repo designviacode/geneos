@@ -3,7 +3,8 @@ import { Form, Row, Col, Button, Input, Label } from 'reactstrap';
 import { noop } from 'lodash';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import { iconEdit } from '../../utils/fontawesome';
+import { iconArrowLeft, iconArrowRight, iconEdit } from '../../utils/fontawesome';
+import NavRow from './NavRow';
 
 export default class ProjectDetails extends React.Component {
   static defaultProps = {
@@ -86,6 +87,7 @@ export default class ProjectDetails extends React.Component {
           {this.renderInput('Project Subject', 'researchArea')}
           {this.renderDuration('Project Duration', 'duration')}
         </Form>
+        <NavRow step={0} jumpToStep={step => this.isValidated() && this.props.jumpToStep(step)} />
       </div>
     );
   }
