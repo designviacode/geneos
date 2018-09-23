@@ -3,7 +3,8 @@
     {
       "publicKey": "EOS8LoJJUU3dhiFyJ5HmsMiAuNLGc6HMkxF4Etx6pxLRG7FU89x6X",
       "privateKey": "5KNm1BgaopP9n5NqJDo9rbr49zJFWJTMJheLoLM5b7gjdhqAwCx",
-      "name": "jens"
+      "name": "jens",
+      "isResearcher": true
     },
     {
       "publicKey": "EOS6hCFe4Dx8vJWeEDVmkGXQtHZ5YVuLNgjDfruW6W92PcNy5LQRA",

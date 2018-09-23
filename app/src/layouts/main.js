@@ -3,6 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import AnimatedNumber from 'react-animated-number';
 
 import User from '../components/User';
 import UserStore from '../store/user';
@@ -23,11 +24,11 @@ export default class extends React.Component {
   };
 
   setRoute() {
-    const user = UserStore.profile.name;
+    const user = UserStore.getUser();
 
-    if (user === 'albert') {
+    if (user.isResearcher) {
       Router.push('/research');
-    } else if (user === 'jens') {
+    } else {
       Router.push('/');
     }
   }
@@ -35,7 +36,7 @@ export default class extends React.Component {
   render() {
     const { children } = this.props;
 
-    const hasUser = !!UserStore.getUser();
+    const user = UserStore.getUser();
 
     return (
       <div>
@@ -43,7 +44,7 @@ export default class extends React.Component {
           <Link href="/">
             <NavbarBrand href="/">Geneos</NavbarBrand>
           </Link>
-          {UserStore.profile.name === 'albert' && (
+          {user && user.isResearcher && (
             <Nav navbar className="mr-auto">
               <NavItem>
                 <Link href="/research">
@@ -52,7 +53,7 @@ export default class extends React.Component {
               </NavItem>
             </Nav>
           )}
-          {UserStore.profile.name === 'jens' && (
+          {user && !user.isResearcher && (
             <Nav navbar className="mr-auto">
               <NavItem>
                 <Link href="/">
@@ -80,7 +81,14 @@ export default class extends React.Component {
                 />
                 <div>
                   <div>
-                    <span className="text-white">812</span>
+                    <AnimatedNumber
+                      component="span"
+                      initialValue={0}
+                      value={812}
+                      className="text-white"
+                      duration={1000}
+                      formatValue={(n) => parseInt(n)}
+                    />
                     <span className="card-heading">EOS</span>
                   </div>
                   <div className="card-heading white-text">earned</div>
@@ -90,16 +98,9 @@ export default class extends React.Component {
           </Nav>
           <Nav navbar className="ml-auto navbar-nav-right">
             <NavItem>
-              <Link href="/research">
-                <NavLink href="/research" className="nav-link-icon">
+              <Link href="/">
+                <NavLink href="/" className="nav-link-icon">
                   <FontAwesomeIcon icon={iconBell} size="2x" />
-                </NavLink>
-              </Link>
-            </NavItem>
-            <NavItem>
-              <Link href="/research">
-                <NavLink href="/research" className="nav-link-icon">
-                  <FontAwesomeIcon icon={iconUser} size="2x" />
                 </NavLink>
               </Link>
             </NavItem>
@@ -108,7 +109,7 @@ export default class extends React.Component {
             </NavItem>
           </Nav>
         </Navbar>
-        {hasUser ? children : <span>Please login first</span>}
+        {user ? children : <span>Please login first</span>}
       </div>
     );
   }

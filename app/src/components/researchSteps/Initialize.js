@@ -39,7 +39,7 @@ export default class Initialize extends React.Component {
       .catch(err => {
         this.setState({
           listings: null,
-          error: err,
+          error: err.response ? err.response.data : err,
           loading: false
         });
       });
@@ -73,10 +73,6 @@ export default class Initialize extends React.Component {
   render() {
     const { listings, loading, error } = this.state;
 
-    if (error) {
-      return <span>Error! {error}</span>;
-    }
-
     let totalCost = null;
     if (listings) {
       totalCost = listings.reduce((cost, user) => {
@@ -105,7 +101,11 @@ export default class Initialize extends React.Component {
               <th>Rate</th>
             </tr>
           </thead>
-          <tbody>{listings && listings.map(this.renderListing)}</tbody>
+          {error ? (
+            <tbody><tr><td>Error loading listings!</td></tr></tbody>
+          ) : (
+            <tbody>{listings && listings.map(this.renderListing)}</tbody>
+          )}
         </table>
         <FormGroup>
           <div className="summary-label">Select</div>

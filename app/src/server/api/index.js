@@ -7,6 +7,7 @@ import listings from './listings';
 import offers from './offers';
 import subscriptions from './subscriptions';
 import users from './users';
+import transactions from './transactions';
 
 const router = Router();
 
@@ -16,6 +17,7 @@ router.get('/metrics/health', health);
 router.get('/my', my);
 router.use('/listings', listings);
 router.use('/offers', offers);
+router.use('/transactions', transactions);
 router.use('/subscriptions', subscriptions);
 router.use('/users', users);
 

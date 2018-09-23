@@ -1,13 +1,15 @@
 import React from 'react';
+import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import '../styles/user.scss';
 import { offDataRequest, onDataRequest } from '../utils/sockets';
-import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap';
 import { getUsers } from '../actions/users';
 import userStore from '../store/user';
 import PurchaseConfirmation from './PurchaseConfirmation';
 import { acceptRequest, rejectRequest } from '../actions/research';
 import { getOffers } from '../actions/offers';
+import { iconUser } from '../utils/fontawesome';
 
 export default class User extends React.Component {
   state = {
@@ -97,8 +99,8 @@ export default class User extends React.Component {
     return (
       <div className="user">
         <Dropdown isOpen={userOpen} toggle={this.handleToggleUser}>
-          <DropdownToggle caret>
-            {(user && user.name) || 'Click to login'}
+          <DropdownToggle tag="a" className="nav-link nav-link-icon">
+            <div className="user-name">{user && user.name}</div> <FontAwesomeIcon icon={iconUser} size="2x" />
           </DropdownToggle>
           <DropdownMenu>
             {users.map(user => (

@@ -10,3 +10,7 @@ const api = axios.create({
 export function getOffers(user) {
   return api.get(`/offers/${user.name}`).then(response => response.data);
 }
+
+export function getTransactions(user) {
+  return api.get(`/transactions/${user.name}`).then(response => response.data);
+}
