@@ -15,6 +15,22 @@ const router = Router();
     rate: '39.0000 EOS' }
  */
 
+router.get('/', async (req, res) => {
+  console.log('Get listings');
+
+  try {
+    const data = await getFilteredListings({});
+
+    res.json({
+      data,
+    });
+  } catch(err) {
+    res.status(500).json({
+      error: err.message,
+    });
+  }
+});
+
 router.post('/', async (req, res) => {
   console.log('Get filtered listings');
   const {

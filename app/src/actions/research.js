@@ -2,6 +2,7 @@ import axios from 'axios';
 
 import { API_BASE } from '../constants/api';
 import UserStore from '../store/user';
+import TransactionsStore from '../store/transactions';
 
 const api = axios.create({
   baseURL: API_BASE,
@@ -49,5 +50,8 @@ export function acceptRequest(request) {
   };
 
   return api.post(`/subscriptions/${user.name}/accept`, options)
-    .then(response => response.data);
+    .then(response => {
+      TransactionsStore.updateEarnings();
+      return response.data;
+    });
 }
