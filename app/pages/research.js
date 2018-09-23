@@ -16,7 +16,15 @@ export default class extends Component {
 
   state = {
     audience: null,
-    form: {},
+    form: {
+      researchName: 'NYU Oncology Department',
+      researchArea: 'Cancer',
+      duration: '1 Month',
+      ageRange: [1, 100],
+      weightRange: [1, 300],
+      sleepRange: [0, 10],
+      activityRange: [0, 10],
+    },
   };
 
   handleChange = (form) => {

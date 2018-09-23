@@ -1,8 +1,5 @@
 import React from 'react';
 import {
-  Container,
-  Card,
-  CardBody,
   Row,
   Col,
   FormGroup,
@@ -29,7 +26,7 @@ export default class Initialize extends React.Component {
 
   loadListings() {
     this.setState({ loading: true });
-    getListings()
+    getListings(this.props.data)
       .then(data => {
         this.setState({
           listings: data.data,

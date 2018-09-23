@@ -8,8 +8,8 @@ const api = axios.create({
   timeout: 300000
 });
 
-export function getListings(options) {
-  return api.get('/listings', options)
+export function getListings(formData) {
+  return api.post('/listings', { formData })
     .then(response => response.data);
 }
 
