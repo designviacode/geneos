@@ -34,11 +34,14 @@ export default class User extends React.Component {
     offDataRequest(this.handleDataRequest);
   }
 
-  handleDataRequest = (data) => {
-    if (!this.mounted) return;
-    this.setState(prevState => ({
-      dataRequests: [...prevState.dataRequests, data],
-    }));
+  handleDataRequest = () => {
+    const user = userStore.getUser();
+    if (user) {
+      getOffers(user).then(response => {
+        if (!this.mounted) return;
+        this.setState({ dataRequests: response.data });
+      })
+    }
   };
 
   handleSelectUser(user) {
@@ -47,7 +50,7 @@ export default class User extends React.Component {
     getOffers(user).then(response => {
       if (!this.mounted) return;
       this.setState({ dataRequests: response.data });
-    })
+    });
   }
 
   removeCurrentRequest = () => {
