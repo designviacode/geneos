@@ -3,11 +3,11 @@ import React from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import AnimatedNumber from 'react-animated-number';
 
 import User from '../components/User';
 import UserStore from '../store/user';
-import { iconUser, iconBell } from '../utils/fontawesome';
+import { iconBell } from '../utils/fontawesome';
+import Earnings from '../components/Earnings';
 
 export default class extends React.Component {
   componentDidMount() {
@@ -19,7 +19,6 @@ export default class extends React.Component {
   }
 
   handleUserChanged = () => {
-    this.forceUpdate();
     this.setRoute();
   };
 
@@ -76,26 +75,7 @@ export default class extends React.Component {
           )}
           <Nav navbar className="ml-auto">
             <NavItem className="nav-item-balance">
-              <div className="d-flex align-items-center">
-                <img
-                  src="/static/eos.svg"
-                  style={{ width: 25, marginRight: 15 }}
-                />
-                <div>
-                  <div>
-                    <AnimatedNumber
-                      component="span"
-                      initialValue={0}
-                      value={812}
-                      className="text-white"
-                      duration={1000}
-                      formatValue={(n) => parseInt(n)}
-                    />
-                    <span className="card-heading">EOS</span>
-                  </div>
-                  <div className="card-heading white-text">available</div>
-                </div>
-              </div>
+              <Earnings/>
             </NavItem>
           </Nav>
           <Nav navbar className="ml-auto navbar-nav-right">

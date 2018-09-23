@@ -16,7 +16,15 @@ export default class extends Component {
 
   state = {
     audience: null,
-    form: {},
+    form: {
+      researchName: 'NYU Oncology Department',
+      researchArea: 'Cancer',
+      duration: '1 Month',
+      ageRange: [1, 100],
+      weightRange: [1, 300],
+      sleepRange: [0, 10],
+      activityRange: [0, 10],
+    },
   };
 
   handleChange = (form) => {
@@ -29,9 +37,18 @@ export default class extends Component {
     const { form } = this.state;
 
     const steps = [
-      { name: <div className="step-head">Step 1<div className="step-sub">Project Details</div></div>, component: <ProjectDetails data={form} onChange={this.handleChange} /> },
-      { name:  <div className="step-head">Step 2<div className="step-sub">Sample Selection</div></div>, component: <SampleSelection data={form} onChange={this.handleChange} /> },
-      { name:  <div className="step-head">Step 3<div className="step-sub">Initialize</div></div>, component: <Initialize data={form} /> },
+      {
+        name: <div className="step-head">Step 1<div className="step-sub">Project Details</div></div>,
+        component: <ProjectDetails data={form} onChange={this.handleChange} />
+      },
+      {
+        name: <div className="step-head">Step 2<div className="step-sub">Sample Selection</div></div>,
+        component: <SampleSelection data={form} onChange={this.handleChange} />
+      },
+      {
+        name: <div className="step-head">Step 3<div className="step-sub">Initialize</div></div>,
+        component: <Initialize data={form} />
+      },
     ];
 
     return (

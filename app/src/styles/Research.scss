@@ -33,6 +33,56 @@
 .page-research,
 .page-sample-selection,
 .page-initialize{
+
+.modal-backdrop.show{
+  opacity:0.9
+}
+.modal-backdrop{
+  background-color:#fff;
+}
+
+  .modal-dialog{
+    margin: 150px auto 0 auto;
+    max-width:560px;
+    border:0;
+    border-radius:0;
+    @include light-box-shadow;
+  }
+
+
+  .purchase-confirmation__label{
+    @include subheading-typog;
+    color:$black;
+    @include dim;
+  }
+
+  .purchase-confirmation__value{
+    color:$black !important;
+    @include default-typog;
+  }
+  .modal-content{
+    padding:35px;
+    @include light-box-shadow;
+    border:0;
+
+    .btn-primary{
+      padding:25px;
+      color:$white;
+    }
+    .modal-header{
+      h5{
+        h1{
+        @include heading;
+        color:$pink
+        }
+        span{
+          @include subheading-typog;
+          color:$pink;
+        }
+      }
+    }
+  }
+
       /* width */
 ::-webkit-scrollbar {
   width: 10px;
@@ -234,9 +284,9 @@ ol.progtrckr li.progtrckr-doing:after{
   @include light-box-shadow;
   padding:20px;
   @include default-typog;
-  width:350px;
   border-radius:0;
   color: $black;
+  
 
   &:focus{
     color: $black;
@@ -266,6 +316,7 @@ ol.progtrckr li.progtrckr-doing:after{
 
 .overflow-buttons{
   width:440px;
+  margin-left:10px;
   
 }
 
@@ -348,6 +399,7 @@ option{
   color:$white;
   position: absolute;
   left:calc(50% - 125px);
+  bottom:-80px;
 }
 
 .results-div{
@@ -359,4 +411,9 @@ option{
   margin-bottom:30px;
 
 
+}
+
+.min-val,
+.max-val{
+  width:120px !important;
 }

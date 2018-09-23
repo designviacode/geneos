@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-import { getListings } from './helper';
+import { getFilteredListings } from './filter';
 
 const router = Router();
 
@@ -17,8 +17,28 @@ const router = Router();
 
 router.get('/', async (req, res) => {
   console.log('Get listings');
+
   try {
-    const data = await getListings();
+    const data = await getFilteredListings({});
+
+    res.json({
+      data,
+    });
+  } catch(err) {
+    res.status(500).json({
+      error: err.message,
+    });
+  }
+});
+
+router.post('/', async (req, res) => {
+  console.log('Get filtered listings');
+  const {
+    formData
+  } = req.body;
+
+  try {
+    const data = await getFilteredListings(formData);
 
     res.json({
       data,
