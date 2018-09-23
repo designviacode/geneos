@@ -130,6 +130,46 @@ export const getListings = async () => {
 
 }
 
+/**
+ * 
+ * @param {String} name - of the user's sold transactions
+ * @returns {Promise} resolves to
+ * @example [ { txId: 0,
+ *   tokenId: 9,
+ *   seller: 'tyrique',
+ *   subscriber: 'athena',
+ *   price: '36.0000 EOS' }]
+ */
+export const getTxs = async (name = `all`) => {
+  const eos = Eos();
+  try {
+    const { rows } = await eos.getTableRows({
+      json: true,
+      code: "marketplace", // contract who owns the table
+      scope: "marketplace", // scope of the table
+      table: "txs",
+      limit: 1000
+    });
+
+
+    const result = rows
+      .map(row => ({
+          txId: row.id,
+          tokenId: row.reftokenid,
+          seller: row.seller,
+          subscriber: row.subscriber,
+          price: row.price,
+        }));
+
+    if (name === `all`) return result;
+
+    return result.filter(tx => tx.seller === name);
+
+  } catch (e) {
+    return Promise.reject(e);
+  }
+};
+
 
 /**
  * @async @function
