@@ -17,10 +17,10 @@ export default class extends Component {
   state = {
     audience: null,
     form: {
-      researchName: 'NYU Oncology Department',
-      researchArea: 'Cancer',
-      duration: '1 Month',
-      ageRange: [1, 100],
+      researchName: 'NYU School of Medicine',
+      researchArea: 'Alzheimer\'s Disease ',
+      duration: '3 Months',
+      ageRange: [30, 110],
       weightRange: [1, 300],
       sleepRange: [0, 10],
       activityRange: [0, 10],
