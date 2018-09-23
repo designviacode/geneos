@@ -23,7 +23,8 @@ export default class extends React.Component {
   render() {
     const { children } = this.props;
 
-    const hasUser = !!UserStore.getUser();
+    const user = UserStore.getUser();
+    const hasUser = !!user;
 
     return (
       <div>
@@ -31,28 +32,33 @@ export default class extends React.Component {
           <Link href="/">
             <NavbarBrand href="/">Geneos</NavbarBrand>
           </Link>
-          <Nav navbar className="mr-auto">
-            <NavItem>
-              <Link href="/">
-                <NavLink href="/">My Data</NavLink>
-              </Link>
-            </NavItem>
-            <NavItem>
-              <Link href="/my-benefits">
-                <NavLink href="/my-benefits">My Benefits</NavLink>
-              </Link>
-            </NavItem>
-            <NavItem>
-              <Link href="/my-insights">
-                <NavLink href="/my-insights">My Insights</NavLink>
-              </Link>
-            </NavItem>
-            <NavItem>
-              <Link href="/research">
-                <NavLink href="/research">Create project</NavLink>
-              </Link>
-            </NavItem>
-          </Nav>
+          {user && user.name === 'Jens' ? (
+            <Nav navbar className="mr-auto">
+              <NavItem>
+                <Link href="/research">
+                  <NavLink href="/research">Create project</NavLink>
+                </Link>
+              </NavItem>
+            </Nav>
+          ) : (
+            <Nav navbar className="mr-auto">
+              <NavItem>
+                <Link href="/">
+                  <NavLink href="/">My Data</NavLink>
+                </Link>
+              </NavItem>
+              <NavItem>
+                <Link href="/my-benefits">
+                  <NavLink href="/my-benefits">My Benefits</NavLink>
+                </Link>
+              </NavItem>
+              <NavItem>
+                <Link href="/my-insights">
+                  <NavLink href="/my-insights">My Insights</NavLink>
+                </Link>
+              </NavItem>
+            </Nav>
+          )}
           <Nav navbar className="ml-auto">
             <NavItem className="nav-item-balance">
               <div className="d-flex align-items-center">

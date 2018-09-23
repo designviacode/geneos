@@ -1,5 +1,15 @@
 import React from 'react';
-import { Row, Col, Button, Form, Label, Input } from 'reactstrap';
+import {
+  Container,
+  Card,
+  CardBody,
+  Row,
+  Col,
+  Button,
+  Form,
+  Label,
+  Input
+} from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { iconEdit } from '../../utils/fontawesome';
@@ -11,13 +21,13 @@ export default class SampleSelection extends React.Component {
 
     const nextData = {
       ...data,
-      [name]: value,
+      [name]: value
     };
 
     onChange(nextData);
   }
 
-  handleChange = (e) => {
+  handleChange = e => {
     const name = e.target.name;
     const value = e.target.value;
 
@@ -29,9 +39,15 @@ export default class SampleSelection extends React.Component {
 
     return (
       <Row className="row-margin">
-        <Col xs={3}><Label>{label}</Label></Col>
+        <Col xs={3}>
+          <Label>{label}</Label>
+        </Col>
         <Col xs={6}>
-          <Input name={name} onChange={this.handleChange} value={data[name] || ''} />
+          <Input
+            name={name}
+            onChange={this.handleChange}
+            value={data[name] || ''}
+          />
         </Col>
       </Row>
     );
@@ -46,7 +62,9 @@ export default class SampleSelection extends React.Component {
 
     return (
       <Row className="row-margin">
-        <Col xs={3}><Label>{label}</Label></Col>
+        <Col xs={3}>
+          <Label>{label}</Label>
+        </Col>
         <Col xs={6}>
           {durations.map(label => (
             <Button
@@ -69,17 +87,21 @@ export default class SampleSelection extends React.Component {
 
   render() {
     return (
-      <div>
-        <Form>
-          {this.renderInput('Genetics', 'genetics')}
-          {this.renderDuration('Age', 'age')}
-          {this.renderInput('Location', 'location')}
-          {this.renderInput('Weight Range', 'weightRange')}
-          {this.renderInput('Sleep Range', 'sleepRange')}
-          {this.renderInput('Activity Level', 'activityLevel')}
-        </Form>
-        <NavRow step={1} jumpToStep={this.props.jumpToStep} />
-      </div>
+      <Container>
+        <Card>
+          <CardBody>
+            <Form>
+              {this.renderInput('Genetics', 'genetics')}
+              {this.renderDuration('Age', 'age')}
+              {this.renderInput('Location', 'location')}
+              {this.renderInput('Weight Range', 'weightRange')}
+              {this.renderInput('Sleep Range', 'sleepRange')}
+              {this.renderInput('Activity Level', 'activityLevel')}
+            </Form>
+            <NavRow step={1} jumpToStep={this.props.jumpToStep} />
+          </CardBody>
+        </Card>
+      </Container>
     );
   }
 }

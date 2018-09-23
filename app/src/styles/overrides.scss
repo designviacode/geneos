@@ -1,365 +1,337 @@
-body{
-    background-image: linear-gradient(93deg, #262532, #18191f);
-    padding-bottom:100px;
+body {
+  background-image: linear-gradient(93deg, #262532, #18191f);
+  padding-bottom: 100px;
 }
-
-
 
 .bg-dark {
-    background-image: linear-gradient(93deg, #262532, #18191f);
-    box-shadow: 0 10px 20px 20px rgba(0, 0, 0, 0.14);
-  }
-
-
-.navbar{
-    height:60px;
-    width:100%;
-    padding:0;
-    position: fixed;
-    z-index: $zindex-fixed;
-    top:0;
-    }
-
-
-.nav-item{
-      @include nav-typog;
-      @include subtle-right-border-dark;
-  }
-
-a.nav-link{
-    padding: 20px;
-    margin: 0 35px 0 35px;
+  background-image: linear-gradient(93deg, #262532, #18191f);
+  box-shadow: 0 10px 20px 20px rgba(0, 0, 0, 0.14);
 }
 
-body{
-    &::before{
-        @include add-noise;
-    }
+.navbar {
+  height: 60px;
+  width: 100%;
+  padding: 0;
+  position: fixed;
+  z-index: $zindex-fixed;
+  top: 0;
+}
+
+.nav-item {
+  @include nav-typog;
+  @include subtle-right-border-dark;
+}
+
+a.nav-link {
+  padding: 20px;
+  margin: 0 35px 0 35px;
+}
+
+body {
+  &::before {
+    @include add-noise;
+  }
 }
 
 table tr {
-
-    th{
+  th {
     @include card-heading;
-    padding-bottom:35px;
+    padding-bottom: 35px;
     position: relative;
 
-        &::after{
-            content: " ";
-            position: absolute;
-            width:100%;
-            height:1px;
-            background: rgba(255,255,255,0.1);
-            @include dim;
-            top:40px;
-            left:0;
-        }
+    &::after {
+      content: ' ';
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.1);
+      @include dim;
+      top: 40px;
+      left: 0;
     }
-    td{
-        @include default-typog;
-        padding-bottom:35px;
+  }
+  td {
+    @include default-typog;
+    padding-bottom: 35px;
 
-        a{
-            @include default-typog;
+    a {
+      @include default-typog;
 
-            &:hover{
-                color:$pink;
-                text-decoration: none;
-            }
-        }
+      &:hover {
+        color: $pink;
+        text-decoration: none;
+      }
     }
-
+  }
 }
 
-.container{
-    ul.nav{
-        margin-top:40px;
+.container {
+  ul.nav {
+    margin-top: 40px;
 
-        .nav-item{
-            border:0;
-            margin:0;
-            padding:0;
-        }
-        a.nav-link{
-            @include subnav-typog;
-            padding:0;
-            margin: 0 25px 0 0;
-            
-        }
+    .nav-item {
+      border: 0;
+      margin: 0;
+      padding: 0;
+    }
+    a.nav-link {
+      @include subnav-typog;
+      padding: 0;
+      margin: 0 25px 0 0;
+    }
+  }
+
+  section {
+    margin: 40px 0 0 0;
+    position: relative;
+
+    &::before {
+      @include pretty-lines;
+      background: $teal;
     }
 
-    section{
-        margin: 40px 0 0 0;
-        position: relative;
-
-        &::before{
-            @include pretty-lines;
-            background: $teal;
-        }
-
-        h1{
-            @include heading;
-            margin-bottom:20px;
-        }
-
-        h4{
-            margin-bottom:25px;
-        }
-
-        .card{
-            @include dark-box;
-            @include default-typog;
-            @include box-shadow;
-
-            .pie-legend{
-                margin-left:30px;
-            }
-
-            &::before{
-                @include add-noise
-            }
-
-            h4{
-                @include card-heading;
-            }
-
-            .card-header{
-                @include card-heading;
-                padding:0;
-                border:0;
-            }
-
-            hr{
-                background:$white;
-                margin: 20px 0 20px 0;
-                @include dim
-                
-            }
-
-            .activity-center{
-                width: 250px;
-                margin: 0 auto;
-            }
-
-            .subtle-text{
-                @include dim
-            }
-
-            hr{
-                background:rgba(255,255,255,0.1);
-            }
-
-        }
-
+    h1 {
+      @include heading;
+      margin-bottom: 20px;
     }
+
+    h4 {
+      margin-bottom: 25px;
+    }
+
+    .card {
+      @include dark-box;
+      @include default-typog;
+      @include box-shadow;
+
+      .pie-legend {
+        margin-left: 30px;
+      }
+
+      &::before {
+        @include add-noise;
+      }
+
+      h4 {
+        @include card-heading;
+      }
+
+      .card-header {
+        @include card-heading;
+        padding: 0;
+        border: 0;
+      }
+
+      hr {
+        background: $white;
+        margin: 20px 0 20px 0;
+        @include dim;
+      }
+
+      .activity-center {
+        width: 250px;
+        margin: 0 auto;
+      }
+
+      .subtle-text {
+        @include dim;
+      }
+
+      hr {
+        background: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
 }
-    
-  
-.my-data-page{
-    h1{
-        color: $teal;
-    }
+
+.my-data-page {
+  h1 {
+    color: $teal;
+  }
 }
 
 .my-benefits-page section {
+  h1 {
+    color: $purple;
+  }
 
-    h1{
-        color: $purple;
-    }
- 
-    .card{
-        @include dark-box;
-        @include default-typog;
-        @include box-shadow;
-
-        h4{
-            margin-bottom:10px;
-            color:$purple;
-        }
-    }
-    &::before{
-        @include pretty-lines;
-        background: $purple;
-    }
-
-}
-
-
-.my-insights-page section{
-    h1{
-        color: $pink;
-    }
-    .card{
-        @include dark-box;
-        @include default-typog;
-        @include box-shadow;
-    }
-    &::before{
-        @include pretty-lines;
-        background: $pink;
-    }
-
-    .card{
-        h4{
-            display: inline;
-        }
-    }
-}
-
-
-.card-number{
-    @include card-number-heading;
-    position: relative;
-}
-
-.card-number-detail{
+  .card {
+    @include dark-box;
     @include default-typog;
-    @include dim;
-}
+    @include box-shadow;
 
-.teal-plus{
-    &::before{
-        content: "+";
-        position:absolute;
-        top:0;
-        left: -15px;
-        height:8px;
-        width: 8px;
-        color: $teal;
-        border-radius: 100%;
+    h4 {
+      margin-bottom: 10px;
+      color: $purple;
     }
+  }
+  &::before {
+    @include pretty-lines;
+    background: $purple;
+  }
 }
 
-.purple-plus{
-    &::before{
-        content: "+";
-        position:absolute;
-        top:0;
-        left: -15px;
-        height:8px;
-        width: 8px;
-        color: $purple;
-        border-radius: 100%;
+.my-insights-page section {
+  h1 {
+    color: $pink;
+  }
+  .card {
+    @include dark-box;
+    @include default-typog;
+    @include box-shadow;
+  }
+  &::before {
+    @include pretty-lines;
+    background: $pink;
+  }
+
+  .card {
+    h4 {
+      display: inline;
     }
+  }
 }
 
-.orange-plus{
-    &::before{
-        content: "+";
-        position:absolute;
-        top:0;
-        left: -15px;
-        height:8px;
-        width: 8px;
-        color: $orange;
-        border-radius: 100%;
-    }
+.card-number {
+  @include card-number-heading;
+  position: relative;
 }
 
-
-.teal-bullet{
-    &::before{
-        content: " ";
-        position:absolute;
-        top:12px;
-        left: -15px;
-        height:8px;
-        width: 8px;
-        background: $teal;
-        border-radius: 100%;
-    }
+.card-number-detail {
+  @include default-typog;
+  @include dim;
 }
 
-.purple-bullet{
-    &::before{
-        content: " ";
-        position:absolute;
-        top:12px;
-        left: -15px;
-        height:8px;
-        width: 8px;
-        background: $purple;
-        border-radius: 100%;
-    }
+.teal-plus {
+  &::before {
+    content: '+';
+    position: absolute;
+    top: 0;
+    left: -15px;
+    height: 8px;
+    width: 8px;
+    color: $teal;
+    border-radius: 100%;
+  }
 }
 
-.orange-bullet{
-    &::before{
-        content: " ";
-        position:absolute;
-        top:12px;
-        left: -15px;
-        height:8px;
-        width: 8px;
-        background: $orange;
-        border-radius: 100%;
-    }
-}
-.legend-table{
-    margin-top:20px;
-    width:200px;
-    margin:35px auto 0 auto;
-}
-.legend-item{
-    margin-bottom:25px;
-    position: relative;
-
-    &::after{
-        content:" ";
-        height:1px;
-        @include muted-white-fill;
-        position:absolute;
-        width:50px;
-        bottom:-10px;
-        left:0;
-    }
+.purple-plus {
+  &::before {
+    content: '+';
+    position: absolute;
+    top: 0;
+    left: -15px;
+    height: 8px;
+    width: 8px;
+    color: $purple;
+    border-radius: 100%;
+  }
 }
 
-.row{
-    margin: 0 0 20px 0;
+.orange-plus {
+  &::before {
+    content: '+';
+    position: absolute;
+    top: 0;
+    left: -15px;
+    height: 8px;
+    width: 8px;
+    color: $orange;
+    border-radius: 100%;
+  }
 }
 
-.color-emphasis{
-    color:$pink;
-}
-.emphasis{
-    border:1px solid rgba(255,255,255,0.1);
-    padding:15px;
-    @include card-number;
-    margin: 0 0 0 10px;
-    color:$pink;
-}
-
-ul.recommend{
-    margin-top:30px;
-    margin-bottom: 30px;
-}
-.report-icon{
-    position: relative;
-
-    &::before{
-        content: "\25AE";  /* this is your text. You can also use UTF-8 character codes as I do here */
-        font-family: FontAwesome;
-        left:-15px;
-        position:absolute;
-        top:0;
-        color:$white;
-        font-size:$normal-text;
-        }
-    }
-
-.text-white{
-    @include card-number
+.teal-bullet {
+  &::before {
+    content: ' ';
+    position: absolute;
+    top: 12px;
+    left: -15px;
+    height: 8px;
+    width: 8px;
+    background: $teal;
+    border-radius: 100%;
+  }
 }
 
+.purple-bullet {
+  &::before {
+    content: ' ';
+    position: absolute;
+    top: 12px;
+    left: -15px;
+    height: 8px;
+    width: 8px;
+    background: $purple;
+    border-radius: 100%;
+  }
+}
 
-    &::before{
-        content: "\25AE";  /* this is your text. You can also use UTF-8 character codes as I do here */
-        font-family: FontAwesome;
-        left:-15px;
-        position:absolute;
-        top:0;
-        color:$white;
-        font-size:$normal-text;
-        }
-    }
+.orange-bullet {
+  &::before {
+    content: ' ';
+    position: absolute;
+    top: 12px;
+    left: -15px;
+    height: 8px;
+    width: 8px;
+    background: $orange;
+    border-radius: 100%;
+  }
+}
+.legend-table {
+  margin-top: 20px;
+  width: 200px;
+  margin: 35px auto 0 auto;
+}
+.legend-item {
+  margin-bottom: 25px;
+  position: relative;
+
+  &::after {
+    content: ' ';
+    height: 1px;
+    @include muted-white-fill;
+    position: absolute;
+    width: 50px;
+    bottom: -10px;
+    left: 0;
+  }
+}
+
+.row {
+  margin: 0 0 20px 0;
+}
+
+.color-emphasis {
+  color: $pink;
+}
+.emphasis {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  @include card-number;
+  margin: 0 0 0 10px;
+  color: $pink;
+}
+
+ul.recommend {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.report-icon {
+  position: relative;
+
+  &::before {
+    content: '\25AE'; /* this is your text. You can also use UTF-8 character codes as I do here */
+    font-family: FontAwesome;
+    left: -15px;
+    position: absolute;
+    top: 0;
+    color: $white;
+    font-size: $normal-text;
+  }
+}
+
+.text-white {
+  @include card-number;
+}
