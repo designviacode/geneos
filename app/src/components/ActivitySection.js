@@ -1,8 +1,7 @@
 import React from 'react';
 import { Row, Col, Card, CardBody } from 'reactstrap';
 import ReactVivus from 'react-vivus';
-
-import Dot from './Dot';
+import CountUp from 'react-countup';
 
 export default () => (
   <section>
@@ -26,11 +25,28 @@ export default () => (
             <hr />
             <div className="d-flex activity-center">
               <div className="first-activity-stat">
-                <div className="card-number teal-plus">6.43%</div>
+                <div className="card-number teal-plus">
+                  <CountUp
+                    component="span"
+                    delay={3}
+                    end={6.43}
+                    className="text-white"
+                    duration={2}
+                    decimals={2}
+                  />%
+                </div>
                 <span className="subtle-text">Increase in steps</span>
               </div>
               <div>
-                <div className="card-number">483</div>
+                <div className="card-number">
+                  <CountUp
+                    component="span"
+                    delay={3}
+                    end={483}
+                    className="text-white"
+                    duration={2}
+                  />
+                </div>
                 <span className="subtle-text">Weekly avg</span>
               </div>
             </div>
@@ -50,11 +66,28 @@ export default () => (
             <hr />
             <div className="d-flex activity-center">
               <div className="first-activity-stat">
-                <div className="card-number orange-plus">6.43%</div>
+                <div className="card-number orange-plus">
+                  <CountUp
+                    component="span"
+                    delay={4}
+                    end={6.43}
+                    className="text-white"
+                    duration={2}
+                    decimals={2}
+                  />%
+                </div>
                 <span className="subtle-text">Increase in steps</span>
               </div>
               <div>
-                <div className="card-number">483</div>
+                <div className="card-number">
+                  <CountUp
+                    component="span"
+                    delay={4}
+                    end={483}
+                    className="text-white"
+                    duration={2}
+                  />
+                </div>
                 <span className="subtle-text">Weekly avg</span>
               </div>
             </div>
@@ -74,11 +107,28 @@ export default () => (
             <hr />
             <div className="d-flex activity-center">
               <div className="first-activity-stat">
-                <div className="card-number purple-plus">6.43%</div>
+                <div className="card-number purple-plus">
+                  <CountUp
+                    component="span"
+                    delay={5}
+                    end={6.43}
+                    className="text-white"
+                    duration={2}
+                    decimals={2}
+                  />%
+                </div>
                 <span className="subtle-text">Increase in steps</span>
               </div>
               <div>
-              <div className="card-number">483</div>
+              <div className="card-number">
+                <CountUp
+                  component="span"
+                  delay={5}
+                  end={483}
+                  className="text-white"
+                  duration={2}
+                />
+              </div>
               <span className="subtle-text">Weekly avg</span>
               </div>
             </div>
