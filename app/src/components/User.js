@@ -7,6 +7,7 @@ import { getUsers } from '../actions/users';
 import userStore from '../store/user';
 import PurchaseConfirmation from './PurchaseConfirmation';
 import { acceptRequest, rejectRequest } from '../actions/research';
+import { getOffers } from '../actions/offers';
 
 export default class User extends React.Component {
   state = {
@@ -37,6 +38,10 @@ export default class User extends React.Component {
 
   handleSelectUser(user) {
     userStore.setUser(user);
+
+    getOffers(user).then(response => {
+      this.setState({ dataRequests: response.data });
+    })
   }
 
   handleToggleUser = () => {

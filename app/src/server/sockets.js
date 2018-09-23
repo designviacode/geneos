@@ -43,14 +43,14 @@ function clientDisconnected() {
   delete clients[this.id];
 }
 
-export function messageClient(publicKey, message, data) {
+export function messageClient(name, message, data) {
   console.log('Messaging client');
 
-  // find the client by public key
+  // find the client by name
   const client = find(clients, client => {
     const profile = client.profile;
     if (!profile) return false;
-    return profile.publicKey === publicKey;
+    return profile.name === name;
   });
 
   if (!client) {

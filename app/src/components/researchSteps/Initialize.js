@@ -2,32 +2,32 @@ import React from 'react';
 import { Row, Col, FormGroup, Input, Button } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { getTargetAudience, requestData } from '../../actions/research';
+import { getListings, requestData } from '../../actions/research';
 import { iconCheckCircle } from '../../utils/fontawesome';
 
 const AUDIENCE_COUNT_DEFAULT = 120;
 
 export default class Initialize extends React.Component {
   state = {
-    audience: null,
+    listings: null,
     loading: false,
     requesting: false,
   };
 
   componentDidMount() {
-    this.loadAudience();
+    this.loadListings();
   }
 
-  loadAudience() {
+  loadListings() {
     this.setState({ loading: true });
-    getTargetAudience().then(data => {
+    getListings().then(data => {
       this.setState({
-        audience: data.data,
+        listings: data.data,
         loading: false,
       });
     }).catch(err => {
       this.setState({
-        audience: null,
+        listings: null,
         error: err,
         loading: false,
       });
@@ -39,35 +39,36 @@ export default class Initialize extends React.Component {
 
     this.setState({ requesting: true });
     requestData(data).then(() => {
-      this.setState({ requesting: false })
+      this.setState({ requesting: false });
+      this.props.jumpToStep(3);
     });
   };
 
-  renderAudienceMember(user) {
+  renderListing(listing) {
     return (
-      <tr key={user.id}>
+      <tr key={listing.id}>
         <td></td>
-        <td>{user.genetics}</td>
-        <td>{user.age}</td>
-        <td>{user.location}</td>
-        <td>{user.weight}</td>
-        <td>{user.sleep}</td>
-        <td>{user.activity}</td>
-        <td>{user.rate}</td>
+        <td>{listing.genetics}</td>
+        <td>{listing.age}</td>
+        <td>{listing.location}</td>
+        <td>{listing.weight}</td>
+        <td>{listing.sleep}</td>
+        <td>{listing.activity}</td>
+        <td>{listing.rate}</td>
       </tr>
     );
   }
 
   render() {
-    const { audience, loading, error } = this.state;
+    const { listings, loading, error } = this.state;
 
     if (error) {
       return <span>Error! {error}</span>;
     }
 
     let totalCost = null;
-    if (audience) {
-      totalCost = audience.reduce((cost, user) => {
+    if (listings) {
+      totalCost = listings.reduce((cost, user) => {
         const rate = parseFloat(user.rate);
         return cost + (isNaN(rate) ? 0 : rate);
       }, 0);
@@ -92,7 +93,7 @@ export default class Initialize extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {audience && audience.map(this.renderAudienceMember)}
+            {listings && listings.map(this.renderListing)}
           </tbody>
         </table>
         <FormGroup>

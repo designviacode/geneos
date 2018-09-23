@@ -215,7 +215,7 @@ export const makeOffer = async (privateKey, from, id, price, metadata) => {
     });
 
     } catch (e) {
-      return Promise.reject(e);
+      return Promise.reject(  e);
     }
 }
 
