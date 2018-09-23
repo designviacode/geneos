@@ -3,6 +3,28 @@ body{
     padding-bottom:100px;
   }
 
+
+  /* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: $black; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $darkgray; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $teal; 
+}
+
+
 *{
   outline:none;
 }
@@ -215,7 +237,7 @@ table tr {
       }
     }
   }
-
+}
 
 .my-data-page {
   h1 {
@@ -223,36 +245,6 @@ table tr {
   }
 }
 
-.my-benefits-page section {
-  h1 {
-    color: $purple;
-  }
-
-    h1{
-        color: $purple;
-    }
- 
-    .card{
-        @include dark-box;
-        @include default-typog;
-        @include box-shadow;
-
-        h4{
-            margin-bottom:10px;
-            color:$purple;
-        }
-    }
-    &::before{
-        @include pretty-lines;
-        background: $purple;
-    }
-
-    h4 {
-      margin-bottom: 10px;
-      color: $purple;
-    }
-  }
-  
 
 .my-insights-page section {
   
@@ -432,7 +424,7 @@ ul.recommend{
         font-size:$normal-text;
         }
     }
-  }
+
 
   .pie-legend{
     margin-left:35px;
@@ -492,3 +484,34 @@ $aos-distance: 10px !default;
 .navbar-brand{
   @include subheading-typog;
 }
+
+
+.my-benefits-page section {
+  h1 {
+    color: $purple;
+
+  }
+
+ 
+    .card{
+        @include dark-box;
+        @include default-typog;
+        @include box-shadow;
+
+        h4{
+            margin-bottom:10px;
+            color:$purple;
+        }
+    }
+    &::before{
+        @include pretty-lines;
+        background: $purple;
+    }
+
+    h4 {
+      margin-bottom: 10px;
+      color: $purple;
+      display:block !important;
+    }
+  }
+  

@@ -82,12 +82,15 @@ export default class Initialize extends React.Component {
     }
 
     return (
+      <Container>
+        <Card>
       <div className="research-step-initialize">
         <Row>
           <Col>
             <h4>Select your dataset</h4>
           </Col>
         </Row>
+        <div className="results-div">
         <table>
           <thead>
             <tr>
@@ -107,6 +110,7 @@ export default class Initialize extends React.Component {
             <tbody>{listings && listings.map(this.renderListing)}</tbody>
           )}
         </table>
+        </div>
         <FormGroup>
           <div className="summary-label">Select</div>
           <div className="summary-input">
@@ -127,12 +131,14 @@ export default class Initialize extends React.Component {
         </FormGroup>
         <Row>
           <Col>
-            <Button onClick={this.handleRequestClick}>
+            <Button className="submit-button" onClick={this.handleRequestClick}>
               Pay and receive data <FontAwesomeIcon icon={iconCheckCircle} />
             </Button>
           </Col>
         </Row>
       </div>
+  </Card>
+      </Container>
     );
   }
 }

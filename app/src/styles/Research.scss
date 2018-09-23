@@ -278,3 +278,76 @@ ol.progtrckr li.progtrckr-doing:after{
   
 }
 
+
+.page-research .card {
+  h4{
+    @include subheading-typog;
+    color:$black;
+    text-align:center;
+  }
+
+  table tr th{
+
+    @include subheading-typog;
+    color:$black;
+    text-align:center;
+    opacity:0.5;
+    font-size:10px;
+    padding-right:40px;
+  }
+  table tr td, table tr td a{
+    color:$black;
+  }
+  
+}
+
+
+.results-div{
+  overflow: auto;
+  border:1px solid rgba(0, 0, 0, 0.1);
+  height:500px;
+  width:100%;
+  padding:25px;
+
+    /* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #fff; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $lightgray; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $pink; 
+}
+
+}
+
+.form-group{
+  width:50%;
+  @include subheading-typog;
+  font-size:12px;
+}
+
+option{
+  @include subheading-typog;
+}
+
+.submit-button{
+
+  width:200px;
+  height:50px;
+  padding:20px;
+  background:$pink;
+  color:$white;
+  position: relative;
+  left:50px;
+}
