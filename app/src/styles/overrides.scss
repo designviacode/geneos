@@ -1,6 +1,6 @@
-body {
-  background-image: linear-gradient(93deg, #262532, #18191f);
-  padding-bottom: 100px;
+body{
+    background-image: linear-gradient(93deg, #262532, #18191f);
+    padding-bottom:100px;
 }
 
 .bg-dark {
@@ -71,6 +71,39 @@ table tr {
 .container {
   ul.nav {
     margin-top: 40px;
+table tr {
+
+    th{
+    @include card-heading;
+    padding-bottom:35px;
+    position: relative;
+
+        &::after{
+            content: " ";
+            position: absolute;
+            width:100%;
+            height:1px;
+            background: rgba(255,255,255,0.1);
+            @include dim;
+            top:40px;
+            left:0;
+        }
+    }
+    td{
+        @include default-typog;
+        padding-bottom:35px;
+
+        a{
+            @include default-typog;
+
+            &:hover{
+                color:$pink;
+                text-decoration: none;
+            }
+        }
+    }
+
+}
 
     .nav-item {
       border: 0;
@@ -88,9 +121,26 @@ table tr {
     margin: 40px 0 0 0;
     position: relative;
 
+    .card{
+      @include dark-box;
+      @include default-typog;
+      @include box-shadow;
+    }
+
     &::before {
       @include pretty-lines;
       background: $teal;
+        .nav-item{
+            border:0;
+            margin:0;
+            padding:0;
+        }
+        a.nav-link{
+            @include subnav-typog;
+            padding:0;
+            margin: 0 25px 0 0;
+            
+        }
     }
 
     h1 {
@@ -98,47 +148,9 @@ table tr {
       margin-bottom: 20px;
     }
 
-    h4 {
-      margin-bottom: 25px;
-    }
+    
 
-            h4{
-                @include card-heading;
-            }
-
-            .card-header{
-                @include card-heading;
-                padding:0;
-                border:0;
-            }
-
-            hr{
-                background:$white;
-                margin: 20px 0 20px 0;
-                @include dim
-                
-            }
-
-            .activity-center{
-                width: 250px;
-                margin: 0 auto;
-            }
-
-            .subtle-text{
-                @include dim
-            }
-
-            hr{
-                background:rgba(255,255,255,0.1);
-            }
-
-      .pie-legend {
-        margin-left: 30px;
-      }
-
-      &::before {
-        @include add-noise;
-      }
+            
 
       h4 {
         @include card-heading;
@@ -214,15 +226,7 @@ table tr {
   h1 {
     color: $pink;
   }
-  .card {
-    @include dark-box;
-    @include default-typog;
-    @include box-shadow;
-  }
-  &::before {
-    @include pretty-lines;
-    background: $pink;
-  }
+  
 
   .card {
     h4 {
@@ -238,7 +242,7 @@ table tr {
         background: $pink;
     }
 
-   
+  }
 }
 
 .card-number-detail {
@@ -246,115 +250,13 @@ table tr {
   @include dim;
 }
 
-.teal-plus {
-  &::before {
-    content: '+';
-    position: absolute;
-    top: 0;
-    left: -15px;
-    height: 8px;
-    width: 8px;
-    color: $teal;
-    border-radius: 100%;
-  }
-}
 
 .card-number-detail{
     @include default-typog;
     @include dim;
-}
-
-.teal-plus{
-    &::before{
-        content: "+";
-        position:absolute;
-        top:0;
-        left: -15px;
-        height:8px;
-        width: 8px;
-        color: $teal;
-        border-radius: 100%;
-    }
-}
-
-.purple-plus{
-    &::before{
-        content: "+";
-        position:absolute;
-        top:0;
-        left: -15px;
-        height:8px;
-        width: 8px;
-        color: $purple;
-        border-radius: 100%;
-    }
-}
-
-.orange-plus{
-    &::before{
-        content: "+";
-        position:absolute;
-        top:0;
-        left: -15px;
-        height:8px;
-        width: 8px;
-        color: $orange;
-        border-radius: 100%;
-    }
-}
 
 
-.teal-bullet{
-    &::before{
-        content: " ";
-        position:absolute;
-        top:12px;
-        left: -15px;
-        height:8px;
-        width: 8px;
-        background: $teal;
-        border-radius: 100%;
-    }
-}
 
-.orange-plus {
-  &::before {
-    content: '+';
-    position: absolute;
-    top: 0;
-    left: -15px;
-    height: 8px;
-    width: 8px;
-    color: $orange;
-    border-radius: 100%;
-  }
-}
-
-.teal-bullet {
-  &::before {
-    content: ' ';
-    position: absolute;
-    top: 12px;
-    left: -15px;
-    height: 8px;
-    width: 8px;
-    background: $teal;
-    border-radius: 100%;
-  }
-}
-
-.purple-bullet {
-  &::before {
-    content: ' ';
-    position: absolute;
-    top: 12px;
-    left: -15px;
-    height: 8px;
-    width: 8px;
-    background: $purple;
-    border-radius: 100%;
-  }
-}
 .legend-table{
     margin-top:20px;
     width:200px;
@@ -365,18 +267,6 @@ table tr {
     position: relative;
 }
 
-.orange-bullet {
-  &::before {
-    content: ' ';
-    position: absolute;
-    top: 12px;
-    left: -15px;
-    height: 8px;
-    width: 8px;
-    background: $orange;
-    border-radius: 100%;
-  }
-}
 .legend-table {
   margin-top: 20px;
   width: 200px;
@@ -441,3 +331,117 @@ ul.recommend{
         }
     }
   }
+
+  .pie-legend{
+    margin-left:35px;
+  }
+.card-number{
+  @include card-number;
+  position: relative;
+}
+.legend-item{
+  margin-bottom:35px;
+  position:relative;
+  &::after{
+    content:" ";
+    height:1px;
+    position:absolute;
+    bottom:-25px;
+    left:0;
+    background:$white;
+    opacity:0.2;
+    width:75px;
+  }
+}
+
+
+
+.teal-bullet{
+  &::before{
+      content: " ";
+      position:absolute;
+      top:12px;
+      left: -15px;
+      height:8px;
+      width: 8px;
+      background: $teal;
+      border-radius: 100%;
+  }
+}
+
+.orange-bullet {
+  &::before {
+    content: ' ';
+    position: absolute;
+    top: 12px;
+    left: -15px;
+    height: 8px;
+    width: 8px;
+    background: $orange;
+    border-radius: 100%;
+  }
+}
+.purple-bullet {
+  &::before {
+    content: ' ';
+    position: absolute;
+    top: 12px;
+    left: -15px;
+    height: 8px;
+    width: 8px;
+    background: $purple;
+    border-radius: 100%;
+  }
+}
+
+.teal-plus {
+  &::before {
+    content: '+';
+    position: absolute;
+    top: 0;
+    left: -20px;
+    height: 8px;
+    width: 8px;
+    color: $teal;
+    border-radius: 100%;
+  }
+}
+
+
+.purple-plus{
+  &::before{
+      content: "+";
+      position:absolute;
+      top:0;
+      left: -20px;
+      height:8px;
+      width: 8px;
+      color: $purple;
+      border-radius: 100%;
+  }
+}
+
+.orange-plus{
+  &::before{
+      content: "+";
+      position:absolute;
+      top:0;
+      left: -20px;
+      height:8px;
+      width: 8px;
+      color: $orange;
+      border-radius: 100%;
+  }
+}
+
+.container section .card span{
+  line-height:25px;
+}
+
+.row{
+  margin-bottom:25px;
+}
+
+.page-research{
+  
+}
