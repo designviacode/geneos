@@ -1,6 +1,7 @@
 import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 import React from 'react';
 import Link from 'next/link';
+import Router from 'next/router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import User from '../components/User';
@@ -18,13 +19,23 @@ export default class extends React.Component {
 
   handleUserChanged = () => {
     this.forceUpdate();
+    this.setRoute();
   };
+
+  setRoute() {
+    const user = UserStore.profile.name;
+
+    if (user === 'albert') {
+      Router.push('/research');
+    } else if (user === 'jens') {
+      Router.push('/');
+    }
+  }
 
   render() {
     const { children } = this.props;
 
-    const user = UserStore.getUser();
-    const hasUser = !!user;
+    const hasUser = !!UserStore.getUser();
 
     return (
       <div>
@@ -32,7 +43,7 @@ export default class extends React.Component {
           <Link href="/">
             <NavbarBrand href="/">Geneos</NavbarBrand>
           </Link>
-          {user && user.name === 'Jens' ? (
+          {UserStore.profile.name === 'albert' && (
             <Nav navbar className="mr-auto">
               <NavItem>
                 <Link href="/research">
@@ -40,7 +51,8 @@ export default class extends React.Component {
                 </Link>
               </NavItem>
             </Nav>
-          ) : (
+          )}
+          {UserStore.profile.name === 'jens' && (
             <Nav navbar className="mr-auto">
               <NavItem>
                 <Link href="/">
@@ -68,7 +80,8 @@ export default class extends React.Component {
                 />
                 <div>
                   <div>
-                    <span className="text-white">812</span><span className="card-heading">EOS</span>
+                    <span className="text-white">812</span>
+                    <span className="card-heading">EOS</span>
                   </div>
                   <div className="card-heading white-text">earned</div>
                 </div>
