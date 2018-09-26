@@ -3,5 +3,5 @@
 # change to script's directory
 cd "$(dirname "$0")/app"
 
-echo "=== npm start ==="
-npm start
+echo "=== yarn dev ==="
+yarn dev
